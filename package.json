@@ -18,10 +18,16 @@
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-typescript": "^12.1.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^11.0.3",
+    "@semantic-release/release-notes-generator": "^12.1.0",
     "@types/react": "^18.3.12",
     "rollup": "^4.24.0",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.80.3",
+    "semantic-release": "^22.0.12",
     "tslib": "^2.8.0",
     "typescript": "^5.6.3"
   }
