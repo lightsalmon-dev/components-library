@@ -1,0 +1,271 @@
+@use "./utils" as utils;
+
+// 1. Colors
+// 1.1 - Colors - Primary
+// 1.2 - Colors - Red
+// 1.3 - Colors - Green
+// 1.4 - Colors - Yellow
+// 1.5 - Colors - Gray
+// 1.6 - Colors - Misc
+// 2. Spacing
+// 3. Typography
+// 3.1 Typography - Font sizes
+// 3.1.1 Typography - Font sizes - Mobile
+// 3.1.2 Typography - Font sizes - Tablet
+// 3.1.3 Typography - Font sizes - Desktop
+// 3.2 Typography - Line heights
+// 3.3 Typography - Font weights
+// 4. Breakpoints
+// 5. Grid
+// 6. Buttons
+// 6.1 Buttons - Font
+// 6.2 Buttons - Colors
+// 6.3 Buttons - Sizes
+// 6.4 Buttons - Shadows
+// 7. Inputs
+// 7.1 Inputs - Font
+// 7.2 Inputs - Colors
+// 7.3 Inputs - Sizes
+// 7.4 Inputs - Shadows
+
+// 1. Colors
+// 1.1 - Colors - Primary
+$colors-primary-50: #f0f9ff !default;
+$colors-primary-100: #e0f2fe !default;
+$colors-primary-200: #bae6fd !default;
+$colors-primary-300: #7dd3fc !default;
+$colors-primary-400: #38bdf8 !default;
+$colors-primary-500: #0ea5e9 !default;
+$colors-primary-600: #0284c7 !default;
+$colors-primary-700: #0369a1 !default;
+$colors-primary-800: #075985 !default;
+$colors-primary-900: #0c4a6e !default;
+$colors-primary-950: #082f49 !default;
+// 1.2 - Colors - Green
+$colors-green-50: #f0fdf4 !default;
+$colors-green-100: #dcfce7 !default;
+$colors-green-200: #bbf7d0 !default;
+$colors-green-300: #86efac !default;
+$colors-green-400: #4ade80 !default;
+$colors-green-500: #22c55e !default;
+$colors-green-600: #16a34a !default;
+$colors-green-700: #15803d !default;
+$colors-green-800: #166534 !default;
+$colors-green-900: #14532d !default;
+$colors-green-950: #052e16 !default;
+// 1.3 - Colors - Yellow
+$colors-yellow-50: #fefce8 !default;
+$colors-yellow-100: #fef9c3 !default;
+$colors-yellow-200: #fef08a !default;
+$colors-yellow-300: #fde047 !default;
+$colors-yellow-400: #facc15 !default;
+$colors-yellow-500: #eab308 !default;
+$colors-yellow-600: #ca8a04 !default;
+$colors-yellow-700: #a16207 !default;
+$colors-yellow-800: #854d0e !default;
+$colors-yellow-900: #713f12 !default;
+$colors-yellow-950: #422006 !default;
+// 1.4 - Colors - Red
+$colors-red-50: #fef2f2 !default;
+$colors-red-100: #fee2e2 !default;
+$colors-red-200: #fecaca !default;
+$colors-red-300: #fca5a5 !default;
+$colors-red-400: #f87171 !default;
+$colors-red-500: #ef4444 !default;
+$colors-red-600: #dc2626 !default;
+$colors-red-700: #b91c1c !default;
+$colors-red-800: #991b1b !default;
+$colors-red-900: #7f1d1d !default;
+$colors-red-950: #450a0a !default;
+// 1.5 - Colors - Gray
+$colors-gray-50: #f9fafb !default;
+$colors-gray-100: #f3f4f6 !default;
+$colors-gray-200: #e5e7eb !default;
+$colors-gray-300: #d1d5db !default;
+$colors-gray-400: #9ca3af !default;
+$colors-gray-500: #6b7280 !default;
+$colors-gray-600: #4b5563 !default;
+$colors-gray-700: #374151 !default;
+$colors-gray-800: #1f2937 !default;
+$colors-gray-900: #111827 !default;
+$colors-gray-950: #030712 !default;
+// 1.6 - Colors - Misc
+$colors-white: #ffffff !default;
+$colors-black: #000000 !default;
+
+// 2. Spacing
+$spacing-mobile: utils.to-rem(16) !default;
+$spacing-tablet: utils.to-rem(24) !default;
+$spacing-desktop: utils.to-rem(32) !default;
+
+// 3. Typography
+$typography-mobile-type-scale: 1.125 !default;
+$typography-tablet-type-scale: 1.200 !default;
+$typography-desktop-type-scale: 1.200 !default;
+// 3.1 Typography - Font sizes
+// 3.1.1 Typography - Font sizes - Mobile
+$font-size-p-mobile: utils.to-rem(16) !default;
+$font-size-h6-mobile: $font-size-p-mobile * $typography-mobile-type-scale !default;
+$font-size-h5-mobile: $font-size-h6-mobile * $typography-mobile-type-scale !default;
+$font-size-h4-mobile: $font-size-h5-mobile * $typography-mobile-type-scale !default;
+$font-size-h3-mobile: $font-size-h4-mobile * $typography-mobile-type-scale !default;
+$font-size-h2-mobile: $font-size-h3-mobile * $typography-mobile-type-scale !default;
+$font-size-h1-mobile: $font-size-h2-mobile * $typography-mobile-type-scale !default;
+$font-size-small-mobile: $font-size-p-mobile / $typography-mobile-type-scale !default;
+$font-size-smallest-mobile: $font-size-small-mobile / $typography-mobile-type-scale !default;
+// 3.1.2 Typography - Font sizes - Tablet
+$font-size-p-tablet: utils.to-rem(16) !default;
+$font-size-h6-tablet: $font-size-p-tablet * $typography-tablet-type-scale !default;
+$font-size-h5-tablet: $font-size-h6-tablet * $typography-tablet-type-scale !default;
+$font-size-h4-tablet: $font-size-h5-tablet * $typography-tablet-type-scale !default;
+$font-size-h3-tablet: $font-size-h4-tablet * $typography-tablet-type-scale !default;
+$font-size-h2-tablet: $font-size-h3-tablet * $typography-tablet-type-scale !default;
+$font-size-h1-tablet: $font-size-h2-tablet * $typography-tablet-type-scale !default;
+$font-size-small-tablet: $font-size-p-tablet / $typography-tablet-type-scale !default;
+$font-size-smallest-tablet: $font-size-small-tablet / $typography-tablet-type-scale !default;
+// 3.1.3 Typography - Font sizes - Desktop
+$font-size-p-desktop: utils.to-rem(16) !default;
+$font-size-h6-desktop: $font-size-p-desktop * $typography-desktop-type-scale !default;
+$font-size-h5-desktop: $font-size-h6-desktop * $typography-desktop-type-scale !default;
+$font-size-h4-desktop: $font-size-h5-desktop * $typography-desktop-type-scale !default;
+$font-size-h3-desktop: $font-size-h4-desktop * $typography-desktop-type-scale !default;
+$font-size-h2-desktop: $font-size-h3-desktop * $typography-desktop-type-scale !default;
+$font-size-h1-desktop: $font-size-h2-desktop * $typography-desktop-type-scale !default;
+$font-size-small-desktop: $font-size-p-desktop / $typography-desktop-type-scale !default;
+$font-size-smallest-desktop: $font-size-small-desktop / $typography-desktop-type-scale !default;
+// 3.2 Typography - Line heights
+$line-height-headings-mobile: 1.2 !default;
+$line-height-headings-tablet: 1.2 !default;
+$line-height-headings-desktop: 1.2 !default;
+$line-height-texts-mobile: 1.6 !default;
+$line-height-texts-tablet: 1.6 !default;
+$line-height-texts-desktop: 1.6 !default;
+// 3.3 Typography - Font weights
+$font-weight-headings: 400 !default;
+$font-weight-texts: 400 !default;
+$font-weight-strong: 600 !default;
+$font-weight-b: 600 !default;
+$font-weight-i: 600 !default;
+$font-weight-em: 600 !default;
+$font-weight-a: 500 !default;
+
+// 4. Breakpoints
+$breakpoint-tablet: utils.to-rem(768) !default;
+$breakpoint-desktop: utils.to-rem(1280) !default;
+
+// 5. Grid
+$grid-columns-number-mobile: 2 !default;
+$grid-columns-number-tablet: 6 !default;
+$grid-columns-number-desktop: 12 !default;
+$grid-max-width: utils.to-rem(1200) !default;
+$grid-gutter-width-mobile: utils.to-rem(16) !default;
+$grid-gutter-width-tablet: utils.to-rem(24) !default;
+$grid-gutter-width-desktop: utils.to-rem(32) !default;
+$grid-margin-mobile: 0 $grid-gutter-width-mobile !default;
+$grid-margin-tablet: 0 $grid-gutter-width-tablet !default;
+$grid-margin-desktop: 0 auto !default;
+
+// 6. Buttons
+// 6.1 Buttons - Font
+$buttons-font-family: inherit !default;
+$buttons-font-size: utils.to-rem(16) !default;
+$buttons-line-height: 1.2 !default;
+$buttons-font-weight: 600 !default;
+$buttons-letter-spacing: utils.to-rem(2) !default;
+$buttons-text-transform: uppercase !default;
+// 6.2 Buttons - Colors
+$buttons-primary-color: $colors-white !default;
+$buttons-primary-background-color: $colors-primary-500 !default;
+$buttons-primary-border-color: $colors-primary-500 !default;
+$buttons-primary-hover-color: $colors-white !default;
+$buttons-primary-hover-background-color: $colors-primary-600 !default;
+$buttons-primary-hover-border-color: $colors-primary-600 !default;
+$buttons-primary-focus-color: $colors-white !default;
+$buttons-primary-focus-background-color: $colors-primary-600 !default;
+$buttons-primary-focus-border-color: $colors-primary-600 !default;
+$buttons-primary-active-color: $colors-white !default;
+$buttons-primary-active-background-color: $colors-primary-700 !default;
+$buttons-primary-active-border-color: $colors-primary-700 !default;
+$buttons-secondary-color: $colors-white !default;
+$buttons-secondary-background-color: $colors-primary-500 !default;
+$buttons-secondary-border-color: $colors-primary-500 !default;
+$buttons-secondary-hover-color: $colors-white !default;
+$buttons-secondary-hover-background-color: $colors-primary-600 !default;
+$buttons-secondary-hover-border-color: $colors-primary-600 !default;
+$buttons-secondary-focus-color: $colors-white !default;
+$buttons-secondary-focus-background-color: $colors-primary-600 !default;
+$buttons-secondary-focus-border-color: $colors-primary-600 !default;
+$buttons-secondary-active-color: $colors-white !default;
+$buttons-secondary-active-background-color: $colors-primary-700 !default;
+$buttons-secondary-active-border-color: $colors-primary-700 !default;
+$buttons-disabled-color: $colors-gray-500 !default;
+$buttons-disabled-background-color: $colors-gray-200 !default;
+$buttons-disabled-border-color: $colors-gray-200 !default;
+// 6.3 Buttons - Sizes
+$buttons-padding: utils.to-rem(8) utils.to-rem(16) !default;
+$buttons-border-width: utils.to-rem(2) !default;
+$buttons-border-radius: utils.to-rem(4) !default;
+// 6.4 Buttons - Shadows
+$buttons-primary-shadow: 0 2px 4px rgba($colors-primary-500, 0.2) !default;
+$buttons-primary-hover-shadow: 0 2px 4px rgba($colors-primary-600, 0.2) !default;
+$buttons-primary-focus-shadow: 0 2px 4px rgba($colors-primary-600, 0.2) !default;
+$buttons-primary-active-shadow: 0 2px 4px rgba($colors-primary-700, 0.2) !default;
+$buttons-secondary-shadow: 0 2px 4px rgba($colors-primary-500, 0.2) !default;
+$buttons-secondary-hover-shadow: 0 2px 4px rgba($colors-primary-600, 0.2) !default;
+$buttons-secondary-focus-shadow: 0 2px 4px rgba($colors-primary-600, 0.2) !default;
+$buttons-secondary-active-shadow: 0 2px 4px rgba($colors-primary-700, 0.2) !default;
+$buttons-disabled-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+// 7. Inputs
+// 7.1 Inputs - Font
+$inputs-content-font-family: inherit !default;
+$inputs-content-font-size: utils.to-rem(16) !default;
+$inputs-content-font-weight: 1.2 !default;
+$inputs-content-line-height: 1.2 !default;
+$inputs-content-letter-spacing: 1.2 !default;
+$inputs-label-font-family: inherit !default;
+$inputs-label-font-size: utils.to-rem(16) !default;
+$inputs-label-font-weight: 1.2 !default;
+$inputs-label-line-height: 1.2 !default;
+$inputs-label-letter-spacing: 1.2 !default;
+// 7.2 Inputs - Colors
+$inputs-placeholder-color: $colors-gray-500 !default;
+$inputs-value-color: $colors-gray-500 !default;
+$inputs-label-color: $colors-gray-500 !default;
+$inputs-border-color: $colors-gray-200 !default;
+$inputs-hover-placeholder-color: $colors-gray-500 !default;
+$inputs-hover-value-color: $colors-gray-500 !default;
+$inputs-hover-label-color: $colors-gray-500 !default;
+$inputs-hover-border-color: $colors-gray-200 !default;
+$inputs-active-placeholder-color: $colors-gray-500 !default;
+$inputs-active-value-color: $colors-gray-500 !default;
+$inputs-active-label-color: $colors-gray-500 !default;
+$inputs-active-border-color: $colors-gray-200 !default;
+$inputs-focus-placeholder-color: $colors-gray-500 !default;
+$inputs-focus-value-color: $colors-gray-500 !default;
+$inputs-focus-label-color: $colors-gray-500 !default;
+$inputs-focus-border-color: $colors-gray-200 !default;
+$inputs-disabled-placeholder-color: $colors-gray-500 !default;
+$inputs-disabled-value-color: $colors-gray-500 !default;
+$inputs-disabled-label-color: $colors-gray-500 !default;
+$inputs-disabled-border-color: $colors-gray-200 !default;
+$inputs-valid-placeholder-color: $colors-gray-500 !default;
+$inputs-valid-value-color: $colors-gray-500 !default;
+$inputs-valid-label-color: $colors-gray-500 !default;
+$inputs-valid-border-color: $colors-gray-500 !default;
+$inputs-invalid-placeholder-color: $colors-gray-500 !default;
+$inputs-invalid-value-color: $colors-gray-500 !default;
+$inputs-invalid-label-color: $colors-gray-500 !default;
+$inputs-invalid-border-color: $colors-gray-500 !default;
+// 7.3 Inputs - Sizes
+$inputs-border-width: utils.to-rem(2) !default;
+$inputs-border-radius: utils.to-rem(8) !default;
+$inputs-padding: utils.to-rem(10) !default;
+// 7.4 Inputs - Shadows
+$inputs-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+$inputs-hover-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+$inputs-active-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+$inputs-focus-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+$inputs-disabled-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+$inputs-valid-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+$inputs-invalid-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
+
