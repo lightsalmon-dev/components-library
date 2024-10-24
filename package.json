@@ -19,7 +19,8 @@
     "lint": "biome lint --error-on-warnings --write",
     "lint:unsafe": "biome lint --error-on-warnings --write --unsafe",
     "format:dry": "biome format",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "tsc-check": "npx tsc --noEmit"
   },
   "bugs": {
     "url": "https://github.com/FabioCingottini/lightsalmon-components-library/issues"
