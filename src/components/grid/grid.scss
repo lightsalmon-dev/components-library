@@ -1,0 +1,22 @@
+@use "../../scss/variables" as vars;
+@use "../../scss/media-queries" as medias;
+
+.ls-grid {
+  display: grid;
+
+  grid-template-columns: repeat(vars.$grid-columns-number-mobile, 1fr);
+  gap: vars.$grid-gutter-width-mobile;
+  margin: vars.$grid-margin-mobile;
+
+  @include medias.tablet {
+    grid-template-columns: repeat(vars.$grid-columns-number-tablet, 1fr);
+    gap: vars.$grid-gutter-width-tablet;
+    margin: vars.$grid-margin-tablet;
+  }
+
+  @include medias.desktop {
+    grid-template-columns: repeat(vars.$grid-columns-number-desktop, 1fr);
+    gap: vars.$grid-gutter-width-desktop;
+    margin: 0 auto;
+  }
+}
