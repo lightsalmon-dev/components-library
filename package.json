@@ -12,7 +12,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
-    "prepare": "npm run build",
+    "prepare": "husky",
     "release": "semantic-release",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:dry": "biome lint --error-on-warnings",
