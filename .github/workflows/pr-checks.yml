@@ -1,0 +1,30 @@
+name: pr-checks.yml
+
+on: pull_request
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.18
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Linter Check
+        run: npm run lint:dry
+
+      - name: Format Check
+        run: npm run format:dry
+
+      - name: Types Check
+        run: npm run tsc-check
+
+      - name: Build app
+        run: npm run build
