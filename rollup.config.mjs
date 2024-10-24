@@ -19,7 +19,7 @@ export default {
       exports: 'named',
     },
   ],
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', "classnames"],
   plugins: [
     resolve(),
     commonjs(),
