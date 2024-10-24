@@ -14,7 +14,12 @@
     "build": "rollup -c",
     "prepare": "npm run build",
     "release": "semantic-release",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:dry": "biome lint --error-on-warnings",
+    "lint": "biome lint --error-on-warnings --write",
+    "lint:unsafe": "biome lint --error-on-warnings --write --unsafe",
+    "format:dry": "biome format",
+    "format": "biome format --write"
   },
   "bugs": {
     "url": "https://github.com/FabioCingottini/lightsalmon-components-library/issues"
