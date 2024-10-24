@@ -3,7 +3,7 @@
     "declaration": true,
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["es6", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
