@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.0.1...v1.1.0) (2024-10-25)
+
+
+### Features
+
+* introduce typography components ([d46a866](https://github.com/FabioCingottini/lightsalmon-components-library/commit/d46a866af371b62aa69ead278fdb866b9ea0558b))
+
 ## [1.0.1](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.0.0...v1.0.1) (2024-10-25)
 
 
