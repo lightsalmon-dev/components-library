@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.1.0...v1.2.0) (2024-10-25)
+
+
+### Features
+
+* introduce reset css ([da6a22f](https://github.com/FabioCingottini/lightsalmon-components-library/commit/da6a22f60174ed0cfc5f04c16c06221551dcd7d5))
+
 # [1.1.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.0.1...v1.1.0) (2024-10-25)
 
 
