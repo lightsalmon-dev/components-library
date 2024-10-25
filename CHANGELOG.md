@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.3.1...v1.4.0) (2024-10-25)
+
+
+### Features
+
+* **vars:** introduce shadows vars (tailwind ones) ([92f4291](https://github.com/FabioCingottini/lightsalmon-components-library/commit/92f4291a717c4eb16bf7d32d90e3fdec015fcb3e))
+
 ## [1.3.1](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.3.0...v1.3.1) (2024-10-25)
 
 
