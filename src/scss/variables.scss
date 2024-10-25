@@ -15,6 +15,7 @@
 // 3.1.3 Typography - Font sizes - Desktop
 // 3.2 Typography - Line heights
 // 3.3 Typography - Font weights
+// 3.4 Typography - Links
 // 4. Breakpoints
 // 5. Grid
 // 6. Buttons
@@ -147,7 +148,24 @@ $font-weight-strong: 600 !default;
 $font-weight-b: 600 !default;
 $font-weight-i: 600 !default;
 $font-weight-em: 600 !default;
-$font-weight-a: 500 !default;
+
+// 3.4 Typography - Links
+$links-font-family: inherit !default;
+$links-line-height-mobile: inherit !default;
+$links-line-height-tablet: inherit !default;
+$links-line-height-desktop: inherit !default;
+$links-font-size-mobile: inherit !default;
+$links-font-size-tablet: inherit !default;
+$links-font-size-desktop: inherit !default;
+$links-font-weight: inherit !default;
+$links-text-transform: unset !default;
+$links-text-decoration: underline !default;
+$links-letter-spacing: inherit !default;
+$links-color: inherit !default;
+$links-hover-color: inherit !default;
+$links-focus-color: inherit !default;
+$links-active-color: inherit !default;
+$links-visited-color: inherit !default;
 
 // 4. Breakpoints
 $breakpoint-tablet: utils.to-rem(768) !default;
