@@ -1,0 +1,169 @@
+@use "../../scss/variables" as vars;
+@use "../../scss/media-queries" as media;
+
+.ls-h1, .ls-h2, .ls-h3, .ls-h4, .ls-h5, .ls-h6 {
+  font-weight: vars.$font-weight-headings;
+  line-height: vars.$line-height-headings-mobile;
+}
+
+.ls-p .ls-small .ls-smallest, .b, .i, .em, .a {
+  line-height: vars.$line-height-texts-mobile;
+}
+
+.ls-p {
+  font-weight: vars.$font-weight-texts;
+}
+
+.ls-strong {
+    font-weight: vars.$font-weight-strong;
+}
+
+.ls-b {
+  font-weight: vars.$font-weight-b;
+}
+
+.ls-i {
+  font-weight: vars.$font-weight-i;
+}
+
+.ls-em {
+  font-weight: vars.$font-weight-em;
+}
+
+.ls-a {
+  font-weight: vars.$font-weight-a;
+}
+
+@include media.tablet {
+  .ls-h1, .ls-h2, .ls-h3, .ls-h4, .ls-h5, .ls-h6 {
+    line-height: vars.$line-height-headings-tablet;
+  }
+
+  .ls-p .ls-small .ls-smallest, .b, .i, .em, .a {
+    line-height: vars.$line-height-texts-tablet;
+  }
+}
+
+@include media.desktop {
+  .ls-h1, .ls-h2, .ls-h3, .ls-h4, .ls-h5, .ls-h6 {
+    line-height: vars.$line-height-headings-desktop;
+  }
+
+  .ls-p .ls-small .ls-smallest, .b, .i, .em, .a {
+    line-height: vars.$line-height-texts-desktop;
+  }
+}
+
+.ls-h1 {
+  font-size: vars.$font-size-h1-mobile;
+}
+
+.ls-h2 {
+  font-size: vars.$font-size-h2-mobile;
+}
+
+.ls-h3 {
+  font-size: vars.$font-size-h3-mobile;
+}
+
+.ls-h4 {
+  font-size: vars.$font-size-h4-mobile;
+}
+
+.ls-h5 {
+  font-size: vars.$font-size-h5-mobile;
+}
+
+.ls-h6 {
+  font-size: vars.$font-size-h6-mobile;
+}
+
+.ls-p {
+  font-size: vars.$font-size-p-mobile;
+}
+
+.ls-small {
+  font-size: vars.$font-size-small-mobile;
+}
+
+.ls-smallest {
+  font-size: vars.$font-size-smallest-mobile;
+}
+
+
+@include media.tablet {
+  .ls-h1 {
+    font-size: vars.$font-size-h1-tablet;
+  }
+
+  .ls-h2 {
+    font-size: vars.$font-size-h2-tablet;
+  }
+
+  .ls-h3 {
+    font-size: vars.$font-size-h3-tablet;
+  }
+
+  .ls-h4 {
+    font-size: vars.$font-size-h4-tablet;
+  }
+
+  .ls-h5 {
+    font-size: vars.$font-size-h5-tablet;
+  }
+
+  .ls-h6 {
+    font-size: vars.$font-size-h6-tablet;
+  }
+
+  .ls-p {
+    font-size: vars.$font-size-p-tablet;
+  }
+
+  .ls-small {
+    font-size: vars.$font-size-small-tablet;
+  }
+
+  .ls-smallest {
+    font-size: vars.$font-size-smallest-tablet;
+  }
+
+}
+
+@include media.desktop {
+  .ls-h1 {
+    font-size: vars.$font-size-h1-desktop;
+  }
+
+  .ls-h2 {
+    font-size: vars.$font-size-h2-desktop;
+  }
+
+  .ls-h3 {
+    font-size: vars.$font-size-h3-desktop;
+  }
+
+  .ls-h4 {
+    font-size: vars.$font-size-h4-desktop;
+  }
+
+  .ls-h5 {
+    font-size: vars.$font-size-h5-desktop;
+  }
+
+  .ls-h6 {
+    font-size: vars.$font-size-h6-desktop;
+  }
+
+  .ls-p {
+    font-size: vars.$font-size-p-desktop;
+  }
+
+  .ls-small {
+    font-size: vars.$font-size-small-desktop;
+  }
+
+  .ls-smallest {
+    font-size: vars.$font-size-smallest-desktop;
+  }
+}
