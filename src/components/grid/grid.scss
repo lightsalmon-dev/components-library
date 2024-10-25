@@ -8,6 +8,8 @@
   gap: vars.$grid-gutter-width-mobile;
   margin: vars.$grid-margin-mobile;
 
+  max-width: vars.$grid-max-width;
+
   @include medias.tablet {
     grid-template-columns: repeat(vars.$grid-columns-number-tablet, 1fr);
     gap: vars.$grid-gutter-width-tablet;
