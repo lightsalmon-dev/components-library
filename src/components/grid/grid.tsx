@@ -1,6 +1,10 @@
 import cn from "classnames";
-import type { FC, PropsWithChildren } from "react";
+import { type ComponentProps, forwardRef } from "react";
 
-export const Grid: FC<PropsWithChildren> = ({ children }) => {
-	return <div className={cn("ls-grid")}>{children}</div>;
-};
+export const Grid = forwardRef<HTMLDivElement, ComponentProps<"div">>(
+	({ className, ...otherProps }, ref) => {
+		return (
+			<div ref={ref} className={cn("ls-grid", className)} {...otherProps} />
+		);
+	},
+);
