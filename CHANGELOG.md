@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.3.0...v1.3.1) (2024-10-25)
+
+
+### Bug Fixes
+
+* **Grid:** add max-width to grid ([e600d85](https://github.com/FabioCingottini/lightsalmon-components-library/commit/e600d85773163a0eae160e5d7ac5c1b2e8cc1c29))
+
 # [1.3.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.2.0...v1.3.0) (2024-10-25)
 
 
