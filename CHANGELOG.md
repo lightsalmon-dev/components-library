@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.2.0...v1.3.0) (2024-10-25)
+
+
+### Bug Fixes
+
+* make 'b' 'i' and 'em' use correct classes ([862410a](https://github.com/FabioCingottini/lightsalmon-components-library/commit/862410adc2738a2e1c43cfbcbd3df21c81382789))
+
+
+### Features
+
+* introduce links personalization through vars ([891f2bd](https://github.com/FabioCingottini/lightsalmon-components-library/commit/891f2bd31ef18f8aeb1ac761903f42d55f1ce87b))
+
 # [1.2.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.1.0...v1.2.0) (2024-10-25)
 
 
