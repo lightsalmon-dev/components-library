@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@ladle/react": "^4.0.3",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-typescript": "^12.1.1",
