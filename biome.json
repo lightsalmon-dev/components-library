@@ -8,7 +8,7 @@
 	"files": {
 		"ignoreUnknown": false,
 		"ignore": [],
-		"include": ["src/**/*"]
+		"include": ["src/**/*", ".ladle/**/*"]
 	},
 	"formatter": {
 		"enabled": true,

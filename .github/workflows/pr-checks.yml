@@ -28,3 +28,6 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: Build Ladle storybook
+        run: npm run build:stories
