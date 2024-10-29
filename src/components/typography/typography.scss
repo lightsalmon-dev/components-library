@@ -2,12 +2,14 @@
 @use "../../scss/media-queries" as media;
 
 .ls-h1, .ls-h2, .ls-h3, .ls-h4, .ls-h5, .ls-h6 {
+  color: vars.$font-color-headings;
   font-weight: vars.$font-weight-headings;
   line-height: vars.$line-height-headings-mobile;
 }
 
 .ls-p .ls-small .ls-smallest, .ls-b, .ls-i, .ls-em {
   line-height: vars.$line-height-texts-mobile;
+  color: vars.$font-color-text;
 }
 
 .ls-p {
