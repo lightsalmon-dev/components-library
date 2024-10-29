@@ -9,7 +9,7 @@
     "README.md",
     "LICENSE"
   ],
-  "version": "1.5.1",
+  "version": "1.5.2",
   "scripts": {
     "build": "rollup -c",
     "prepare": "husky",

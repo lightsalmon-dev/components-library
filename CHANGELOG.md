@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.5.1...v1.5.2) (2024-10-29)
+
+
+### Bug Fixes
+
+* **typography:** use typography colors in headings and texts css ([1540376](https://github.com/FabioCingottini/lightsalmon-components-library/commit/1540376dd675729aa9a00abc2e75a4965fc4d4ec))
+
 ## [1.5.1](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.5.0...v1.5.1) (2024-10-29)
 
 
