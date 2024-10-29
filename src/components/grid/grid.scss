@@ -3,11 +3,9 @@
 
 .ls-grid {
   display: grid;
-
   grid-template-columns: repeat(vars.$grid-columns-number-mobile, 1fr);
   gap: vars.$grid-gutter-width-mobile;
   margin: vars.$grid-margin-mobile;
-
   max-width: vars.$grid-max-width;
 
   @include medias.tablet {

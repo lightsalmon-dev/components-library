@@ -1,13 +1,36 @@
 @use "../../scss/variables" as vars;
 @use "../../scss/media-queries" as media;
 
-.ls-h1,
-.ls-h2,
-.ls-h3,
-.ls-h4,
-.ls-h5,
+.ls-h1 {
+  font-size: vars.$font-size-h1-mobile;
+}
+
+.ls-h2 {
+  font-size: vars.$font-size-h2-mobile;
+}
+
+.ls-h3 {
+  font-size: vars.$font-size-h3-mobile;
+}
+
+.ls-h4 {
+  font-size: vars.$font-size-h4-mobile;
+}
+
+.ls-h5 {
+  font-size: vars.$font-size-h5-mobile;
+}
+
 .ls-h6 {
-  font-family: vars.$font-family-headings;
+  font-size: vars.$font-size-h6-mobile;
+}
+
+.ls-small {
+  font-size: vars.$font-size-small-mobile;
+}
+
+.ls-smallest {
+  font-size: vars.$font-size-smallest-mobile;
 }
 
 .ls-p,
@@ -22,6 +45,7 @@
 }
 
 .ls-h1, .ls-h2, .ls-h3, .ls-h4, .ls-h5, .ls-h6 {
+  font-family: vars.$font-family-headings;
   color: vars.$font-color-headings;
   font-weight: vars.$font-weight-headings;
   line-height: vars.$line-height-headings-mobile;
@@ -34,6 +58,7 @@
 
 .ls-p {
   font-weight: vars.$font-weight-texts;
+  font-size: vars.$font-size-p-mobile;
 }
 
 .ls-strong {
@@ -72,43 +97,6 @@
     line-height: vars.$line-height-texts-desktop;
   }
 }
-
-.ls-h1 {
-  font-size: vars.$font-size-h1-mobile;
-}
-
-.ls-h2 {
-  font-size: vars.$font-size-h2-mobile;
-}
-
-.ls-h3 {
-  font-size: vars.$font-size-h3-mobile;
-}
-
-.ls-h4 {
-  font-size: vars.$font-size-h4-mobile;
-}
-
-.ls-h5 {
-  font-size: vars.$font-size-h5-mobile;
-}
-
-.ls-h6 {
-  font-size: vars.$font-size-h6-mobile;
-}
-
-.ls-p {
-  font-size: vars.$font-size-p-mobile;
-}
-
-.ls-small {
-  font-size: vars.$font-size-small-mobile;
-}
-
-.ls-smallest {
-  font-size: vars.$font-size-smallest-mobile;
-}
-
 
 @include media.tablet {
   .ls-h1 {
@@ -193,11 +181,8 @@
   text-transform: vars.$links-text-transform;
   text-decoration: vars.$links-text-decoration;
   letter-spacing: vars.$links-letter-spacing;
-
-
   line-height: vars.$links-line-height-mobile;
   font-size: vars.$links-font-size-mobile;
-
   color: vars.$links-color;
 
   @include media.tablet {
