@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.5.0...v1.5.1) (2024-10-29)
+
+
+### Bug Fixes
+
+* **typography:** add typography colors variables ([67bbd89](https://github.com/FabioCingottini/lightsalmon-components-library/commit/67bbd896e27ac226370cae936918ee560a183f76))
+
 # [1.5.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.4.0...v1.5.0) (2024-10-29)
 
 
