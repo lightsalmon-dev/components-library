@@ -198,6 +198,8 @@
   line-height: vars.$links-line-height-mobile;
   font-size: vars.$links-font-size-mobile;
 
+  color: vars.$links-color;
+
   @include media.tablet {
     font-size: vars.$links-font-size-tablet;
     line-height: vars.$links-line-height-tablet;
@@ -207,8 +209,6 @@
     font-size: vars.$links-font-size-desktop;
     line-height: vars.$links-line-height-desktop;
   }
-
-  color: vars.$links-color;
 
   &:hover {
     color: vars.$links-hover-color;
