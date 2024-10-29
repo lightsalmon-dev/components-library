@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.4.0...v1.5.0) (2024-10-29)
+
+
+### Features
+
+* **vars:** introduce secondary color ([12ba2e3](https://github.com/FabioCingottini/lightsalmon-components-library/commit/12ba2e36ca29dcb116c831fe207fceaf885da152))
+
 # [1.4.0](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.3.1...v1.4.0) (2024-10-25)
 
 
