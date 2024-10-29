@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use "./utils" as utils;
 
 // 1. Colors
@@ -136,8 +137,8 @@ $font-size-h4-mobile: $font-size-h5-mobile * $typography-mobile-type-scale !defa
 $font-size-h3-mobile: $font-size-h4-mobile * $typography-mobile-type-scale !default;
 $font-size-h2-mobile: $font-size-h3-mobile * $typography-mobile-type-scale !default;
 $font-size-h1-mobile: $font-size-h2-mobile * $typography-mobile-type-scale !default;
-$font-size-small-mobile: $font-size-p-mobile / $typography-mobile-type-scale !default;
-$font-size-smallest-mobile: $font-size-small-mobile / $typography-mobile-type-scale !default;
+$font-size-small-mobile: math.div($font-size-p-mobile, $typography-mobile-type-scale) !default;
+$font-size-smallest-mobile: math.div($font-size-small-mobile, $typography-mobile-type-scale) !default;
 // 4.1.2 Typography - Font sizes - Tablet
 $font-size-p-tablet: utils.to-rem(16) !default;
 $font-size-h6-tablet: $font-size-p-tablet * $typography-tablet-type-scale !default;
@@ -146,8 +147,8 @@ $font-size-h4-tablet: $font-size-h5-tablet * $typography-tablet-type-scale !defa
 $font-size-h3-tablet: $font-size-h4-tablet * $typography-tablet-type-scale !default;
 $font-size-h2-tablet: $font-size-h3-tablet * $typography-tablet-type-scale !default;
 $font-size-h1-tablet: $font-size-h2-tablet * $typography-tablet-type-scale !default;
-$font-size-small-tablet: $font-size-p-tablet / $typography-tablet-type-scale !default;
-$font-size-smallest-tablet: $font-size-small-tablet / $typography-tablet-type-scale !default;
+$font-size-small-tablet: math.div($font-size-p-tablet, $typography-tablet-type-scale) !default;
+$font-size-smallest-tablet: math.div($font-size-small-tablet, $typography-tablet-type-scale) !default;
 // 4.1.3 Typography - Font sizes - Desktop
 $font-size-p-desktop: utils.to-rem(16) !default;
 $font-size-h6-desktop: $font-size-p-desktop * $typography-desktop-type-scale !default;
@@ -156,8 +157,8 @@ $font-size-h4-desktop: $font-size-h5-desktop * $typography-desktop-type-scale !d
 $font-size-h3-desktop: $font-size-h4-desktop * $typography-desktop-type-scale !default;
 $font-size-h2-desktop: $font-size-h3-desktop * $typography-desktop-type-scale !default;
 $font-size-h1-desktop: $font-size-h2-desktop * $typography-desktop-type-scale !default;
-$font-size-small-desktop: $font-size-p-desktop / $typography-desktop-type-scale !default;
-$font-size-smallest-desktop: $font-size-small-desktop / $typography-desktop-type-scale !default;
+$font-size-small-desktop: math.div($font-size-p-desktop, $typography-desktop-type-scale) !default;
+$font-size-smallest-desktop: math.div($font-size-small-desktop, $typography-desktop-type-scale) !default;
 // 4.2 Typography - Line heights
 $line-height-headings-mobile: 1.2 !default;
 $line-height-headings-tablet: 1.2 !default;
