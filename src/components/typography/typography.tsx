@@ -43,23 +43,27 @@ export const P = forwardRef<HTMLParagraphElement, ComponentProps<"p">>(
 	},
 );
 
-export const Strong = forwardRef<HTMLSpanElement, ComponentProps<"span">>(
+export const Strong = forwardRef<HTMLSpanElement, ComponentProps<"strong">>(
 	({ className, ...otherProps }, ref) => {
 		return (
-			<span ref={ref} className={cn("ls-strong", className)} {...otherProps} />
+			<strong
+				ref={ref}
+				className={cn("ls-strong", className)}
+				{...otherProps}
+			/>
 		);
 	},
 );
 
-export const B = forwardRef<HTMLSpanElement, ComponentProps<"span">>(
+export const B = forwardRef<HTMLSpanElement, ComponentProps<"b">>(
 	({ className, ...otherProps }, ref) => {
-		return <span ref={ref} className={cn("ls-b", className)} {...otherProps} />;
+		return <b ref={ref} className={cn("ls-b", className)} {...otherProps} />;
 	},
 );
 
-export const I = forwardRef<HTMLSpanElement, ComponentProps<"span">>(
+export const I = forwardRef<HTMLSpanElement, ComponentProps<"i">>(
 	({ className, ...otherProps }, ref) => {
-		return <span ref={ref} className={cn("ls-i", className)} {...otherProps} />;
+		return <i ref={ref} className={cn("ls-i", className)} {...otherProps} />;
 	},
 );
 
@@ -85,9 +89,7 @@ export const Smallest = forwardRef<HTMLSpanElement, ComponentProps<"span">>(
 
 export const Em = forwardRef<HTMLSpanElement, ComponentProps<"span">>(
 	({ className, ...otherProps }, ref) => {
-		return (
-			<span ref={ref} className={cn("ls-em", className)} {...otherProps} />
-		);
+		return <em ref={ref} className={cn("ls-em", className)} {...otherProps} />;
 	},
 );
 
