@@ -23,9 +23,9 @@
     "tsc-check": "npx tsc --noEmit"
   },
   "bugs": {
-    "url": "https://github.com/FabioCingottini/lightsalmon-components-library/issues"
+    "url": "https://github.com/lightsalmon-dev/components-library/issues"
   },
-  "homepage": "https://github.com/FabioCingottini/lightsalmon-components-library#readme",
+  "homepage": "https://github.com/lightsalmon-dev/components-library#readme",
   "publishConfig": {
     "access": "public"
   },
