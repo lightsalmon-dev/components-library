@@ -12,6 +12,7 @@
   "version": "1.5.2",
   "scripts": {
     "build": "rollup -c",
+    "build:stories": "npx ladle build",
     "prepare": "husky",
     "release": "semantic-release",
     "test": "echo \"Error: no test specified\" && exit 1",
