@@ -1,6 +1,26 @@
 @use "../../scss/variables" as vars;
 @use "../../scss/media-queries" as media;
 
+.ls-h1,
+.ls-h2,
+.ls-h3,
+.ls-h4,
+.ls-h5,
+.ls-h6 {
+  font-family: vars.$font-family-headings;
+}
+
+.ls-p,
+.ls-strong,
+.ls-b,
+.ls-i,
+.ls-small,
+.ls-smallest,
+.ls-em,
+.ls-a {
+  font-family: vars.$font-family-texts;
+}
+
 .ls-h1, .ls-h2, .ls-h3, .ls-h4, .ls-h5, .ls-h6 {
   color: vars.$font-color-headings;
   font-weight: vars.$font-weight-headings;
