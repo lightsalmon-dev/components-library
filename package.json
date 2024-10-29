@@ -16,11 +16,13 @@
     "prepare": "husky",
     "release": "semantic-release",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:dry": "biome lint --error-on-warnings",
-    "lint": "biome lint --error-on-warnings --write",
-    "lint:unsafe": "biome lint --error-on-warnings --write --unsafe",
-    "format:dry": "biome format",
-    "format": "biome format --write",
+    "lint:js:dry": "biome lint --error-on-warnings",
+    "lint:js": "biome lint --error-on-warnings --write",
+    "lint:js:unsafe": "biome lint --error-on-warnings --write --unsafe",
+    "lint:css:dry": "npx stylelint --cache \"src/**/*.scss\"",
+    "lint:css": "npx stylelint --cache --fix \"src/**/*.scss\"",
+    "format:js:dry": "biome format",
+    "format:js": "biome format --write",
     "tsc-check": "npx tsc --noEmit"
   },
   "bugs": {

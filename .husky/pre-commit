@@ -1,1 +1,1 @@
-npm run lint:dry && npm run format:dry
+npm run lint:js:dry && npm run format:js:dry && npm run lint:css:dry
