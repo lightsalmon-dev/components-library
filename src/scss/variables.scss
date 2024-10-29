@@ -19,6 +19,7 @@
 // 4.3 Typography - Font weights
 // 4.4 Typography - Links
 // 4.5 Typography - Colors
+// 4.6 Typography - Font families
 // 5. Breakpoints
 // 6. Grid
 // 7. Buttons
@@ -193,6 +194,10 @@ $links-visited-color: inherit !default;
 // 4.5 Typography - Colors
 $font-color-text: $colors-gray-900 !default;
 $font-color-headings: $colors-gray-900 !default;
+
+// 4.6 Typography - Font families
+$font-family-headings: inherit !default;
+$font-family-texts: inherit !default;
 
 // 5. Breakpoints
 $breakpoint-tablet: utils.to-rem(768) !default;
