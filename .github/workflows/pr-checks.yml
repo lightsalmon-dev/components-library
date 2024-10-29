@@ -17,11 +17,14 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Linter Check
-        run: npm run lint:dry
+      - name: JS Linter Check
+        run: npm run lint:js:dry
 
-      - name: Format Check
-        run: npm run format:dry
+      - name: JS Format Check
+        run: npm run format:js:dry
+
+      - name: CSS Linter Check
+        run: npm run lint:css:dry
 
       - name: Types Check
         run: npm run tsc-check
