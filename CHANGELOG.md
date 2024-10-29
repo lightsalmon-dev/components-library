@@ -1,3 +1,13 @@
+## [1.5.3](https://github.com/lightsalmon-dev/components-library/compare/v1.5.2...v1.5.3) (2024-10-29)
+
+
+### Bug Fixes
+
+* **scss:** solve deprecation of / operator by using use math.div for divisions ([ffaadb6](https://github.com/lightsalmon-dev/components-library/commit/ffaadb629f3d0d7b97cfed753d50da3093bbed32))
+* **scss:** solve deprecation of nested rules and declarations ([8088bbd](https://github.com/lightsalmon-dev/components-library/commit/8088bbd3f2d1ac0024be2b97413d49b74ac718a5))
+* **typography:** add font-family definition for headings and texts ([c9fca88](https://github.com/lightsalmon-dev/components-library/commit/c9fca882259978d62c55dc0fc43a53eeb132d494))
+* **typography:** use correct tags for <Strong>, <B>, <I>, and <Em> ([54f88b8](https://github.com/lightsalmon-dev/components-library/commit/54f88b895e74a2dc7da0afa3c8b5597217f36539))
+
 ## [1.5.2](https://github.com/FabioCingottini/lightsalmon-components-library/compare/v1.5.1...v1.5.2) (2024-10-29)
 
 
