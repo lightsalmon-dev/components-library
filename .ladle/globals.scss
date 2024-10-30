@@ -1,5 +1,7 @@
-@use "../src/scss/reset.scss";
-@use "../src/components/typography/typography.scss";
+@use "../src/scss/reset";
+@use "../src/components/typography/typography";
+@use "../src/components/input/input";
+@use "../src/icons/icons";
 
 body {
   font-family: "Noto Sans", sans-serif;
