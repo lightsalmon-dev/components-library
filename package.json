@@ -11,6 +11,7 @@
   ],
   "version": "1.5.3",
   "scripts": {
+    "dev":"npx ladle serve",
     "build": "rollup -c",
     "build:stories": "npx ladle build",
     "prepare": "husky",
