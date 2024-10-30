@@ -9,9 +9,9 @@
     "README.md",
     "LICENSE"
   ],
-  "version": "1.5.3",
+  "version": "1.6.0",
   "scripts": {
-    "dev":"npx ladle serve",
+    "dev": "npx ladle serve",
     "build": "rollup -c",
     "build:stories": "npx ladle build",
     "prepare": "husky",

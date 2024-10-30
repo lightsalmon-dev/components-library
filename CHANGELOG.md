@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/lightsalmon-dev/components-library/compare/v1.5.3...v1.6.0) (2024-10-30)
+
+
+### Bug Fixes
+
+* run linter against css ([f340304](https://github.com/lightsalmon-dev/components-library/commit/f3403049d27102621e597d2754b4dae1e3aa18ec))
+
+
+### Features
+
+* introduce input component ([b7bb11c](https://github.com/lightsalmon-dev/components-library/commit/b7bb11c32abbb990d36bf1a7914a43228d3a4ac4))
+
 ## [1.5.3](https://github.com/lightsalmon-dev/components-library/compare/v1.5.2...v1.5.3) (2024-10-29)
 
 
