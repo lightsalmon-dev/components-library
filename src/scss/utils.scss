@@ -3,3 +3,17 @@
 @function to-rem($px) {
   @return math.div($px, 16) * 1rem;
 }
+
+@mixin if-there($property, $value) {
+  @if $value {
+    #{$property}: $value;
+  }
+}
+
+@mixin if-there-pseudo($property, $value, $pseudo) {
+  @if $value {
+    #{$pseudo} {
+      #{$property}: $value;
+    }
+  }
+}
