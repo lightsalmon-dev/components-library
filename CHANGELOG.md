@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/lightsalmon-dev/components-library/compare/v1.6.0...v1.6.1) (2024-10-30)
+
+
+### Bug Fixes
+
+* **Input:** add errorMessage prop to Input component ([a4277f2](https://github.com/lightsalmon-dev/components-library/commit/a4277f28029ea1ec1bebec3ce3b0065831d0fe0a))
+
 # [1.6.0](https://github.com/lightsalmon-dev/components-library/compare/v1.5.3...v1.6.0) (2024-10-30)
 
 
