@@ -1,5 +1,10 @@
 # @lightsalmon/components-library
 
+Visit the live version of the storybook [here](https://lightsalmon-dev.github.io/components-library).
+
+This library is a work in progress and it is being developed by the Lightsalmon team. It is a collection of React 
+typescript components highly customizable via SCSS vars. Stay tuned for more updates.
+
 # Contribute
 
 When contributing to this repository you might have errors on imports of `.module.scss` files on stories files, in that
