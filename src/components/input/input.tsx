@@ -14,6 +14,7 @@ type InputProps = ComponentProps<"input"> & {
 	label: string;
 	isValid: boolean;
 	isErrored: boolean;
+	errorMessage: string;
 };
 export const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
@@ -25,6 +26,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 			isErrored,
 			onFocus,
 			onBlur,
+			errorMessage,
 			...otherProps
 		},
 		ref,
@@ -77,9 +79,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 						aria-live="polite"
 					>
 						{isErrorTooltipOpen && (
-							<p className="ls-error-tooltip-text">
-								There is an error with the input.
-							</p>
+							<p className="ls-error-tooltip-text">{errorMessage}</p>
 						)}
 					</span>
 					<IconCheckCircle
