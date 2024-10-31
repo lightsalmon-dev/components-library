@@ -1,5 +1,5 @@
-import cn from "classnames";
 import type { ComponentProps, FC } from "react";
+import cn from "../../utils/cn";
 
 export const IconCheckCircle: FC<ComponentProps<"svg">> = ({
 	className,
