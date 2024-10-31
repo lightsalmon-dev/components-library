@@ -1,3 +1,15 @@
+# [1.7.0](https://github.com/lightsalmon-dev/components-library/compare/v1.6.1...v1.7.0) (2024-10-31)
+
+
+### Bug Fixes
+
+* **Input:** adjust error tooltip message line-height ([d0a5cc9](https://github.com/lightsalmon-dev/components-library/commit/d0a5cc9b79b0134a0675179aa4609e01150f6751))
+
+
+### Features
+
+* **Input:** make error tooltip close when clicked ([3d1347b](https://github.com/lightsalmon-dev/components-library/commit/3d1347b4516b31625e6df714a3767df9dcb1123f))
+
 ## [1.6.1](https://github.com/lightsalmon-dev/components-library/compare/v1.6.0...v1.6.1) (2024-10-30)
 
 
