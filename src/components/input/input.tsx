@@ -1,4 +1,3 @@
-import cn from "classnames";
 import {
 	type ComponentProps,
 	forwardRef,
@@ -9,6 +8,7 @@ import {
 } from "react";
 import { IconCheckCircle } from "../../icons/icon-check-circle";
 import { IconExclamationCircle } from "../../icons/icon-exclamation-circle";
+import cn from "../../utils/cn";
 
 type InputProps = ComponentProps<"input"> & {
 	label: string;
