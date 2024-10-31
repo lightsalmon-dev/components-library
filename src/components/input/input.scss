@@ -13,8 +13,8 @@
     position: relative;
     margin-bottom: vars.$inputs-label-margin-bottom;
 
-    .ls-error-tooltip-container {
-      .ls-error-tooltip-text {
+    .ls-input-error-tooltip-container {
+      .ls-input-error-tooltip-text {
         // position and size
         position: absolute;
         top: -4px;
@@ -68,16 +68,16 @@
       transition: opacity 150ms ease-in-out;
       pointer-events: none;
 
-      &.ls-icon-visible {
+      &.ls-input-icon-visible {
         pointer-events: initial;
         opacity: 1;
       }
 
-      &.ls-icon-valid {
+      &.ls-input-icon-valid {
         color: vars.$inputs-valid-icon-color
       }
 
-      &.ls-icon-errored {
+      &.ls-input-icon-errored {
         cursor: pointer;
         color: vars.$inputs-errored-icon-color
       }
@@ -156,7 +156,7 @@
       }
     }
 
-    &.ls-valid {
+    &.ls-input-valid {
       color: vars.$inputs-valid-value-color;
       border-color: vars.$inputs-valid-border-color;
       box-shadow: vars.$inputs-valid-shadow;
@@ -167,7 +167,7 @@
       }
     }
 
-    &.ls-errored {
+    &.ls-input-errored {
       border-color: vars.$inputs-errored-border-color;
 
       @include utils.if-there('color', vars.$inputs-errored-value-color);
