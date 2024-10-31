@@ -24,7 +24,7 @@
     "lint:css": "npx stylelint --cache --fix \"src/**/*.scss\"",
     "format:js:dry": "biome format",
     "format:js": "biome format --write",
-    "tsc-check": "npx tsc --noEmit"
+    "tsc-check": "npx tsc --noEmit -p tsconfig.ladle.json"
   },
   "bugs": {
     "url": "https://github.com/lightsalmon-dev/components-library/issues"
