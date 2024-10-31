@@ -12,6 +12,7 @@ import cn from "../../utils/cn";
 
 type InputProps = ComponentProps<"input"> & {
 	label: string;
+	placeholder: string;
 	isValid: boolean;
 	isErrored: boolean;
 	errorMessage: string;
