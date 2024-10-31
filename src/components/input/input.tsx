@@ -76,13 +76,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 					</label>
 					<span
 						id={statusId}
-						className="ls-error-tooltip-container"
+						className="ls-input-error-tooltip-container"
 						aria-live="polite"
 					>
 						{isErrorTooltipOpen && (
 							// biome-ignore lint/a11y/useKeyWithClickEvents: component it's already accessible
 							<p
-								className="ls-error-tooltip-text"
+								className="ls-input-error-tooltip-text"
 								onClick={() => setIsErrorTooltipOpen(false)}
 							>
 								{errorMessage}
@@ -90,14 +90,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 						)}
 					</span>
 					<IconCheckCircle
-						className={cn("ls-input-icon", "ls-icon-valid", {
-							"ls-icon-visible": isValid,
+						className={cn("ls-input-icon", "ls-input-icon-valid", {
+							"ls-input-icon-visible": isValid,
 						})}
 						aria-hidden={!isValid}
 					/>
 					<IconExclamationCircle
-						className={cn("ls-input-icon", "ls-icon-errored", {
-							"ls-icon-visible": isErrored,
+						className={cn("ls-input-icon", "ls-input-icon-errored", {
+							"ls-input-icon-visible": isErrored,
 						})}
 						onClick={() => setIsErrorTooltipOpen(!isErrorTooltipOpen)}
 						aria-hidden={!isErrored}
@@ -107,8 +107,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 					id={inputId}
 					ref={ref}
 					className={cn("ls-input", {
-						"ls-valid": isValid,
-						"ls-errored": isErrored,
+						"ls-input-valid": isValid,
+						"ls-input-errored": isErrored,
 					})}
 					aria-describedby={statusId}
 					onFocus={localOnFocus}
