@@ -27,7 +27,8 @@
         // misc
         display: inline;
         user-select: none;
-        background: vars.$inputs-errored-tooltip-background-color;;
+        background: vars.$inputs-errored-tooltip-background-color;
+        cursor: pointer;
 
         // font
         color: vars.$inputs-errored-tooltip-text-color;

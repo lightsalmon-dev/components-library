@@ -79,7 +79,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 						aria-live="polite"
 					>
 						{isErrorTooltipOpen && (
-							<p className="ls-error-tooltip-text">{errorMessage}</p>
+							// biome-ignore lint/a11y/useKeyWithClickEvents: component it's already accessible
+							<p
+								className="ls-error-tooltip-text"
+								onClick={() => setIsErrorTooltipOpen(false)}
+							>
+								{errorMessage}
+							</p>
 						)}
 					</span>
 					<IconCheckCircle
