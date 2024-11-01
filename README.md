@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/@lightsalmon%2Fcomponents-library.svg)](https://badge.fury.io/js/@lightsalmon%2Fcomponents-library)
+![NPM Version](https://img.shields.io/npm/v/%40lightsalmon%2Fcomponents-library)
 
 # @lightsalmon/components-library
 
