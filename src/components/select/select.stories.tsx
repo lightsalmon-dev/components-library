@@ -1,17 +1,18 @@
 import type { Story } from "@ladle/react";
+import { StoryContainer } from "../../../.ladle/components";
 import { Select } from "./select";
-import styles from "./select.stories.module.scss";
+
+const options = [
+	{ label: "Apple", value: "apple" },
+	{ label: "Banana", value: "banana" },
+	{ label: "Cherry", value: "cherry" },
+	{ label: "Date", value: "date" },
+	{ label: "Elderberry", value: "elderberry" },
+];
 
 export const All: Story = () => {
-	const options = [
-		{ label: "Apple", value: "apple" },
-		{ label: "Banana", value: "banana" },
-		{ label: "Cherry", value: "cherry" },
-		{ label: "Date", value: "date" },
-		{ label: "Elderberry", value: "elderberry" },
-	];
 	return (
-		<div className={styles.container}>
+		<StoryContainer>
 			<Select
 				label="Fruits"
 				placeholder="Select a fruit"
@@ -47,6 +48,6 @@ export const All: Story = () => {
 				errorMessage="Change me via errorMessage prop"
 				defaultValue="banana"
 			/>
-		</div>
+		</StoryContainer>
 	);
 };
