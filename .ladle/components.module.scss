@@ -1,5 +1,6 @@
-@use "../../scss/variables" as vars;
-@use "../../scss/media-queries" as medias;
+@use "../src/scss/variables" as vars;
+@use "../src/scss/media-queries" as medias;
+@use "../src/scss/utils" as utils;
 
 .container {
   display: flex;
