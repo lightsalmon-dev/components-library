@@ -1,0 +1,18 @@
+@use "../../scss/variables" as vars;
+@use "../../scss/media-queries" as medias;
+@use "../../scss/utils" as utils;
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  gap: vars.$spacing-mobile;
+
+  @include medias.tablet {
+    gap: vars.$spacing-tablet;
+  }
+
+  @include medias.desktop {
+    gap: vars.$spacing-desktop;
+  }
+}
