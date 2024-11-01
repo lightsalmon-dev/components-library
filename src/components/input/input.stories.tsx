@@ -1,10 +1,10 @@
 import type { Story } from "@ladle/react";
+import { StoryContainer } from "../../../.ladle/components";
 import { Input } from "./input";
-import styles from "./input.stories.module.scss";
 
 export const All: Story = () => {
 	return (
-		<div className={styles.container}>
+		<StoryContainer>
 			<Input
 				placeholder="Placeholder"
 				label="Unfilled"
@@ -36,6 +36,6 @@ export const All: Story = () => {
 				isErrored={true}
 				errorMessage="Change me via errorMessage prop"
 			/>
-		</div>
+		</StoryContainer>
 	);
 };

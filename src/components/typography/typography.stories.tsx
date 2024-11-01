@@ -1,4 +1,5 @@
 import type { Story } from "@ladle/react";
+import { StoryContainer } from "../../../.ladle/components";
 import {
 	A,
 	B,
@@ -15,32 +16,31 @@ import {
 	Smallest,
 	Strong,
 } from "./typography";
-import styles from "./typography.stories.module.scss";
 
 export const Headings: Story = () => {
 	return (
-		<>
-			<H1 className={styles.heading}>Heading 1</H1>
-			<H2 className={styles.heading}>Heading 2</H2>
-			<H3 className={styles.heading}>Heading 3</H3>
-			<H4 className={styles.heading}>Heading 4</H4>
-			<H5 className={styles.heading}>Heading 5</H5>
-			<H6 className={styles.heading}>Heading 6</H6>
-		</>
+		<StoryContainer>
+			<H1>Heading 1</H1>
+			<H2>Heading 2</H2>
+			<H3>Heading 3</H3>
+			<H4>Heading 4</H4>
+			<H5>Heading 5</H5>
+			<H6>Heading 6</H6>
+		</StoryContainer>
 	);
 };
 
 export const Texts: Story = () => {
 	return (
-		<>
-			<P className={styles.text}>Paragraph</P>
-			<Strong className={styles.text}>Strong</Strong>
-			<B className={styles.text}>Bold ({"<B>"})</B>
-			<I className={styles.text}>Italic ({"<I>"})</I>
-			<Small className={styles.text}>Small</Small>
-			<Smallest className={styles.text}>Smallest</Smallest>
-			<Em className={styles.text}>Emphasis ({"<Em>"})</Em>
-			<A className={styles.text}>Link ({"<A>"})</A>
-		</>
+		<StoryContainer>
+			<P>Paragraph</P>
+			<Strong>Strong</Strong>
+			<B>Bold ({"<B>"})</B>
+			<I>Italic ({"<I>"})</I>
+			<Small>Small</Small>
+			<Smallest>Smallest</Smallest>
+			<Em>Emphasis ({"<Em>"})</Em>
+			<A>Link ({"<A>"})</A>
+		</StoryContainer>
 	);
 };
