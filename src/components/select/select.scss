@@ -1,0 +1,209 @@
+@use "../../scss/variables" as vars;
+@use "../../scss/media-queries" as medias;
+@use "../../scss/utils" as utils;
+
+// reset the button used to trigger the select
+.ls-select-trigger {
+  all: unset;
+}
+
+.ls-select-container {
+  display: inline-flex;
+  flex-flow: column nowrap;
+  min-width: vars.$selects-min-width;
+
+  .ls-select-label-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: vars.$selects-label-margin-bottom;
+
+    .ls-select-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 150ms ease-in-out;
+      pointer-events: none;
+
+      &.ls-select-icon-visible {
+        pointer-events: initial;
+        opacity: 1;
+      }
+
+      &.ls-select-icon-valid {
+        color: vars.$selects-valid-icon-color
+      }
+
+      &.ls-select-icon-errored {
+        cursor: pointer;
+        color: vars.$selects-errored-icon-color
+      }
+    }
+
+    .ls-select-error-tooltip-container {
+      .ls-select-error-tooltip-text {
+        // position and size
+        position: absolute;
+        top: -4px;
+        left: calc(100% + 5px);
+        transform: translateX(calc(-100% - 28px));
+        width: utils.to-rem(200);
+        padding: utils.to-rem(12) utils.to-rem(16);
+        border-radius: utils.to-rem(8);
+
+        // misc
+        display: inline;
+        user-select: none;
+        background: vars.$selects-errored-tooltip-background-color;
+        cursor: pointer;
+
+        // font
+        color: vars.$selects-errored-tooltip-text-color;
+        font-size: vars.$selects-errored-tooltip-font-size-mobile;
+        font-weight: vars.$selects-errored-tooltip-font-weight;
+        line-height: vars.$selects-errored-tooltip-line-height-mobile;
+
+        @include medias.tablet {
+          font-size: vars.$selects-errored-tooltip-font-size-tablet;
+          line-height: vars.$selects-errored-tooltip-line-height-tablet;
+        }
+
+        @include medias.desktop {
+          font-size: vars.$selects-errored-tooltip-font-size-desktop;
+          line-height: vars.$selects-errored-tooltip-line-height-desktop;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 6px;
+          left: calc(100% - 8px);
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg);
+          background: vars.$selects-errored-tooltip-background-color;
+        }
+      }
+    }
+  }
+
+  .ls-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 150ms ease-in-out;
+
+    // font
+    font-family: vars.$selects-content-font-family;
+    font-size: vars.$selects-content-font-size;
+    font-weight: vars.$selects-content-font-weight;
+    line-height: vars.$selects-content-line-height;
+    letter-spacing: vars.$selects-content-letter-spacing;
+
+    // spacing
+    border: vars.$selects-border-width solid vars.$selects-border-color;
+    border-radius: vars.$selects-border-radius;
+    padding: vars.$selects-padding;
+
+    // color
+    color: vars.$selects-value-color;
+    background-color: vars.$selects-background-color;
+    outline: none;
+
+    // misc
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: vars.$selects-hover-shadow;
+
+      @include utils.if-there('border-color', vars.$selects-hover-border-color);
+      @include utils.if-there('color', vars.$selects-hover-value-color);
+      @include utils.if-there-pseudo('color', vars.$selects-hover-placeholder-color, '&::placeholder');
+    }
+
+    &.ls-select-valid {
+      color: vars.$selects-valid-value-color;
+      border-color: vars.$selects-valid-border-color;
+      box-shadow: vars.$selects-valid-shadow;
+    }
+
+    &.ls-select-errored {
+      border-color: vars.$selects-errored-border-color;
+
+      @include utils.if-there('color', vars.$selects-errored-value-color);
+      @include utils.if-there('box-shadow', vars.$selects-errored-shadow);
+      @include utils.if-there-pseudo('color', vars.$selects-errored-placeholder-color, '&::placeholder');
+    }
+  }
+
+  .ls-select-placeholder {
+    color: vars.$selects-placeholder-color;
+  }
+
+  .ls-select-icon-chevron-down {
+    width: 18px;
+    height: auto;
+    cursor: pointer;
+  }
+}
+
+// they are in a portal
+.ls-select-menu {
+  overflow: hidden;
+  background-color: vars.$selects-menu-background-color;
+  border-radius: vars.$selects-menu-border-radius;
+  box-shadow: vars.$selects-menu-shadow;
+
+  .ls-select-scroll-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    .ls-select-scroll-icon {
+      width: 16px;
+      height: auto;
+    }
+  }
+
+  .ls-select-menu-viewport {
+    padding: 5px;
+
+
+    .ls-select-menu-item {
+      // font
+      font-family: vars.$selects-items-font-family;
+      font-size: vars.$selects-items-font-size;
+      font-weight: vars.$selects-items-font-weight;
+      line-height: vars.$selects-items-line-height;
+      letter-spacing: vars.$selects-items-letter-spacing;
+
+      // sizing
+      padding: vars.$selects-menu-items-padding;
+      border-radius: vars.$selects-menu-items-border-radius;
+      outline: none;
+
+      // colors
+      color: vars.$selects-items-color;
+
+      @include utils.if-there('background', vars.$selects-items-background-color);
+
+      // misc
+      position: relative;
+      user-select: none;
+      cursor: pointer;
+
+      &[data-highlighted] {
+        background: vars.$selects-hover-background-color;
+      }
+
+      &[data-state="checked"] {
+        background: vars.$selects-checked-items-background-color;
+      }
+    }
+  }
+}
+
+
