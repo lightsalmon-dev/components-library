@@ -150,7 +150,6 @@
       background-color: #f5f5f5; // Optional: Change background for disabled state
       cursor: not-allowed;
 
-
       &::placeholder {
         color: vars.$inputs-disabled-placeholder-color;
       }
@@ -160,7 +159,6 @@
       color: vars.$inputs-valid-value-color;
       border-color: vars.$inputs-valid-border-color;
       box-shadow: vars.$inputs-valid-shadow;
-
 
       &::placeholder {
         color: vars.$inputs-valid-placeholder-color;
