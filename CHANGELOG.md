@@ -1,3 +1,16 @@
+# [1.8.0](https://github.com/lightsalmon-dev/components-library/compare/v1.7.0...v1.8.0) (2024-11-01)
+
+
+### Bug Fixes
+
+* **Input:** make all css classes start with .ls-input ([2109ebd](https://github.com/lightsalmon-dev/components-library/commit/2109ebde7a65a7d62a1499a0eacdc37a1462467b))
+* **Input:** make placeholder prop required ([381593e](https://github.com/lightsalmon-dev/components-library/commit/381593e10db861f6e748dc813fd5b27a5d4f0872))
+
+
+### Features
+
+* **Select:** introduce Select component ([e603469](https://github.com/lightsalmon-dev/components-library/commit/e603469cbd6f3ebf1d334965a2265ae716551994))
+
 # [1.7.0](https://github.com/lightsalmon-dev/components-library/compare/v1.6.1...v1.7.0) (2024-10-31)
 
 
