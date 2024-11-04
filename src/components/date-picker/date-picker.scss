@@ -1,0 +1,183 @@
+@use "../../scss/variables" as vars;
+@use "../../scss/media-queries" as medias;
+@use "../../scss/utils" as utils;
+
+.ls-datepicker-container {
+  display: flex;
+  flex-direction: column;
+  min-width: vars.$form-fields-min-width-mbl;
+
+  @include medias.tablet {
+    min-width: vars.$form-fields-min-width-tbl;
+  }
+
+  @include medias.desktop {
+    min-width: vars.$form-fields-min-width-dsk;
+  }
+
+  .ls-datepicker-fake-input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: vars.$form-fields-padding;
+    border-radius: vars.$form-fields-border-radius;
+    border: vars.$form-fields-border;
+    transition: border-color vars.$transition-duration-and-function;
+    background-color: vars.$form-fields-background-color;
+
+    &.ls-datepicker-fake-input-container-valid {
+      border: vars.$form-fields-valid-border;
+    }
+
+    &.ls-datepicker-fake-input-container-errored {
+      border: vars.$form-fields-invalid-border;
+    }
+
+    &[data-disabled="true"] {
+      cursor: not-allowed;
+      border: vars.$form-fields-disabled-border;
+      background-color: vars.$form-fields-disabled-background-color;
+    }
+
+    .ls-datepicker-fake-input {
+      display: flex;
+      cursor: pointer;
+
+      .ls-datepicker-fake-input-segment {
+        padding: 0 utils.to-rem(2);
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+
+        &[data-placeholder="true"] {
+          // target both the placeholder and the '/' separators
+          &, &+* {
+            color: vars.$form-fields-placeholder-color;
+          }
+        }
+
+        &[data-disabled="true"] {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .ls-datepicker-fake-input-button {
+      all: unset;
+      cursor: pointer;
+
+      &[data-disabled="true"] {
+        cursor: not-allowed;
+      }
+
+      .ls-datepicker-fake-input-button-icon {
+        width: 18px;
+        height: auto;
+      }
+    }
+  }
+}
+
+// this is rendered in a portal
+.ls-datepicker-dialog {
+  padding: utils.to-rem(16);
+  border: vars.$form-fields-border;
+  border-radius: vars.$form-fields-border-radius;
+  background-color: vars.$colors-white;
+
+  &.ls-datepicker-dialog-valid {
+    border: vars.$form-fields-valid-border;
+  }
+
+  &.ls-datepicker-dialog-errored {
+    border: vars.$form-fields-invalid-border;
+  }
+
+  .ls-datepicker-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: utils.to-rem(16);
+
+    .ls-datepicker-dialog-header-button {
+      all: unset;
+      cursor: pointer;
+
+      .ls-datepicker-dialog-header-button-icon {
+        width: 24px;
+        height: auto;
+        cursor: pointer;
+      }
+    }
+
+    .ls-datepicker-dialog-month {
+      font-family: inherit;
+      font-size: vars.$datepicker-month-font-size;
+      font-weight: vars.$datepicker-month-font-weight;
+      line-height: vars.$datepicker-month-line-height;
+      letter-spacing: vars.$datepicker-month-letter-spacing;
+      color: vars.$datepicker-month-color
+    }
+  }
+
+  .ls-datepicker-calendar {
+    .ls-datepicker-calendar-header {
+      // TODO: maybe apply a margin-bottom here
+      .ls-datepicker-calendar-header-cell {
+        font-family: inherit;
+        font-size: vars.$datepicker-header-cell-font-size;
+        font-weight: vars.$datepicker-header-cell-font-weight;
+        line-height: vars.$datepicker-header-cell-line-height;
+        letter-spacing: vars.$datepicker-header-cell-letter-spacing;
+        color: vars.$datepicker-header-cell-color;
+        padding: utils.to-rem(10);
+        text-align: center;
+      }
+    }
+
+    .ls-datepicker-calendar-body-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // font
+      font-weight: vars.$datepicker-cell-font-weight;
+      line-height: vars.$datepicker-cell-line-height;
+      letter-spacing: vars.$datepicker-cell-letter-spacing;
+      color: vars.$datepicker-cell-color;
+
+      // misc
+      padding: utils.to-rem(10);
+      outline: none;
+      cursor: pointer;
+      border-radius: utils.to-rem(4);
+      background-color: vars.$datepicker-cell-background-color;
+      transition: background-color vars.$transition-duration-and-function ease;
+
+      &:hover {
+        background-color: vars.$datepicker-cell-hover-background-color;
+      }
+
+      &[data-focused] {
+        background-color: vars.$datepicker-cell-focus-background-color;
+      }
+
+      // keep it after focused, because it has to override it
+      &[data-selected] {
+        background-color: vars.$datepicker-cell-selected-background-color;
+      }
+
+      &[data-disabled] {
+        cursor: not-allowed;
+        background-color: vars.$datepicker-cell-background-color;
+        color: vars.$datepicker-cell-disabled-color;
+      }
+    }
+  }
+}
