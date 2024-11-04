@@ -73,8 +73,11 @@
     }
 
     &.ls-form-field-icon-errored {
-      cursor: pointer;
       color: vars.$inputs-errored-icon-color
+    }
+
+    &.ls-form-field-icon-clickable {
+      cursor: pointer;
     }
   }
 }

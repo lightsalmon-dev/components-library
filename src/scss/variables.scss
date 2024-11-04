@@ -490,6 +490,8 @@ $datepicker-cell-selected-background-color: $colors-primary-500 !default;
 
 // 10.2 Datepicker - Colors
 
+$input-image-url-preview-margin-top: utils.to-rem(10) !default;
+
 // Form fields
 // Form fields - Font
 $form-fields-label-font-size: utils.to-rem(16) !default;
@@ -545,6 +547,7 @@ $form-fields-error-tooltip-font-size-tablet: $font-size-small-tablet !default;
 $form-fields-error-tooltip-line-height-tablet: 1.2 !default;
 $form-fields-error-tooltip-font-size-desktop: $font-size-small-desktop !default;
 $form-fields-error-tooltip-line-height-desktop: 1.2 !default;
+
 
 
 
