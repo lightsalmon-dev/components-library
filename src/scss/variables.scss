@@ -38,6 +38,11 @@
 // 9.2 Selects - Colors
 // 9.3 Selects - Sizes
 // 9.4 Selects - Shadows
+// 10. Datepicker
+// 10.1 Datepicker - Font
+// 10.2 Datepicker - Colors
+// 10.3 Datepicker - Sizes
+// 10.4 Datepicker - Shadows
 
 // 1. Colors
 // 1.1 - Colors - Primary
@@ -458,3 +463,90 @@ $selects-focus-shadow: $shadow-3;
 $selects-disabled-shadow: null;
 $selects-valid-shadow: $shadow-2;
 $selects-errored-shadow: $shadow-2;
+
+// 10. Datepicker
+// 10.1 Datepicker - font
+$datepicker-month-font-size: utils.to-rem(16) !default;
+$datepicker-month-font-weight: 600 !default;
+$datepicker-month-line-height: 1.2 !default;
+$datepicker-month-letter-spacing: utils.to-rem(1.1) !default;
+$datepicker-month-color: $font-color-text !default;
+$datepicker-header-cell-font-size: utils.to-rem(12) !default;
+$datepicker-header-cell-font-weight: 400 !default;
+$datepicker-header-cell-line-height: 1.2 !default;
+$datepicker-header-cell-letter-spacing: inherit !default;
+$datepicker-header-cell-color: $colors-gray-400 !default;
+$datepicker-cell-font-size: utils.to-rem(16) !default;
+$datepicker-cell-font-weight: 400 !default;
+$datepicker-cell-line-height: 1.2 !default;
+$datepicker-cell-letter-spacing: inherit !default;
+$datepicker-cell-color: $font-color-text !default;
+$datepicker-cell-disabled-color: $colors-gray-400 !default;
+$datepicker-cell-background-color: $colors-white !default;
+$datepicker-cell-hover-background-color: $colors-gray-100 !default;
+$datepicker-cell-focus-background-color: $colors-gray-100 !default;
+$datepicker-cell-selected-background-color: $colors-primary-500 !default;
+
+
+// 10.2 Datepicker - Colors
+
+// Form fields
+// Form fields - Font
+$form-fields-label-font-size: utils.to-rem(16) !default;
+$form-fields-label-font-weight: 400 !default;
+$form-fields-label-line-height: 1.2 !default;
+$form-fields-label-letter-spacing: inherit !default;
+$form-fields-label-color: $font-color-text !default;
+$form-fields-content-font-size: utils.to-rem(16) !default;
+$form-fields-content-font-weight: 400 !default;
+$form-fields-content-line-height: 1.2 !default;
+$form-fields-content-letter-spacing: inherit !default;
+$form-fields-placeholder-color: $colors-gray-500 !default;
+$form-fields-content-color: $font-color-text !default;
+$form-fields-disabled-label-color: $font-color-text !default;
+$form-fields-disabled-content-color: $colors-gray-500 !default;
+$form-fields-disabled-placeholder-color: $colors-gray-500 !default;
+
+// Form fields - Borders
+$form-fields-padding: utils.to-rem(10) utils.to-rem(16) !default;
+$form-fields-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-hover-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-active-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-focus-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-valid-border: utils.to-rem(2) solid $colors-green-500 !default;
+$form-fields-invalid-border: utils.to-rem(2) solid $colors-red-500 !default;
+$form-fields-disabled-border: utils.to-rem(2) solid $colors-gray-200 !default;
+$form-fields-border-radius: utils.to-rem(8) !default;
+
+// Form fields - Misc
+$form-fields-label-margin-bottom: utils.to-rem(8) !default;
+$form-fields-min-width-mbl: 100% !default;
+$form-fields-min-width-tbl: utils.to-rem(320) !default;
+$form-fields-min-width-dsk: utils.to-rem(320) !default;
+$form-fields-shadow: null !default;
+$form-fields-hover-shadow: $shadow-3 !default;
+$form-fields-active-shadow: $shadow-3 !default;
+$form-fields-focus-shadow: $shadow-3 !default;
+$form-fields-valid-shadow: $shadow-2 !default;
+$form-fields-invalid-shadow: $shadow-2 !default;
+$form-fields-disabled-shadow: $shadow-2 !default;
+$form-fields-background-color: $colors-white !default;
+$form-fields-disabled-background-color: $colors-gray-100 !default;
+
+// Form fields error tooltip
+$form-fields-valid-icon-color: $colors-green-600 !default;
+$form-fields-invalid-icon-color: $colors-red-600 !default;
+$form-fields-error-tooltip-background-color: $colors-gray-700 !default;
+$form-fields-error-tooltip-color: $colors-white !default;
+$form-fields-error-tooltip-font-weight: 400 !default;
+$form-fields-error-tooltip-font-size-mobile: $font-size-small-mobile !default;
+$form-fields-error-tooltip-line-height-mobile: 1.2 !default;
+$form-fields-error-tooltip-font-size-tablet: $font-size-small-tablet !default;
+$form-fields-error-tooltip-line-height-tablet: 1.2 !default;
+$form-fields-error-tooltip-font-size-desktop: $font-size-small-desktop !default;
+$form-fields-error-tooltip-line-height-desktop: 1.2 !default;
+
+
+
+// transition
+$transition-duration-and-function: 150ms ease-in-out !default;
