@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/lightsalmon-dev/components-library/compare/v1.8.0...v1.9.0) (2024-11-04)
+
+
+### Features
+
+* **datepicker:** introduce datepicker component ([3bf8ebf](https://github.com/lightsalmon-dev/components-library/commit/3bf8ebfaf74305aadf2f1be8b5ccb71a81150edd))
+
 # [1.8.0](https://github.com/lightsalmon-dev/components-library/compare/v1.7.0...v1.8.0) (2024-11-01)
 
 
