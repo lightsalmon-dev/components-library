@@ -28,7 +28,7 @@ export const FormFieldsLabelWithTooltip: FormFieldsLabelWithTooltip = ({
 }) => {
 	return (
 		<div className="ls-form-field-label-container">
-			<label htmlFor={labelId} className={cn("ls-input-label")}>
+			<label htmlFor={labelId} className={cn("ls-form-field-label")}>
 				{label}
 			</label>
 			<span

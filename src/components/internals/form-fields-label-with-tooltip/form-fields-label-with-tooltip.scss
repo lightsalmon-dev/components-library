@@ -8,6 +8,20 @@
   position: relative;
   margin-bottom: vars.$form-fields-label-margin-bottom;
 
+  .ls-form-field-label {
+    font-family: inherit;
+    font-size: vars.$form-fields-label-font-size;
+    font-weight: vars.$form-fields-label-font-weight;
+    line-height: vars.$form-fields-label-line-height;
+    letter-spacing: vars.$form-fields-label-letter-spacing;
+    color: vars.$form-fields-label-color;
+    transition: color vars.$transition-duration-and-function;
+
+    &.ls-form-field-label-disabled {
+      color: vars.$form-fields-disabled-label-color;
+    }
+  }
+
   .ls-form-field-error-tooltip-container {
     .ls-form-field-error-tooltip-text {
       // position and size
