@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/lightsalmon-dev/components-library/compare/v1.9.0...v1.10.0) (2024-11-05)
+
+
+### Features
+
+* **textarea:** introduce textarea component ([7fcf6d9](https://github.com/lightsalmon-dev/components-library/commit/7fcf6d94bc965eef21b6bf894a559546d272dc30))
+
 # [1.9.0](https://github.com/lightsalmon-dev/components-library/compare/v1.8.0...v1.9.0) (2024-11-04)
 
 
