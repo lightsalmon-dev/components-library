@@ -41,7 +41,7 @@ export const DatePicker: DatePicker = ({
 	const errorMessageId = useId();
 
 	return (
-		<RACDatePicker className="ls-datepicker-container" isDisabled={disabled}>
+		<RACDatePicker className="ls-form-field-container" isDisabled={disabled}>
 			<FormFieldsLabelWithTooltip
 				label={label}
 				labelId={labelId}

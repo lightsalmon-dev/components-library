@@ -2,83 +2,70 @@
 @use "../../scss/media-queries" as medias;
 @use "../../scss/utils" as utils;
 
-.ls-datepicker-container {
+
+.ls-datepicker-fake-input-container {
   display: flex;
-  flex-direction: column;
-  min-width: vars.$form-fields-min-width-mbl;
+  justify-content: space-between;
+  align-items: center;
+  padding: vars.$form-fields-padding;
+  border-radius: vars.$form-fields-border-radius;
+  border: vars.$form-fields-border;
+  transition: border-color vars.$transition-duration-and-function;
+  background-color: vars.$form-fields-background-color;
 
-  @include medias.tablet {
-    min-width: vars.$form-fields-min-width-tbl;
+  &.ls-datepicker-fake-input-container-valid {
+    border: vars.$form-fields-valid-border;
   }
 
-  @include medias.desktop {
-    min-width: vars.$form-fields-min-width-dsk;
+  &.ls-datepicker-fake-input-container-errored {
+    border: vars.$form-fields-invalid-border;
   }
 
-  .ls-datepicker-fake-input-container {
+  &[data-disabled="true"] {
+    cursor: not-allowed;
+    border: vars.$form-fields-disabled-border;
+    background-color: vars.$form-fields-disabled-background-color;
+  }
+
+  .ls-datepicker-fake-input {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: vars.$form-fields-padding;
-    border-radius: vars.$form-fields-border-radius;
-    border: vars.$form-fields-border;
-    transition: border-color vars.$transition-duration-and-function;
-    background-color: vars.$form-fields-background-color;
+    cursor: pointer;
 
-    &.ls-datepicker-fake-input-container-valid {
-      border: vars.$form-fields-valid-border;
-    }
+    .ls-datepicker-fake-input-segment {
+      padding: 0 utils.to-rem(2);
 
-    &.ls-datepicker-fake-input-container-errored {
-      border: vars.$form-fields-invalid-border;
-    }
+      &:first-child {
+        padding-left: 0;
+      }
 
-    &[data-disabled="true"] {
-      cursor: not-allowed;
-      border: vars.$form-fields-disabled-border;
-      background-color: vars.$form-fields-disabled-background-color;
-    }
+      &:last-child {
+        padding-right: 0;
+      }
 
-    .ls-datepicker-fake-input {
-      display: flex;
-      cursor: pointer;
-
-      .ls-datepicker-fake-input-segment {
-        padding: 0 utils.to-rem(2);
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
-
-        &[data-placeholder="true"] {
-          // target both the placeholder and the '/' separators
-          &, &+* {
-            color: vars.$form-fields-placeholder-color;
-          }
-        }
-
-        &[data-disabled="true"] {
-          cursor: not-allowed;
+      &[data-placeholder="true"] {
+        // target both the placeholder and the '/' separators
+        &, & + * {
+          color: vars.$form-fields-placeholder-color;
         }
       }
-    }
-
-    .ls-datepicker-fake-input-button {
-      all: unset;
-      cursor: pointer;
 
       &[data-disabled="true"] {
         cursor: not-allowed;
       }
+    }
+  }
 
-      .ls-datepicker-fake-input-button-icon {
-        width: 18px;
-        height: auto;
-      }
+  .ls-datepicker-fake-input-button {
+    all: unset;
+    cursor: pointer;
+
+    &[data-disabled="true"] {
+      cursor: not-allowed;
+    }
+
+    .ls-datepicker-fake-input-button-icon {
+      width: 18px;
+      height: auto;
     }
   }
 }

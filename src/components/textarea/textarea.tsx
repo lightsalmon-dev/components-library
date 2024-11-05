@@ -20,7 +20,7 @@ export const Textarea: Textarea = ({
 	const labelId = useId();
 	const errorMessageId = useId();
 	return (
-		<div className="ls-textarea-container">
+		<div className="ls-form-field-container">
 			<FormFieldsLabelWithTooltip
 				label={label}
 				isValid={isValid}

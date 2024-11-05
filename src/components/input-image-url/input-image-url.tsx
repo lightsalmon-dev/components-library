@@ -65,7 +65,7 @@ export const InputImageUrl: FormField = ({
 	}, [defaultValue, validate]);
 
 	return (
-		<div className="ls-input-image-url-container">
+		<div className="ls-form-field-container">
 			<FormFieldsLabelWithTooltip
 				label={label}
 				isValid={isValid}
