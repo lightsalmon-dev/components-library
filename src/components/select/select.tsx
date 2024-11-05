@@ -36,7 +36,7 @@ export const Select: Select = ({
 	}, [isErrored]);
 
 	return (
-		<div className="ls-select-container">
+		<div className="ls-form-field-container">
 			<div className="ls-select-label-container">
 				{/* biome-ignore lint/a11y/noLabelWithoutControl: RadixUI does not use an input for the select component */}
 				<label id={labelId} className="ls-select-label">

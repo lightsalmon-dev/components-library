@@ -5,6 +5,7 @@
 - [About](#about)
 - [Storybook](#storybook)
 - [Installation](#installation)
+- [Getting started](#getting-started)
 - [Contribute](#contribute)
 
 ## About
@@ -24,6 +25,10 @@ To install the library, run the following command:
 npm install @lightsalmon/components-library
 ```
 
+## Getting started
+
+In order to use components from this library, you need to import them from the library itself.
+In addition, you need to import the library's styles in your project.
 ## Contribute
 
 When contributing to this repository you might have errors on imports of `.module.scss` files on stories files, in that

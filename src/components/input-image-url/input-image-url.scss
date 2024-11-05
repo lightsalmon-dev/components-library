@@ -2,68 +2,54 @@
 @use "../../scss/media-queries" as medias;
 @use "../../scss/utils" as utils;
 
-.ls-input-image-url-container {
-  display: flex;
-  flex-flow: column nowrap;
-  min-width: vars.$form-fields-min-width-mbl;
+.ls-input-image-url {
+  padding: vars.$form-fields-padding;
+  border-radius: vars.$form-fields-border-radius;
+  border: vars.$form-fields-border;
+  transition: border-color vars.$transition-duration-and-function;
+  background-color: vars.$form-fields-background-color;
+  outline: none;
 
-  @include medias.tablet {
-    min-width: vars.$form-fields-min-width-tbl;
+  &::placeholder {
+    color: vars.$form-fields-placeholder-color;
   }
 
-  @include medias.desktop {
-    min-width: vars.$form-fields-min-width-dsk;
+  &, &::placeholder {
+    font-family: inherit;
+    font-size: vars.$form-fields-content-font-size;
+    font-weight: vars.$form-fields-content-font-weight;
+    line-height: vars.$form-fields-content-line-height;
+    letter-spacing: vars.$form-fields-content-letter-spacing;
   }
 
-  .ls-input-image-url {
-    padding: vars.$form-fields-padding;
-    border-radius: vars.$form-fields-border-radius;
-    border: vars.$form-fields-border;
-    transition: border-color vars.$transition-duration-and-function;
-    background-color: vars.$form-fields-background-color;
-    outline: none;
-
-    &::placeholder {
-      color: vars.$form-fields-placeholder-color;
-    }
-
-    &, &::placeholder {
-      font-family: inherit;
-      font-size: vars.$form-fields-content-font-size;
-      font-weight: vars.$form-fields-content-font-weight;
-      line-height: vars.$form-fields-content-line-height;
-      letter-spacing: vars.$form-fields-content-letter-spacing;
-    }
-
-    &.ls-input-image-url-valid {
-      border: vars.$form-fields-valid-border;
-    }
-
-    &.ls-input-image-url-errored {
-      border: vars.$form-fields-invalid-border;
-    }
+  &.ls-input-image-url-valid {
+    border: vars.$form-fields-valid-border;
   }
 
-  .ls-image-preview-container {
-    margin-top: vars.$input-image-url-preview-margin-top;
-    width: utils.to-rem(80);
-    height: utils.to-rem(80);
-    border-radius: vars.$form-fields-border-radius;
-    border: vars.$form-fields-border;
-    overflow: hidden;
-    transition: border-color vars.$transition-duration-and-function;
+  &.ls-input-image-url-errored {
+    border: vars.$form-fields-invalid-border;
+  }
+}
 
-    &.ls-image-preview-container-valid {
-      border: vars.$form-fields-valid-border
-    }
+.ls-image-preview-container {
+  margin-top: vars.$input-image-url-preview-margin-top;
+  width: utils.to-rem(80);
+  height: utils.to-rem(80);
+  border-radius: vars.$form-fields-border-radius;
+  border: vars.$form-fields-border;
+  overflow: hidden;
+  transition: border-color vars.$transition-duration-and-function;
 
-    &.ls-image-preview-container-errored {
-      border: vars.$form-fields-invalid-border
-    }
+  &.ls-image-preview-container-valid {
+    border: vars.$form-fields-valid-border
+  }
 
-    .ls-image-preview {
-      width: 100%;
-      height: auto;
-    }
+  &.ls-image-preview-container-errored {
+    border: vars.$form-fields-invalid-border
+  }
+
+  .ls-image-preview {
+    width: 100%;
+    height: auto;
   }
 }

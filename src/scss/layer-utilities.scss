@@ -1,0 +1,19 @@
+@use "./variables" as vars;
+@use "./media-queries" as medias;
+@use "./utils" as utils;
+
+@layer utilities {
+  .ls-form-field-container {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: vars.$form-fields-min-width-mbl;
+
+    @include medias.tablet {
+      min-width: vars.$form-fields-min-width-tbl;
+    }
+
+    @include medias.desktop {
+      min-width: vars.$form-fields-min-width-dsk;
+    }
+  }
+}

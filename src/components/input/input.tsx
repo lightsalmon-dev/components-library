@@ -69,7 +69,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 		);
 
 		return (
-			<div className={cn("ls-input-container", className)}>
+			<div className={cn("ls-form-field-container", className)}>
 				<div className="ls-input-label-container">
 					<label htmlFor={inputId} className={cn("ls-input-label")}>
 						{label}
