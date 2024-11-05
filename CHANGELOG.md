@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/lightsalmon-dev/components-library/compare/v1.10.0...v1.11.0) (2024-11-05)
+
+
+### Features
+
+* **InputImageUrl:** introduce InputImageUrl component ([e4ac40d](https://github.com/lightsalmon-dev/components-library/commit/e4ac40d4d44f1f9e75c858b480c0b532b254d71e))
+
 # [1.10.0](https://github.com/lightsalmon-dev/components-library/compare/v1.9.0...v1.10.0) (2024-11-05)
 
 
