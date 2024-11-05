@@ -6,9 +6,8 @@ import {
 	useId,
 	useState,
 } from "react";
-import { IconCheckCircle } from "../../icons/icon-check-circle";
-import { IconExclamationCircle } from "../../icons/icon-exclamation-circle";
 import cn from "../../utils/cn";
+import { FormFieldsLabelWithTooltip } from "../internals/form-fields-label-with-tooltip";
 
 type InputProps = ComponentProps<"input"> & {
 	label: string;
@@ -34,6 +33,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 	) => {
 		const inputId = id ?? useId();
 		const statusId = useId();
+
+		const labelId = useId();
+		const errorMessageId = useId();
 
 		const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
 		useEffect(() => {
@@ -70,39 +72,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		return (
 			<div className={cn("ls-form-field-container", className)}>
-				<div className="ls-input-label-container">
-					<label htmlFor={inputId} className={cn("ls-input-label")}>
-						{label}
-					</label>
-					<span
-						id={statusId}
-						className="ls-input-error-tooltip-container"
-						aria-live="polite"
-					>
-						{isErrorTooltipOpen && (
-							// biome-ignore lint/a11y/useKeyWithClickEvents: component it's already accessible
-							<p
-								className="ls-input-error-tooltip-text"
-								onClick={() => setIsErrorTooltipOpen(false)}
-							>
-								{errorMessage}
-							</p>
-						)}
-					</span>
-					<IconCheckCircle
-						className={cn("ls-input-icon", "ls-input-icon-valid", {
-							"ls-input-icon-visible": isValid,
-						})}
-						aria-hidden={!isValid}
-					/>
-					<IconExclamationCircle
-						className={cn("ls-input-icon", "ls-input-icon-errored", {
-							"ls-input-icon-visible": isErrored,
-						})}
-						onClick={() => setIsErrorTooltipOpen(!isErrorTooltipOpen)}
-						aria-hidden={!isErrored}
-					/>
-				</div>
+				<FormFieldsLabelWithTooltip
+					label={label}
+					isValid={isValid}
+					isErrored={isErrored}
+					errorMessage={errorMessage}
+					labelId={labelId}
+					errorMessageId={errorMessageId}
+					isErrorTooltipOpen={isErrorTooltipOpen}
+					setIsErrorTooltipOpen={setIsErrorTooltipOpen}
+				/>
 				<input
 					id={inputId}
 					ref={ref}
@@ -111,6 +90,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 						"ls-input-errored": isErrored,
 					})}
 					aria-describedby={statusId}
+					aria-invalid={isErrored}
+					aria-errormessage={errorMessageId}
 					onFocus={localOnFocus}
 					onBlur={localOnBlur}
 					{...otherProps}

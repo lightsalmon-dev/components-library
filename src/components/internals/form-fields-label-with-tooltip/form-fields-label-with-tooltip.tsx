@@ -32,13 +32,13 @@ export const FormFieldsLabelWithTooltip: FormFieldsLabelWithTooltip = ({
 				{label}
 			</label>
 			<span
-				id={errorMessageId}
 				className="ls-form-field-error-tooltip-container"
 				aria-live="polite"
 			>
 				{isErrorTooltipOpen && (
 					// biome-ignore lint/a11y/useKeyWithClickEvents: component it's already accessible
 					<p
+						id={errorMessageId}
 						className="ls-form-field-error-tooltip-text"
 						onClick={() => setIsErrorTooltipOpen(false)}
 					>

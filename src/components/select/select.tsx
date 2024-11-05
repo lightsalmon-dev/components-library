@@ -1,10 +1,9 @@
 import * as RadixSelect from "@radix-ui/react-select";
 import { type FC, useEffect, useId, useState } from "react";
-import { IconCheckCircle } from "../../icons/icon-check-circle";
 import { IconChevronDown } from "../../icons/icon-chevron-down";
 import { IconChevronUp } from "../../icons/icon-chevron-up";
-import { IconExclamationCircle } from "../../icons/icon-exclamation-circle";
 import cn from "../../utils/cn";
+import { FormFieldsLabelWithTooltip } from "../internals/form-fields-label-with-tooltip";
 
 type Select = FC<{
 	label: string;
@@ -27,6 +26,7 @@ export const Select: Select = ({
 }) => {
 	const labelId = useId();
 	const statusId = useId();
+	const errorMessageId = useId();
 
 	const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
 	useEffect(() => {
@@ -37,40 +37,16 @@ export const Select: Select = ({
 
 	return (
 		<div className="ls-form-field-container">
-			<div className="ls-select-label-container">
-				{/* biome-ignore lint/a11y/noLabelWithoutControl: RadixUI does not use an input for the select component */}
-				<label id={labelId} className="ls-select-label">
-					{label}
-				</label>
-				<span
-					id={statusId}
-					className="ls-select-error-tooltip-container"
-					aria-live="polite"
-				>
-					{isErrorTooltipOpen && (
-						// biome-ignore lint/a11y/useKeyWithClickEvents: component it's already accessible
-						<p
-							className="ls-select-error-tooltip-text"
-							onClick={() => setIsErrorTooltipOpen(false)}
-						>
-							{errorMessage}
-						</p>
-					)}
-				</span>
-				<IconCheckCircle
-					className={cn("ls-select-icon", "ls-select-icon-valid", {
-						"ls-select-icon-visible": isValid,
-					})}
-					aria-hidden={!isValid}
-				/>
-				<IconExclamationCircle
-					className={cn("ls-select-icon", "ls-select-icon-errored", {
-						"ls-select-icon-visible": isErrored,
-					})}
-					onClick={() => setIsErrorTooltipOpen(!isErrorTooltipOpen)}
-					aria-hidden={!isErrored}
-				/>
-			</div>
+			<FormFieldsLabelWithTooltip
+				label={label}
+				isValid={isValid}
+				isErrored={isErrored}
+				errorMessage={errorMessage}
+				labelId={labelId}
+				errorMessageId={errorMessageId}
+				isErrorTooltipOpen={isErrorTooltipOpen}
+				setIsErrorTooltipOpen={setIsErrorTooltipOpen}
+			/>
 			<RadixSelect.Root aria-labelledby={labelId} defaultValue={defaultValue}>
 				<RadixSelect.Trigger
 					className={cn("ls-select-trigger", {
