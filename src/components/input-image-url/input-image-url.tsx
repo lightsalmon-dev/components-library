@@ -79,9 +79,9 @@ export const InputImageUrl: FormField = ({
 			/>
 			<input
 				type="url"
-				className={cn("ls-input-image-url", {
-					"ls-input-image-url-valid": isValid,
-					"ls-input-image-url-errored": isErrored,
+				className={cn("ls-form-field", {
+					"ls-form-field-valid": isValid,
+					"ls-form-field-invalid": isErrored,
 				})}
 				placeholder={placeholder}
 				aria-labelledby={labelId}

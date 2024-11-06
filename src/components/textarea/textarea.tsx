@@ -35,9 +35,9 @@ export const Textarea: Textarea = ({
 				placeholder={placeholder}
 				aria-labelledby={labelId}
 				aria-describedby={errorMessageId}
-				className={cn("ls-textarea", {
-					"ls-textarea-valid": isValid,
-					"ls-textarea-errored": isErrored,
+				className={cn("ls-form-field", "ls-textarea", {
+					"ls-form-field-valid": isValid,
+					"ls-form-field-invalid": isErrored,
 				})}
 			/>
 		</div>

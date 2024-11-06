@@ -85,9 +85,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 				<input
 					id={inputId}
 					ref={ref}
-					className={cn("ls-input", {
-						"ls-input-valid": isValid,
-						"ls-input-errored": isErrored,
+					className={cn("ls-form-field", {
+						"ls-form-field-valid": isValid,
+						"ls-form-field-invalid": isErrored,
 					})}
 					aria-describedby={statusId}
 					aria-invalid={isErrored}

@@ -49,9 +49,9 @@ export const Select: Select = ({
 			/>
 			<RadixSelect.Root aria-labelledby={labelId} defaultValue={defaultValue}>
 				<RadixSelect.Trigger
-					className={cn("ls-select-trigger", {
-						"ls-select-valid": isValid,
-						"ls-select-errored": isErrored,
+					className={cn("ls-form-field", "ls-select-trigger", {
+						"ls-form-field-valid": isValid,
+						"ls-form-field-invalid": isErrored,
 					})}
 					aria-labelledby={labelId}
 				>
