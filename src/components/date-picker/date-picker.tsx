@@ -57,9 +57,11 @@ export const DatePicker: DatePicker = ({
 				isDisabled={disabled}
 				aria-labelledby={labelId}
 				aria-errormessage={errorMessageId}
-				className={cn("ls-datepicker-fake-input-container", {
-					"ls-datepicker-fake-input-container-valid": isValid,
-					"ls-datepicker-fake-input-container-errored": isErrored,
+				className={cn("ls-form-field", "ls-datepicker-fake-input-container", {
+					// "ls-datepicker-fake-input-container-valid": isValid,
+					// "ls-datepicker-fake-input-container-errored": isErrored,
+					"ls-form-field-valid": isValid,
+					"ls-form-field-invalid": isErrored,
 				})}
 				aria-disabled={disabled}
 			>

@@ -7,19 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: vars.$form-fields-padding;
-  border-radius: vars.$form-fields-border-radius;
-  border: vars.$form-fields-border;
-  transition: border-color vars.$transition-duration-and-function;
-  background-color: vars.$form-fields-background-color;
-
-  &.ls-datepicker-fake-input-container-valid {
-    border: vars.$form-fields-valid-border;
-  }
-
-  &.ls-datepicker-fake-input-container-errored {
-    border: vars.$form-fields-invalid-border;
-  }
 
   &[data-disabled="true"] {
     cursor: not-allowed;

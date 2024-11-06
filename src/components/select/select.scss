@@ -6,19 +6,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 150ms ease-in-out;
-
-  // font
-  font-family: vars.$selects-content-font-family;
-  font-size: vars.$selects-content-font-size;
-  font-weight: vars.$selects-content-font-weight;
-  line-height: vars.$selects-content-line-height;
-  letter-spacing: vars.$selects-content-letter-spacing;
-
-  // spacing
-  border: vars.$selects-border-width solid vars.$selects-border-color;
-  border-radius: vars.$selects-border-radius;
-  padding: vars.$selects-padding;
 
   // color
   color: vars.$selects-value-color;
@@ -27,28 +14,6 @@
 
   // misc
   cursor: pointer;
-
-  &:hover {
-    box-shadow: vars.$selects-hover-shadow;
-
-    @include utils.if-there('border-color', vars.$selects-hover-border-color);
-    @include utils.if-there('color', vars.$selects-hover-value-color);
-    @include utils.if-there-pseudo('color', vars.$selects-hover-placeholder-color, '&::placeholder');
-  }
-
-  &.ls-select-valid {
-    color: vars.$selects-valid-value-color;
-    border-color: vars.$selects-valid-border-color;
-    box-shadow: vars.$selects-valid-shadow;
-  }
-
-  &.ls-select-errored {
-    border-color: vars.$selects-errored-border-color;
-
-    @include utils.if-there('color', vars.$selects-errored-value-color);
-    @include utils.if-there('box-shadow', vars.$selects-errored-shadow);
-    @include utils.if-there-pseudo('color', vars.$selects-errored-placeholder-color, '&::placeholder');
-  }
 }
 
 .ls-select-placeholder {

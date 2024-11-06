@@ -525,13 +525,13 @@ $form-fields-label-margin-bottom: utils.to-rem(8) !default;
 $form-fields-min-width-mbl: 100% !default;
 $form-fields-min-width-tbl: utils.to-rem(320) !default;
 $form-fields-min-width-dsk: utils.to-rem(320) !default;
-$form-fields-shadow: null !default;
+$form-fields-shadow: none !default;
 $form-fields-hover-shadow: $shadow-3 !default;
 $form-fields-active-shadow: $shadow-3 !default;
 $form-fields-focus-shadow: $shadow-3 !default;
 $form-fields-valid-shadow: $shadow-2 !default;
 $form-fields-invalid-shadow: $shadow-2 !default;
-$form-fields-disabled-shadow: $shadow-2 !default;
+$form-fields-disabled-shadow: none !default;
 $form-fields-background-color: $colors-white !default;
 $form-fields-disabled-background-color: $colors-gray-100 !default;
 

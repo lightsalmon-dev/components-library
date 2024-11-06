@@ -21,7 +21,7 @@ export const All: Story = () => {
 				placeholder="Placeholder"
 				label="Filled"
 				errorMessage="Change me via errorMessage prop"
-				defaultValue={"https://placehold.co/400"}
+				defaultValue={"https://placehold.co/600x400"}
 			/>
 			<InputImageUrl
 				placeholder="Placeholder"
