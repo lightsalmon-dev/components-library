@@ -1,4 +1,4 @@
-![NPM Version](https://img.shields.io/npm/v/%40lightsalmon%2Fcomponents-library)
+[![NPM Version](https://img.shields.io/npm/v/%40lightsalmon%2Fcomponents-library)](https://www.npmjs.com/package/@lightsalmon/components-library)
 
 # @lightsalmon/components-library
 
@@ -29,6 +29,7 @@ npm install @lightsalmon/components-library
 
 In order to use components from this library, you need to import them from the library itself.
 In addition, you need to import the library's styles in your project.
+
 ## Contribute
 
 When contributing to this repository you might have errors on imports of `.module.scss` files on stories files, in that
