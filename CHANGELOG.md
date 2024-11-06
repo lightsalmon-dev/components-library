@@ -1,3 +1,12 @@
+## [1.11.1](https://github.com/lightsalmon-dev/components-library/compare/v1.11.0...v1.11.1) (2024-11-06)
+
+
+### Bug Fixes
+
+* **form-fields:** factorize form field css into single utility class ([939319c](https://github.com/lightsalmon-dev/components-library/commit/939319c970a545a6926ee9d748498ea75555656c))
+* **form-fields:** use form fields label vars for styling form labels ([fb61f1c](https://github.com/lightsalmon-dev/components-library/commit/fb61f1cafa27be83487b6bfb2164a2ebe5dfc53b))
+* **vars:** remove unused vars ([979b6c5](https://github.com/lightsalmon-dev/components-library/commit/979b6c53cb9bf51b32c0f7c3c51a60c320186c59))
+
 # [1.11.0](https://github.com/lightsalmon-dev/components-library/compare/v1.10.0...v1.11.0) (2024-11-05)
 
 
