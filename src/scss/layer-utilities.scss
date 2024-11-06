@@ -17,7 +17,6 @@
     }
   }
 
-  // TODO: this has to be applied to all inputs
   .ls-form-field {
     // sizing
     padding: vars.$form-fields-padding;
@@ -31,6 +30,7 @@
     outline: none;
     transition: box-shadow vars.$transition-duration-and-function, border-color vars.$transition-duration-and-function;
     box-shadow: vars.$form-fields-shadow;
+    background-color: vars.$form-fields-background-color;
 
     &::placeholder {
       color: vars.$form-fields-placeholder-color;
@@ -58,21 +58,25 @@
     &:hover {
       border: vars.$form-fields-hover-border;
       box-shadow: vars.$form-fields-hover-shadow;
+      background-color: vars.$form-fields-background-color-hover;
     }
 
     &:focus {
       border: vars.$form-fields-focus-border;
       box-shadow: vars.$form-fields-focus-shadow;
+      background-color: vars.$form-fields-background-color-focus;
     }
 
     &.ls-form-field-valid {
       border: vars.$form-fields-valid-border;
       box-shadow: vars.$form-fields-valid-shadow;
+      background-color: vars.$form-fields-background-color-valid;
     }
 
     &.ls-form-field-invalid, &[aria-invalid="true"] {
       border: vars.$form-fields-invalid-border;
       box-shadow: vars.$form-fields-invalid-shadow;
+      background-color: vars.$form-fields-background-color-invalid;
     }
   }
 }

@@ -36,23 +36,23 @@
       // misc
       display: inline;
       user-select: none;
-      background-color: vars.$inputs-errored-tooltip-background-color;
+      background-color: vars.$form-fields-error-tooltip-background-color;
       cursor: pointer;
 
       // font
-      color: vars.$inputs-errored-tooltip-text-color;
-      font-size: vars.$inputs-errored-tooltip-font-size-mobile;
-      font-weight: vars.$inputs-errored-tooltip-font-weight;
-      line-height: vars.$inputs-errored-tooltip-line-height-mobile;
+      color: vars.$form-fields-error-tooltip-color;
+      font-size: vars.$form-fields-error-tooltip-font-size-mobile;
+      font-weight: vars.$form-fields-error-tooltip-font-weight;
+      line-height: vars.$form-fields-error-tooltip-line-height-mobile;
 
       @include medias.tablet {
-        font-size: vars.$inputs-errored-tooltip-font-size-tablet;
-        line-height: vars.$inputs-errored-tooltip-line-height-tablet;
+        font-size: vars.$form-fields-error-tooltip-font-size-tablet;
+        line-height: vars.$form-fields-error-tooltip-line-height-tablet;
       }
 
       @include medias.desktop {
-        font-size: vars.$inputs-errored-tooltip-font-size-desktop;
-        line-height: vars.$inputs-errored-tooltip-line-height-desktop;
+        font-size: vars.$form-fields-error-tooltip-font-size-desktop;
+        line-height: vars.$form-fields-error-tooltip-line-height-desktop;
       }
 
       &::after {
@@ -63,7 +63,7 @@
         width: 10px;
         height: 10px;
         transform: rotate(45deg);
-        background: vars.$inputs-errored-tooltip-background-color;
+        background: vars.$form-fields-error-tooltip-background-color;
       }
     }
   }
@@ -83,11 +83,11 @@
     }
 
     &.ls-form-field-icon-valid {
-      color: vars.$inputs-valid-icon-color
+      color: vars.$form-fields-valid-icon-color;
     }
 
     &.ls-form-field-icon-errored {
-      color: vars.$inputs-errored-icon-color
+      color: vars.$form-fields-invalid-icon-color;
     }
 
     &.ls-form-field-icon-clickable {
