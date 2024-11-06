@@ -28,11 +28,11 @@
 // 7.2 Buttons - Colors
 // 7.3 Buttons - Sizes
 // 7.4 Buttons - Shadows
-// 8. Inputs
-// 8.1 Inputs - Font
-// 8.2 Inputs - Colors
-// 8.3 Inputs - Sizes
-// 8.4 Inputs - Shadows
+// 8. Form fields
+// 8.1 Form fields - Font
+// 8.2 Form fields - Borders margins and padding
+// 8.3 Form fields - Misc
+// 8.4 Form fields error tooltip
 // 9. Selects
 // 9.1 Selects - Font
 // 9.2 Selects - Colors
@@ -43,6 +43,7 @@
 // 10.2 Datepicker - Colors
 // 10.3 Datepicker - Sizes
 // 10.4 Datepicker - Shadows
+// 11. Misc
 
 // 1. Colors
 // 1.1 - Colors - Primary
@@ -291,107 +292,73 @@ $buttons-secondary-focus-shadow: 0 2px 4px rgba($colors-primary-600, 0.2) !defau
 $buttons-secondary-active-shadow: 0 2px 4px rgba($colors-primary-700, 0.2) !default;
 $buttons-disabled-shadow: 0 2px 4px rgba($colors-gray-200, 0.2) !default;
 
-// 8. Inputs
-// 8.1 Inputs - Font
-$inputs-content-font-family: inherit !default;
-$inputs-content-font-size: utils.to-rem(16) !default;
-$inputs-content-font-weight: 400 !default;
-$inputs-content-line-height: 1.2 !default;
-$inputs-content-letter-spacing: inherit !default;
-$inputs-label-font-family: inherit !default;
-$inputs-label-font-size: utils.to-rem(16) !default;
-$inputs-label-font-weight: 400 !default;
-$inputs-label-line-height: 1.2 !default;
-$inputs-label-letter-spacing: inherit !default;
-$inputs-errored-tooltip-font-size-mobile: $font-size-small-mobile !default;
-$inputs-errored-tooltip-font-size-tablet: $font-size-small-tablet !default;
-$inputs-errored-tooltip-font-size-desktop: $font-size-small-desktop !default;
-$inputs-errored-tooltip-line-height-mobile: 1.2 !default;
-$inputs-errored-tooltip-line-height-tablet: 1.2 !default;
-$inputs-errored-tooltip-line-height-desktop: 1.2 !default;
-$inputs-errored-tooltip-font-weight: 400 !default;
+// 8. Form fields
+// 8.1 Form fields - Font
+$form-fields-label-font-size: utils.to-rem(16) !default;
+$form-fields-label-font-weight: 400 !default;
+$form-fields-label-line-height: 1.2 !default;
+$form-fields-label-letter-spacing: inherit !default;
+$form-fields-label-color: $font-color-text !default;
+$form-fields-content-font-size: utils.to-rem(16) !default;
+$form-fields-content-font-weight: 400 !default;
+$form-fields-content-line-height: 1.2 !default;
+$form-fields-content-letter-spacing: inherit !default;
+$form-fields-placeholder-color: $colors-gray-500 !default;
+$form-fields-content-color: $font-color-text !default;
+$form-fields-disabled-label-color: $font-color-text !default;
+$form-fields-disabled-content-color: $colors-gray-500 !default;
+$form-fields-disabled-placeholder-color: $colors-gray-500 !default;
 
-// 8.2 Inputs - Colors
-$inputs-placeholder-color: $colors-gray-500 !default;
-$inputs-value-color: $font-color-text !default;
-$inputs-label-color: $font-color-text !default;
-$inputs-border-color: $colors-gray-300 !default;
-$inputs-background-color: $colors-white !default;
-$inputs-hover-placeholder-color: null !default;
-$inputs-hover-value-color: null !default;
-$inputs-hover-label-color: null !default;
-$inputs-hover-border-color: null !default;
-$inputs-hover-background-color: null !default;
-$inputs-active-placeholder-color: null !default;
-$inputs-active-value-color: null !default;
-$inputs-active-label-color: null !default;
-$inputs-active-border-color: $colors-primary-500 !default;
-$inputs-active-background-color: null !default;
-$inputs-focus-placeholder-color: null !default;
-$inputs-focus-value-color: null !default;
-$inputs-focus-label-color: null !default;
-$inputs-focus-border-color: $colors-primary-500 !default;
-$inputs-focus-background-color: null !default;
-$inputs-disabled-placeholder-color: null !default;
-$inputs-disabled-value-color: null !default;
-$inputs-disabled-label-color: null !default;
-$inputs-disabled-border-color: $colors-gray-200 !default;
-$inputs-disabled-background-color: null !default;
-$inputs-valid-placeholder-color: null !default;
-$inputs-valid-value-color: null !default;
-$inputs-valid-label-color: null !default;
-$inputs-valid-border-color: $colors-green-500 !default;
-$inputs-valid-background-color: null !default;
-$inputs-valid-icon-color: $colors-green-600 !default;
-$inputs-errored-placeholder-color: null !default;
-$inputs-errored-value-color: null !default;
-$inputs-errored-label-color: null !default;
-$inputs-errored-border-color: $colors-red-500 !default;
-$inputs-errored-background-color: null !default;
-$inputs-errored-icon-color: $colors-red-600 !default;
-$inputs-errored-tooltip-background-color: $colors-gray-700 !default;
-$inputs-errored-tooltip-text-color: $colors-white !default;
+// 8.2 Form fields - Borders margins and padding
+$form-fields-padding: utils.to-rem(10) utils.to-rem(16) !default;
+$form-fields-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-hover-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-active-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-focus-border: utils.to-rem(2) solid $colors-gray-300 !default;
+$form-fields-valid-border: utils.to-rem(2) solid $colors-green-500 !default;
+$form-fields-invalid-border: utils.to-rem(2) solid $colors-red-500 !default;
+$form-fields-disabled-border: utils.to-rem(2) solid $colors-gray-200 !default;
+$form-fields-border-radius: utils.to-rem(8) !default;
 
-// 8.3 Inputs - Sizes
-$inputs-border-width: utils.to-rem(2) !default;
-$inputs-border-radius: utils.to-rem(8) !default;
-$inputs-padding: utils.to-rem(10) utils.to-rem(16) !default;
-$inputs-label-margin-bottom: utils.to-rem(8) !default;
-$inputs-min-width: utils.to-rem(320) !default;
+// 8.3 Form fields - Misc
+$form-fields-label-margin-bottom: utils.to-rem(8) !default;
+$form-fields-min-width-mbl: 100% !default;
+$form-fields-min-width-tbl: utils.to-rem(320) !default;
+$form-fields-min-width-dsk: utils.to-rem(320) !default;
+$form-fields-shadow: none !default;
+$form-fields-hover-shadow: $shadow-3 !default;
+$form-fields-active-shadow: $shadow-3 !default;
+$form-fields-focus-shadow: $shadow-3 !default;
+$form-fields-valid-shadow: $shadow-2 !default;
+$form-fields-invalid-shadow: $shadow-2 !default;
+$form-fields-disabled-shadow: none !default;
+$form-fields-disabled-background-color: $colors-gray-100 !default;
+$form-fields-background-color: $colors-white !default;
+$form-fields-background-color-hover: $colors-white !default;
+$form-fields-background-color-focus: $colors-white !default;
+$form-fields-background-color-valid: $colors-white !default;
+$form-fields-background-color-invalid: $colors-white !default;
 
-// 8.4 Inputs - Shadows
-$inputs-shadow: null;
-$inputs-hover-shadow: $shadow-3;
-$inputs-active-shadow: $shadow-3;
-$inputs-focus-shadow: $shadow-3;
-$inputs-disabled-shadow: null;
-$inputs-valid-shadow: $shadow-2;
-$inputs-errored-shadow: $shadow-2;
+// 8.4 Form fields error tooltip
+$form-fields-valid-icon-color: $colors-green-600 !default;
+$form-fields-invalid-icon-color: $colors-red-600 !default;
+$form-fields-error-tooltip-background-color: $colors-gray-700 !default;
+$form-fields-error-tooltip-color: $colors-white !default;
+$form-fields-error-tooltip-font-weight: 400 !default;
+$form-fields-error-tooltip-font-size-mobile: $font-size-small-mobile !default;
+$form-fields-error-tooltip-line-height-mobile: 1.2 !default;
+$form-fields-error-tooltip-font-size-tablet: $font-size-small-tablet !default;
+$form-fields-error-tooltip-line-height-tablet: 1.2 !default;
+$form-fields-error-tooltip-font-size-desktop: $font-size-small-desktop !default;
+$form-fields-error-tooltip-line-height-desktop: 1.2 !default;
 
 // 9. Selects
 // 9.1 Selects - Font
-$selects-content-font-family: inherit !default;
-$selects-content-font-size: utils.to-rem(16) !default;
-$selects-content-font-weight: 400 !default;
-$selects-content-line-height: 1.2 !default;
-$selects-content-letter-spacing: inherit !default;
 $selects-items-font-family: inherit !default;
 $selects-items-font-size: utils.to-rem(14) !default;
 $selects-items-font-weight: 400 !default;
 $selects-items-line-height: 1.2 !default;
 $selects-items-letter-spacing: inherit !default;
-$selects-label-font-family: inherit !default;
-$selects-label-font-size: utils.to-rem(16) !default;
-$selects-label-font-weight: 400 !default;
-$selects-label-line-height: 1.2 !default;
-$selects-label-letter-spacing: inherit !default;
-$selects-errored-tooltip-font-size-mobile: $font-size-small-mobile !default;
-$selects-errored-tooltip-font-size-tablet: $font-size-small-tablet !default;
-$selects-errored-tooltip-font-size-desktop: $font-size-small-desktop !default;
-$selects-errored-tooltip-line-height-mobile: 1.2 !default;
-$selects-errored-tooltip-line-height-tablet: 1.2 !default;
-$selects-errored-tooltip-line-height-desktop: 1.2 !default;
-$selects-errored-tooltip-font-weight: 400 !default;
 
 // 9.2 Selects - Colors
 $selects-placeholder-color: $colors-gray-500 !default;
@@ -399,70 +366,18 @@ $selects-value-color: $font-color-text !default;
 $selects-label-color: $font-color-text !default;
 $selects-items-color: $font-color-text !default;
 $selects-items-background-color: null !default;
-$selects-border-color: $colors-gray-300 !default;
 $selects-background-color: $colors-white !default;
 $selects-menu-background-color: $colors-white !default;
-$selects-hover-placeholder-color: null !default;
-$selects-hover-value-color: null !default;
-$selects-hover-label-color: null !default;
-$selects-hover-border-color: null !default;
 $selects-hover-background-color: $colors-gray-100 !default;
-$selects-hover-menu-background-color: $colors-white !default;
-$selects-hover-items-background-color: $colors-gray-100 !default;
-$selects-active-placeholder-color: null !default;
-$selects-active-value-color: null !default;
-$selects-active-label-color: null !default;
-$selects-active-border-color: $colors-primary-500 !default;
-$selects-active-background-color: null !default;
-$selects-active-menu-background-color: $colors-white !default;
-$selects-focus-placeholder-color: null !default;
-$selects-focus-value-color: null !default;
-$selects-focus-label-color: null !default;
-$selects-focus-border-color: $colors-primary-500 !default;
-$selects-focus-background-color: null !default;
-$selects-focus-menu-background-color: $colors-white !default;
-$selects-disabled-placeholder-color: null !default;
-$selects-disabled-value-color: null !default;
-$selects-disabled-label-color: null !default;
-$selects-disabled-border-color: $colors-gray-200 !default;
-$selects-disabled-background-color: null !default;
-$selects-valid-placeholder-color: null !default;
-$selects-valid-value-color: null !default;
-$selects-valid-label-color: null !default;
-$selects-valid-border-color: $colors-green-500 !default;
-$selects-valid-background-color: null !default;
-$selects-valid-icon-color: $colors-green-600 !default;
-$selects-valid-menu-background-color: $colors-white !default;
-$selects-errored-placeholder-color: null !default;
-$selects-errored-value-color: null !default;
-$selects-errored-label-color: null !default;
-$selects-errored-border-color: $colors-red-500 !default;
-$selects-errored-background-color: null !default;
-$selects-errored-icon-color: $colors-red-600 !default;
-$selects-errored-menu-background-color: $colors-white !default;
-$selects-errored-tooltip-background-color: $colors-gray-700 !default;
-$selects-errored-tooltip-text-color: $colors-white !default;
 $selects-checked-items-background-color: $colors-gray-200 !default;
 
 // 9.3 Selects - Sizes
-$selects-border-width: utils.to-rem(2) !default;
-$selects-border-radius: utils.to-rem(8) !default;
-$selects-padding: utils.to-rem(10) utils.to-rem(16) !default;
-$selects-label-margin-bottom: utils.to-rem(8) !default;
-$selects-min-width: utils.to-rem(320) !default;
 $selects-menu-border-radius: utils.to-rem(8) !default;
 $selects-menu-items-padding: utils.to-rem(8) utils.to-rem(16) !default;
 $selects-menu-items-border-radius: utils.to-rem(4) !default;
 
 // 9.4 Selects - Shadows
-$selects-shadow: null;
 $selects-menu-shadow: $shadow-4;
-$selects-hover-shadow: $shadow-3;
-$selects-active-shadow: $shadow-3;
-$selects-focus-shadow: $shadow-3;
-$selects-disabled-shadow: null;
-$selects-valid-shadow: $shadow-2;
-$selects-errored-shadow: $shadow-2;
 
 // 10. Datepicker
 // 10.1 Datepicker - font
@@ -487,69 +402,8 @@ $datepicker-cell-hover-background-color: $colors-gray-100 !default;
 $datepicker-cell-focus-background-color: $colors-gray-100 !default;
 $datepicker-cell-selected-background-color: $colors-primary-500 !default;
 
-
 // 10.2 Datepicker - Colors
-
 $input-image-url-preview-margin-top: utils.to-rem(10) !default;
 
-// Form fields
-// Form fields - Font
-$form-fields-label-font-size: utils.to-rem(16) !default;
-$form-fields-label-font-weight: 400 !default;
-$form-fields-label-line-height: 1.2 !default;
-$form-fields-label-letter-spacing: inherit !default;
-$form-fields-label-color: $font-color-text !default;
-$form-fields-content-font-size: utils.to-rem(16) !default;
-$form-fields-content-font-weight: 400 !default;
-$form-fields-content-line-height: 1.2 !default;
-$form-fields-content-letter-spacing: inherit !default;
-$form-fields-placeholder-color: $colors-gray-500 !default;
-$form-fields-content-color: $font-color-text !default;
-$form-fields-disabled-label-color: $font-color-text !default;
-$form-fields-disabled-content-color: $colors-gray-500 !default;
-$form-fields-disabled-placeholder-color: $colors-gray-500 !default;
-
-// Form fields - Borders
-$form-fields-padding: utils.to-rem(10) utils.to-rem(16) !default;
-$form-fields-border: utils.to-rem(2) solid $colors-gray-300 !default;
-$form-fields-hover-border: utils.to-rem(2) solid $colors-gray-300 !default;
-$form-fields-active-border: utils.to-rem(2) solid $colors-gray-300 !default;
-$form-fields-focus-border: utils.to-rem(2) solid $colors-gray-300 !default;
-$form-fields-valid-border: utils.to-rem(2) solid $colors-green-500 !default;
-$form-fields-invalid-border: utils.to-rem(2) solid $colors-red-500 !default;
-$form-fields-disabled-border: utils.to-rem(2) solid $colors-gray-200 !default;
-$form-fields-border-radius: utils.to-rem(8) !default;
-
-// Form fields - Misc
-$form-fields-label-margin-bottom: utils.to-rem(8) !default;
-$form-fields-min-width-mbl: 100% !default;
-$form-fields-min-width-tbl: utils.to-rem(320) !default;
-$form-fields-min-width-dsk: utils.to-rem(320) !default;
-$form-fields-shadow: none !default;
-$form-fields-hover-shadow: $shadow-3 !default;
-$form-fields-active-shadow: $shadow-3 !default;
-$form-fields-focus-shadow: $shadow-3 !default;
-$form-fields-valid-shadow: $shadow-2 !default;
-$form-fields-invalid-shadow: $shadow-2 !default;
-$form-fields-disabled-shadow: none !default;
-$form-fields-background-color: $colors-white !default;
-$form-fields-disabled-background-color: $colors-gray-100 !default;
-
-// Form fields error tooltip
-$form-fields-valid-icon-color: $colors-green-600 !default;
-$form-fields-invalid-icon-color: $colors-red-600 !default;
-$form-fields-error-tooltip-background-color: $colors-gray-700 !default;
-$form-fields-error-tooltip-color: $colors-white !default;
-$form-fields-error-tooltip-font-weight: 400 !default;
-$form-fields-error-tooltip-font-size-mobile: $font-size-small-mobile !default;
-$form-fields-error-tooltip-line-height-mobile: 1.2 !default;
-$form-fields-error-tooltip-font-size-tablet: $font-size-small-tablet !default;
-$form-fields-error-tooltip-line-height-tablet: 1.2 !default;
-$form-fields-error-tooltip-font-size-desktop: $font-size-small-desktop !default;
-$form-fields-error-tooltip-line-height-desktop: 1.2 !default;
-
-
-
-
-// transition
+// 11. Misc
 $transition-duration-and-function: 150ms ease-in-out !default;
