@@ -19,7 +19,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: ["@radix-ui/react-select", "classnames", "react", "react-aria-components", "react-dom", "zod"],
+  external: ["@radix-ui/react-select", "classnames", "react", "react-aria-components", "react-dom", "zod", "@internationalized/date"],
   plugins: [
     del({ targets: 'dist/*' }),
     resolve(),
