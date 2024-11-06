@@ -40,13 +40,14 @@
   "author": "Fabio Cingottini",
   "license": "MIT",
   "peerDependencies": {
+    "@radix-ui/react-select": "^2.1.2",
+    "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-aria-components": "^1.4.1",
-    "react-dom": "^18.3.1",
-    "@radix-ui/react-select": "^2.1.2",
-    "classnames": "^2.5.1"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "zod": "^3.23.8",
     "@biomejs/biome": "1.9.4",
     "@ladle/react": "^4.0.3",
     "@rollup/plugin-commonjs": "^28.0.1",
