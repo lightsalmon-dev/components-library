@@ -10,43 +10,50 @@ const options = [
 	{ label: "Elderberry", value: "elderberry" },
 ];
 
+const label = "Label";
+const placeholder = "Placeholder";
+const errorMessage = "Error message";
+const defaultValue = "banana";
+
 export const All: Story = () => {
 	return (
 		<StoryContainer>
 			<Select
-				label="Fruits"
-				placeholder="Select a fruit"
+				label={label}
+				placeholder={placeholder}
 				options={options}
-				isErrored={false}
-				isValid={false}
-				errorMessage="Change me via errorMessage prop"
+				validator={() => true}
+				disabled
+				errorMessage={errorMessage}
+			/>
+
+			<Select
+				label={label}
+				placeholder={placeholder}
+				options={options}
+				validator={() => true}
+				errorMessage={errorMessage}
+				defaultValue={defaultValue}
 			/>
 			<Select
-				label={"Fruits"}
-				placeholder="Select a fruit"
+				label={label}
+				placeholder={placeholder}
 				options={options}
-				isErrored={false}
-				isValid={false}
+				validator={(val: string) => {
+					return new Promise((resolve) => {
+						setTimeout(() => resolve(true), 5000);
+					});
+				}}
 				errorMessage="Change me via errorMessage prop"
 				defaultValue="banana"
 			/>
 			<Select
-				label={"Fruits"}
-				placeholder="Select a fruit"
+				label={label}
+				placeholder={placeholder}
 				options={options}
-				isErrored={false}
-				isValid={true}
-				errorMessage="Change me via errorMessage prop"
-				defaultValue="banana"
-			/>
-			<Select
-				label={"Fruits"}
-				placeholder="Select a fruit"
-				options={options}
-				isErrored={true}
-				isValid={false}
-				errorMessage="Change me via errorMessage prop"
-				defaultValue="banana"
+				validator={() => false}
+				errorMessage={errorMessage}
+				defaultValue={defaultValue}
 			/>
 		</StoryContainer>
 	);
