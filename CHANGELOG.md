@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/lightsalmon-dev/components-library/compare/v1.12.0...v1.13.0) (2024-11-07)
+
+
+### Features
+
+* **Button:** introduce new Button component ([b61cb88](https://github.com/lightsalmon-dev/components-library/commit/b61cb8858509f6c31ea28baf647db34edf6e947e))
+
 # [1.12.0](https://github.com/lightsalmon-dev/components-library/compare/v1.11.1...v1.12.0) (2024-11-07)
 
 
