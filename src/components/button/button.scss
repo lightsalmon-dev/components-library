@@ -1,0 +1,178 @@
+@use "../../scss/variables" as vars;
+@use "../../scss/media-queries" as medias;
+@use "../../scss/utils" as utils;
+
+.ls-button {
+  // reset
+  all: unset;
+
+  // position
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  // font
+  font-family: vars.$buttons-font-family;
+  font-size: vars.$buttons-font-size;
+  line-height: vars.$buttons-line-height;
+  font-weight: vars.$buttons-font-weight;
+  letter-spacing: vars.$buttons-letter-spacing;
+  text-transform: vars.$buttons-text-transform;
+
+  // sizing
+  padding: vars.$buttons-padding;
+  border-style: solid;
+  border-width: vars.$buttons-border-width;
+  border-radius: vars.$buttons-border-radius;
+  min-width: vars.$buttons-min-width;
+
+  // shadows
+  box-shadow: vars.$buttons-shadow;
+  cursor: pointer;
+
+  // misc
+  box-sizing: border-box;
+  transition: color vars.$transition-duration-and-function, background-color vars.$transition-duration-and-function, border-color vars.$transition-duration-and-function, box-shadow vars.$transition-duration-and-function;
+
+  &:disabled {
+    cursor: not-allowed;
+    color: vars.$buttons-disabled-color;
+    background-color: vars.$buttons-disabled-background-color;
+    border-color: vars.$buttons-disabled-border-color;
+    box-shadow: vars.$buttons-disabled-shadow;
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      box-shadow: vars.$buttons-hover-shadow;
+    }
+
+    &:focus {
+      box-shadow: vars.$buttons-focus-shadow;
+    }
+
+    &:active {
+      box-shadow: vars.$buttons-active-shadow;
+    }
+  }
+
+  &.ls-button-primary:not(:disabled) {
+    color: vars.$buttons-primary-color;
+    background-color: vars.$buttons-primary-background-color;
+    border-color: vars.$buttons-primary-border-color;
+
+    &:hover {
+      color: vars.$buttons-primary-hover-color;
+      background-color: vars.$buttons-primary-hover-background-color;
+      border-color: vars.$buttons-primary-hover-border-color;
+    }
+
+    &:focus {
+      color: vars.$buttons-primary-focus-color;
+      background-color: vars.$buttons-primary-focus-background-color;
+      border-color: vars.$buttons-primary-focus-border-color;
+    }
+
+    &:active {
+      color: vars.$buttons-primary-active-color;
+      background-color: vars.$buttons-primary-active-background-color;
+      border-color: vars.$buttons-primary-active-border-color;
+    }
+  }
+
+  &.ls-button-secondary:not(:disabled) {
+    color: vars.$buttons-secondary-color;
+    background-color: vars.$buttons-secondary-background-color;
+    border-color: vars.$buttons-secondary-border-color;
+
+    &:hover {
+      color: vars.$buttons-secondary-hover-color;
+      background-color: vars.$buttons-secondary-hover-background-color;
+      border-color: vars.$buttons-secondary-hover-border-color;
+    }
+
+    &:focus {
+      color: vars.$buttons-secondary-focus-color;
+      background-color: vars.$buttons-secondary-focus-background-color;
+      border-color: vars.$buttons-secondary-focus-border-color;
+    }
+
+    &:active {
+      color: vars.$buttons-secondary-active-color;
+      background-color: vars.$buttons-secondary-active-background-color;
+      border-color: vars.$buttons-secondary-active-border-color;
+    }
+  }
+
+  &.ls-button-tertiary {
+    color: vars.$buttons-tertiary-color;
+    background-color: vars.$buttons-tertiary-background-color;
+    border-color: vars.$buttons-tertiary-border-color;
+
+    &:hover {
+      color: vars.$buttons-tertiary-hover-color;
+      background-color: vars.$buttons-tertiary-hover-background-color;
+      border-color: vars.$buttons-tertiary-hover-border-color;
+    }
+
+    &:focus {
+      color: vars.$buttons-tertiary-focus-color;
+      background-color: vars.$buttons-tertiary-focus-background-color;
+      border-color: vars.$buttons-tertiary-focus-border-color;
+    }
+
+    &:active {
+      color: vars.$buttons-tertiary-active-color;
+      background-color: vars.$buttons-tertiary-active-background-color;
+      border-color: vars.$buttons-tertiary-active-border-color;
+    }
+  }
+
+  &.ls-button-warning {
+    color: vars.$buttons-warning-color;
+    background-color: vars.$buttons-warning-background-color;
+    border-color: vars.$buttons-warning-border-color;
+
+    &:hover {
+      color: vars.$buttons-warning-hover-color;
+      background-color: vars.$buttons-warning-hover-background-color;
+      border-color: vars.$buttons-warning-hover-border-color;
+    }
+
+    &:focus {
+      color: vars.$buttons-warning-focus-color;
+      background-color: vars.$buttons-warning-focus-background-color;
+      border-color: vars.$buttons-warning-focus-border-color;
+    }
+
+    &:active {
+      color: vars.$buttons-warning-active-color;
+      background-color: vars.$buttons-warning-active-background-color;
+      border-color: vars.$buttons-warning-active-border-color;
+    }
+  }
+
+  &.ls-button-danger {
+    color: vars.$buttons-danger-color;
+    background-color: vars.$buttons-danger-background-color;
+    border-color: vars.$buttons-danger-border-color;
+
+    &:hover {
+      color: vars.$buttons-danger-hover-color;
+      background-color: vars.$buttons-danger-hover-background-color;
+      border-color: vars.$buttons-danger-hover-border-color;
+    }
+
+    &:focus {
+      color: vars.$buttons-danger-focus-color;
+      background-color: vars.$buttons-danger-focus-background-color;
+      border-color: vars.$buttons-danger-focus-border-color;
+    }
+
+    &:active {
+      color: vars.$buttons-danger-active-color;
+      background-color: vars.$buttons-danger-active-background-color;
+      border-color: vars.$buttons-danger-active-border-color;
+    }
+  }
+}
