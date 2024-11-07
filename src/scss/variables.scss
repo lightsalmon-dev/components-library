@@ -269,13 +269,13 @@ $buttons-primary-active-border-color: $buttons-primary-hover-border-color;
 
 // Buttons secondary
 $buttons-secondary-color: $colors-white !default;
-$buttons-secondary-background-color: $colors-primary-500 !default;
-$buttons-secondary-border-color: $colors-primary-500 !default;
+$buttons-secondary-background-color: $colors-secondary-400 !default;
+$buttons-secondary-border-color: $colors-secondary-400 !default;
 
 // Buttons secondary hover
 $buttons-secondary-hover-color: $colors-white !default;
-$buttons-secondary-hover-background-color: $colors-primary-600 !default;
-$buttons-secondary-hover-border-color: $colors-primary-600 !default;
+$buttons-secondary-hover-background-color: $colors-secondary-500 !default;
+$buttons-secondary-hover-border-color: $colors-secondary-500 !default;
 
 // Buttons secondary focus
 $buttons-secondary-focus-color: $buttons-secondary-hover-color;
@@ -288,14 +288,14 @@ $buttons-secondary-active-background-color: $buttons-secondary-hover-background-
 $buttons-secondary-active-border-color: $buttons-secondary-hover-border-color;
 
 // Buttons tertiary
-$buttons-tertiary-color: $font-color-text !default;
+$buttons-tertiary-color: $colors-primary-700 !default;
 $buttons-tertiary-background-color: $colors-white !default;
-$buttons-tertiary-border-color: $font-color-text !default;
+$buttons-tertiary-border-color: $colors-primary-700 !default;
 
 // Buttons tertiary hover
-$buttons-tertiary-hover-color: $font-color-text !default;
+$buttons-tertiary-hover-color: $colors-primary-600 !default;
 $buttons-tertiary-hover-background-color: $colors-white !default;
-$buttons-tertiary-hover-border-color: $font-color-text !default;
+$buttons-tertiary-hover-border-color: $colors-primary-600 !default;
 
 // Buttons tertiary focus
 $buttons-tertiary-focus-color: $buttons-tertiary-hover-color;
