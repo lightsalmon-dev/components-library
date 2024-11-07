@@ -1,4 +1,11 @@
-import { type FC, useId, useState } from "react";
+import { type CalendarDate, parseDate } from "@internationalized/date";
+import {
+	type ComponentProps,
+	type FC,
+	useCallback,
+	useEffect,
+	useState,
+} from "react";
 import {
 	Button as RACButton,
 	Calendar as RACCalendar,
@@ -15,39 +22,80 @@ import {
 	Heading as RACHeading,
 	Popover as RACPopover,
 } from "react-aria-components";
-import type { PopoverProps as RACPopoverProps } from "react-aria-components";
 import { IconCalendarDays } from "../../icons/icon-calendar-days";
 import { IconChevronLeft } from "../../icons/icon-chevron-left";
 import { IconChevronRight } from "../../icons/icon-chevron-right";
+import type { FormField } from "../../types/form-field";
 import cn from "../../utils/cn";
+import { useFormFieldIds } from "../../utils/use-form-field-ids";
+import { useValidationState } from "../../utils/use-validation-state";
 import { FormFieldsLabelWithTooltip } from "../internals/form-fields-label-with-tooltip";
 
-type DatePicker = FC<{
-	label: string;
-	isValid: boolean;
-	isErrored: boolean;
-	errorMessage: string;
-	disabled?: boolean;
-}>;
+// placeholder prop is omitted as the datepicker has a fixed placeholder like "MM/DD/YYYY"
+type DatePicker = FC<Omit<ComponentProps<FormField>, "placeholder">>;
 export const DatePicker: DatePicker = ({
 	label,
-	isValid,
-	isErrored,
+	defaultValue,
 	errorMessage,
-	disabled = false,
+	className,
+	validator,
+	disabled,
 }) => {
+	const { labelId, errorMessageId } = useFormFieldIds();
 	const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
-	const labelId = useId();
-	const errorMessageId = useId();
+	const [value, setValue] = useState<CalendarDate>();
+	const {
+		isValid,
+		isErrored,
+		isValidating,
+		setIsErrored,
+		setIsValid,
+		setIsValidating,
+	} = useValidationState();
+
+	// on blur, validate the input value
+	const onBlur = useCallback(async () => {
+		setIsValidating();
+		setIsErrorTooltipOpen(false);
+		const validationResult = await validator(value);
+		if (validationResult) {
+			setIsValid();
+		} else {
+			setIsErrorTooltipOpen(true);
+			setIsErrored();
+		}
+	}, [value, setIsErrored, setIsValidating, setIsValid, validator]);
+
+	// on focus, close the error tooltip
+	const onFocus = () => setIsErrorTooltipOpen(false);
+
+	// set the default value if it exists, and v
+	// biome-ignore lint/correctness/useExhaustiveDependencies(onBlur):
+	useEffect(() => {
+		if (defaultValue) {
+			setValue(parseDate(defaultValue));
+			onBlur();
+		}
+	}, [defaultValue]);
 
 	return (
-		<RACDatePicker className="ls-form-field-container" isDisabled={disabled}>
+		<RACDatePicker
+			className={cn("ls-form-field-container", className)}
+			isDisabled={disabled}
+			onFocus={onFocus}
+			onBlur={onBlur}
+			value={value}
+			onChange={(value) => setValue(value)}
+			aria-labelledby={labelId}
+			aria-errormessage={errorMessageId}
+		>
 			<FormFieldsLabelWithTooltip
 				label={label}
 				labelId={labelId}
-				isErrored={isErrored}
 				errorMessageId={errorMessageId}
+				isValidating={isValidating}
 				isValid={isValid}
+				isErrored={isErrored}
 				errorMessage={errorMessage}
 				isErrorTooltipOpen={isErrorTooltipOpen}
 				setIsErrorTooltipOpen={setIsErrorTooltipOpen}
@@ -55,11 +103,7 @@ export const DatePicker: DatePicker = ({
 			<RACGroup
 				isInvalid={isErrored}
 				isDisabled={disabled}
-				aria-labelledby={labelId}
-				aria-errormessage={errorMessageId}
 				className={cn("ls-form-field", "ls-datepicker-fake-input-container", {
-					// "ls-datepicker-fake-input-container-valid": isValid,
-					// "ls-datepicker-fake-input-container-errored": isErrored,
 					"ls-form-field-valid": isValid,
 					"ls-form-field-invalid": isErrored,
 				})}
@@ -126,24 +170,3 @@ export const DatePicker: DatePicker = ({
 		</RACDatePicker>
 	);
 };
-
-function MyPopover(props: RACPopoverProps) {
-	return (
-		<RACPopover
-			{...props}
-			className={({ isEntering, isExiting }) => `
-        overflow-auto rounded-lg drop-shadow-lg ring-1 ring-black/10 bg-white
-        ${
-					isEntering
-						? "animate-in fade-in placement-bottom:slide-in-from-top-1 placement-top:slide-in-from-bottom-1 ease-out duration-200"
-						: ""
-				}
-        ${
-					isExiting
-						? "animate-out fade-out placement-bottom:slide-out-to-top-1 placement-top:slide-out-to-bottom-1 ease-in duration-150"
-						: ""
-				}
-      `}
-		/>
-	);
-}

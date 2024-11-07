@@ -13,7 +13,7 @@ type FormFieldsLabelWithTooltip = FC<{
 	setIsErrorTooltipOpen: (value: boolean) => void;
 	isValid: boolean;
 	isErrored: boolean;
-	isValidating?: boolean;
+	isValidating: boolean;
 }>;
 export const FormFieldsLabelWithTooltip: FormFieldsLabelWithTooltip = ({
 	label,

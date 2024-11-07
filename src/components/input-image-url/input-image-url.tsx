@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { FormField } from "../../types/form-field";
 import cn from "../../utils/cn";
-import { useValidationState } from "../../utils/useValidationState";
+import { useFormFieldIds } from "../../utils/use-form-field-ids";
+import { useValidationState } from "../../utils/use-validation-state";
+import { validateImageUrlCorrectness } from "../../utils/validate-image-url-correctness";
 import { FormFieldsLabelWithTooltip } from "../internals/form-fields-label-with-tooltip";
 
 export const InputImageUrl: FormField = ({
@@ -10,9 +12,10 @@ export const InputImageUrl: FormField = ({
 	placeholder,
 	defaultValue,
 	disabled,
+	validator,
+	className,
 }) => {
-	const labelId = useId();
-	const errorMessageId = useId();
+	const { labelId, errorMessageId } = useFormFieldIds();
 	const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
 	const {
 		isValid,
@@ -23,49 +26,36 @@ export const InputImageUrl: FormField = ({
 		setIsValidating,
 	} = useValidationState();
 	const [value, setValue] = useState("");
-	const validate = useCallback(
-		(url: string) => {
-			if (!url) {
-				setIsErrored();
-				return;
-			}
+	// on focus, close the error tooltip
+	const onFocus = () => setIsErrorTooltipOpen(false);
 
-			let isCancelled = false;
-
-			const img = new Image();
+	// on blur, validate the input value and the image correctness
+	const onBlur = useCallback(
+		async (imageUrl: string) => {
 			setIsValidating();
-			img.onload = () => {
-				if (!isCancelled) {
-					setIsValid();
-				}
-			};
-
-			// Define onerror handler
-			img.onerror = () => {
-				if (!isCancelled) {
-					setIsErrored();
-				}
-			};
-
-			// Set the source to trigger loading
-			img.src = url;
-
-			// Cleanup function to handle component unmounting
-			return () => {
-				isCancelled = true;
-			};
+			const [isARealImage, isValidated] = await Promise.all([
+				validateImageUrlCorrectness(imageUrl),
+				validator(imageUrl),
+			]);
+			if (isARealImage && isValidated) {
+				setIsValid();
+			} else {
+				setIsErrored();
+				setIsErrorTooltipOpen(true);
+			}
 		},
-		[setIsErrored, setIsValid, setIsValidating],
+		[setIsErrored, setIsValid, setIsValidating, validator],
 	);
+
 	useEffect(() => {
 		if (defaultValue) {
-			validate(defaultValue);
 			setValue(defaultValue);
+			onBlur(defaultValue);
 		}
-	}, [defaultValue, validate]);
+	}, [defaultValue, onBlur]);
 
 	return (
-		<div className="ls-form-field-container">
+		<div className={cn("ls-form-field-container", className)}>
 			<FormFieldsLabelWithTooltip
 				label={label}
 				isValid={isValid}
@@ -87,8 +77,9 @@ export const InputImageUrl: FormField = ({
 				aria-labelledby={labelId}
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
-				onBlur={() => validate(value)}
 				disabled={disabled}
+				onBlur={() => onBlur(value)}
+				onFocus={onFocus}
 			/>
 			<div
 				className={cn("ls-image-preview-container", {
@@ -100,12 +91,7 @@ export const InputImageUrl: FormField = ({
 				role="img"
 			>
 				{isValid && (
-					<img
-						className="ls-image-preview"
-						src={value}
-						alt="Preview"
-						style={{ maxWidth: "100%", maxHeight: "100%" }}
-					/>
+					<img className="ls-image-preview" src={value} alt="Preview" />
 				)}
 			</div>
 		</div>
