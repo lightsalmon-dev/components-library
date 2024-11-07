@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/lightsalmon-dev/components-library/compare/v1.11.1...v1.12.0) (2024-11-07)
+
+
+### Features
+
+* unify form fields and save bundle space ([53582c2](https://github.com/lightsalmon-dev/components-library/commit/53582c236cda21408a99daf2c3e4d5621773681f))
+
 ## [1.11.1](https://github.com/lightsalmon-dev/components-library/compare/v1.11.0...v1.11.1) (2024-11-06)
 
 
