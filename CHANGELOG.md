@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/lightsalmon-dev/components-library/compare/v1.13.0...v1.14.0) (2024-11-11)
+
+
+### Features
+
+* force new version release ([bf93de6](https://github.com/lightsalmon-dev/components-library/commit/bf93de64fb2eb6788c4bb064fb9cd13b8e26ff4f))
+
 # [1.13.0](https://github.com/lightsalmon-dev/components-library/compare/v1.12.0...v1.13.0) (2024-11-11)
 
 
