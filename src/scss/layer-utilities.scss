@@ -2,7 +2,7 @@
 @use "./media-queries" as medias;
 @use "./utils" as utils;
 
-@layer utilities {
+@layer ls-utilities {
   .ls-form-field-container {
     display: flex;
     flex-flow: column nowrap;
