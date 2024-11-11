@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/lightsalmon-dev/components-library/compare/v1.14.0...v1.14.1) (2024-11-11)
+
+
+### Bug Fixes
+
+* **vars:** restore correct -duration-and-function var ([d7fec86](https://github.com/lightsalmon-dev/components-library/commit/d7fec86648fb020f97725c9f05410ecdda12855e))
+
 # [1.14.0](https://github.com/lightsalmon-dev/components-library/compare/v1.13.0...v1.14.0) (2024-11-11)
 
 
