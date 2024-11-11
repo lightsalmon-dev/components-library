@@ -43,7 +43,8 @@
 // 10.2 Datepicker - Colors
 // 10.3 Datepicker - Sizes
 // 10.4 Datepicker - Shadows
-// 11. Misc
+// 11. Dialog
+// 12. Misc
 
 // 1. Colors
 // 1.1 - Colors - Primary
@@ -478,5 +479,21 @@ $datepicker-cell-selected-background-color: $colors-primary-500 !default;
 // 10.2 Datepicker - Colors
 $input-image-url-preview-margin-top: utils.to-rem(10) !default;
 
-// 11. Misc
-$transition-duration-and-function: 150ms ease-in-out !default;
+// 11. Dialog
+$dialog-background-color: rgb(0 0 0 / 50%) !default;
+$dialog-backdrop-filter: blur(2px) !default;
+$dialog-border-radius-mobile: utils.to-rem(16) !default;
+$dialog-border-radius-tablet: utils.to-rem(16) !default;
+$dialog-border-radius-desktop: utils.to-rem(16) !default;
+$dialog-spacing-mobile: $spacing-mobile !default;
+$dialog-spacing-tablet: $spacing-tablet !default;
+$dialog-spacing-desktop: $spacing-desktop !default;
+$dialog-max-width-mobile: 100% !default;
+$dialog-max-width-tablet: 80% !default;
+$dialog-max-width-desktop: $grid-max-width + $dialog-spacing-desktop * 2 !default;
+$dialog-mini-max-width-mobile: 100% !default;
+$dialog-mini-max-width-tablet: utils.to-rem(500) !default;
+$dialog-mini-max-width-desktop: utils.to-rem(500) !default;
+
+// 12. Misc
+$transition-duration-and-function: 10150ms ease-in-out !default;

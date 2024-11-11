@@ -1,0 +1,111 @@
+@use "../../scss/variables" as vars;
+@use "../../scss/media-queries" as medias;
+@use "../../scss/utils" as utils;
+
+.ls-dialog {
+  // positioning
+  flex-flow: column nowrap;
+
+  // spacing
+  border: none;
+  gap: vars.$dialog-spacing-mobile;
+  padding: vars.$dialog-spacing-mobile;
+  border-radius: vars.$dialog-border-radius-mobile;
+
+  // sizing
+  width: 100%;
+  max-width: vars.$dialog-max-width-mobile;
+
+  // misc
+  outline: none;
+  box-sizing: border-box;
+
+  // animation
+  // transitions
+  transition: opacity vars.$transition-duration-and-function;
+
+  &::backdrop {
+    cursor: pointer;
+    transition: background-color vars.$transition-duration-and-function, backdrop-filter vars.$transition-duration-and-function;
+  }
+
+  // base style
+  opacity: 0;
+  display: none;
+
+  // open style
+  &[open] {
+    opacity: 1;
+    display: inline-flex;
+
+    &::backdrop {
+      background-color: vars.$dialog-background-color;
+      backdrop-filter: vars.$dialog-backdrop-filter;
+    }
+  }
+
+  &.ls-dialog-mini {
+    max-width: vars.$dialog-mini-max-width-mobile;
+  }
+
+  @include medias.tablet {
+    border-radius: vars.$dialog-border-radius-tablet;
+    gap: vars.$dialog-spacing-tablet;
+    padding: vars.$dialog-spacing-tablet;
+    max-width: vars.$dialog-max-width-tablet;
+
+    &.ls-dialog-mini {
+      max-width: vars.$dialog-mini-max-width-tablet;
+    }
+  }
+
+  @include medias.desktop {
+    border-radius: vars.$dialog-border-radius-desktop;
+    gap: vars.$dialog-spacing-desktop;
+    padding: vars.$dialog-spacing-desktop;
+    max-width: vars.$dialog-max-width-desktop;
+
+    &.ls-dialog-mini {
+      max-width: vars.$dialog-mini-max-width-desktop;
+    }
+  }
+
+  .ls-dialog-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .ls-dialog-header-title {
+      display: inline-flex;
+      align-items: flex-start;
+    }
+
+    .ls-dialog-close-button {
+      all: unset;
+      cursor: pointer;
+    }
+  }
+
+  .ls-dialog-body {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .ls-dialog-footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: vars.$dialog-spacing-mobile;
+
+    @include medias.tablet {
+      gap: vars.$dialog-spacing-tablet;
+    }
+
+    @include medias.desktop {
+      gap: vars.$dialog-spacing-desktop;
+    }
+  }
+}
+
