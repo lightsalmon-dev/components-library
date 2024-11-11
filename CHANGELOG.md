@@ -11,6 +11,22 @@
 ### Features
 
 * **Button:** introduce new Button component ([b61cb88](https://github.com/lightsalmon-dev/components-library/commit/b61cb8858509f6c31ea28baf647db34edf6e947e))
+* force new version release ([fc334a2](https://github.com/lightsalmon-dev/components-library/commit/fc334a2390508f734922c330dc3f1071000e0fa3))
+* **Modal:** introduce modal component ([2791253](https://github.com/lightsalmon-dev/components-library/commit/2791253d018892d7dad1e145b45e2a893ff54095))
+
+# [1.13.0](https://github.com/lightsalmon-dev/components-library/compare/v1.12.0...v1.13.0) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Button:** improve default colors of button secondary ([39a2a80](https://github.com/lightsalmon-dev/components-library/commit/39a2a8083744fdadb0e4e8e80135afffefc63e11))
+* **Button:** use correct vars for button tertiary styling ([0c641c8](https://github.com/lightsalmon-dev/components-library/commit/0c641c899493ece8b610df50c6364daed7c61440))
+* **scss:** add layer-order file and prefix with ls- reset and utilities layers ([7d5aec7](https://github.com/lightsalmon-dev/components-library/commit/7d5aec732990b08fa37c630d49c60e4d6dd31415))
+
+
+### Features
+
+* **Button:** introduce new Button component ([b61cb88](https://github.com/lightsalmon-dev/components-library/commit/b61cb8858509f6c31ea28baf647db34edf6e947e))
 * **Modal:** introduce modal component ([2791253](https://github.com/lightsalmon-dev/components-library/commit/2791253d018892d7dad1e145b45e2a893ff54095))
 
 # [1.13.0](https://github.com/lightsalmon-dev/components-library/compare/v1.12.0...v1.13.0) (2024-11-11)
