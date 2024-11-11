@@ -75,6 +75,8 @@ export const Textarea: FormField = ({
 					"ls-form-field-valid": isValid,
 					"ls-form-field-invalid": isErrored,
 				})}
+				onBlur={onBlur}
+				onFocus={onFocus}
 			/>
 		</div>
 	);
