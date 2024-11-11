@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/lightsalmon-dev/components-library/compare/v1.14.1...v1.14.2) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Textarea:** make textarea able to validate ([ffa36cb](https://github.com/lightsalmon-dev/components-library/commit/ffa36cb44a6180da542ed940700ad6cbdc25a91e))
+
 ## [1.14.1](https://github.com/lightsalmon-dev/components-library/compare/v1.14.0...v1.14.1) (2024-11-11)
 
 
