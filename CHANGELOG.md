@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/lightsalmon-dev/components-library/compare/v1.14.2...v1.14.3) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Button:** center button text ([713ae95](https://github.com/lightsalmon-dev/components-library/commit/713ae9581862ab591e6717fdfc5583182f975a68))
+
 ## [1.14.2](https://github.com/lightsalmon-dev/components-library/compare/v1.14.1...v1.14.2) (2024-11-11)
 
 
