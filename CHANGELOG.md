@@ -1,3 +1,10 @@
+## [1.14.4](https://github.com/lightsalmon-dev/components-library/compare/v1.14.3...v1.14.4) (2024-11-12)
+
+
+### Bug Fixes
+
+* **vars:** add missing !default to vars so they are not prevented to be overwritten ([e270f8d](https://github.com/lightsalmon-dev/components-library/commit/e270f8d95b6af1a0209a313fe07f1b871d99f783))
+
 ## [1.14.3](https://github.com/lightsalmon-dev/components-library/compare/v1.14.2...v1.14.3) (2024-11-11)
 
 
