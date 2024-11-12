@@ -48,6 +48,22 @@ export const Modal: Modal = ({
 		}
 	}, [isOpen]);
 
+	// detect key down of the escape key to close the modal, when it's open if the escape key is pressed the modal will close
+	// if this is not done, the modal will close anyway, but without having the state updated, preventing the modal from being opened again
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (isOpen && event.key === "Escape") {
+				closeModal();
+			}
+		};
+
+		document.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [isOpen, closeModal]);
+
 	// A function to handle clicks on the dialog backdrop, possibly closing the modal if the click is outside the dialog.
 	const handlePossibleClickOnBackdrop = useCallback<
 		MouseEventHandler<HTMLDialogElement>
