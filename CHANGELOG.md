@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/lightsalmon-dev/components-library/compare/v1.14.5...v1.15.0) (2024-11-12)
+
+
+### Features
+
+* **Modal:** add new property `dismissable` that prevents 'esc' btn when false (true by default) ([49637ce](https://github.com/lightsalmon-dev/components-library/commit/49637ce86f45fe13a758068705f5d0270941bef8))
+
 ## [1.14.5](https://github.com/lightsalmon-dev/components-library/compare/v1.14.4...v1.14.5) (2024-11-12)
 
 
