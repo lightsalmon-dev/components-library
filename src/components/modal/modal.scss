@@ -25,8 +25,13 @@
   transition: opacity vars.$transition-duration-and-function;
 
   &::backdrop {
-    cursor: pointer;
     transition: background-color vars.$transition-duration-and-function, backdrop-filter vars.$transition-duration-and-function;
+  }
+
+  &.ls-dialog-dismissable {
+    &::backdrop {
+      cursor: pointer;
+    }
   }
 
   // base style

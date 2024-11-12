@@ -21,6 +21,7 @@ type Modal = FC<
 		primaryButtonSlot: ReactNode;
 		secondaryButtonSlot?: ReactNode;
 		mini?: boolean;
+		dismissable?: boolean;
 	}>
 >;
 
@@ -33,6 +34,7 @@ export const Modal: Modal = ({
 	primaryButtonSlot,
 	secondaryButtonSlot,
 	mini,
+	dismissable = true,
 }) => {
 	const ref = useRef<HTMLDialogElement>(null);
 	const titleId = useId();
@@ -48,12 +50,16 @@ export const Modal: Modal = ({
 		}
 	}, [isOpen]);
 
-	// detect key down of the escape key to close the modal, when it's open if the escape key is pressed the modal will close
-	// if this is not done, the modal will close anyway, but without having the state updated, preventing the modal from being opened again
+	// detect key down of the escape key to close the modal, when is open, if the modal is dismissable then close it
+	// otherwise prevent the default behavior
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (isOpen && event.key === "Escape") {
-				closeModal();
+				if (dismissable) {
+					closeModal();
+				} else {
+					event.preventDefault();
+				}
 			}
 		};
 
@@ -62,15 +68,15 @@ export const Modal: Modal = ({
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [isOpen, closeModal]);
+	}, [isOpen, closeModal, dismissable]);
 
 	// A function to handle clicks on the dialog backdrop, possibly closing the modal if the click is outside the dialog.
 	const handlePossibleClickOnBackdrop = useCallback<
 		MouseEventHandler<HTMLDialogElement>
 	>(
 		(event) => {
-			// Check if the dialog element is present
-			if (ref.current) {
+			// Check if the dialog element is present, but only if the dialog is dismissable
+			if (dismissable && ref.current) {
 				// Get the position and dimensions of the dialog
 				const rect = ref.current.getBoundingClientRect();
 
@@ -87,7 +93,7 @@ export const Modal: Modal = ({
 				}
 			}
 		},
-		[closeModal],
+		[closeModal, dismissable],
 	);
 
 	return (
@@ -96,6 +102,7 @@ export const Modal: Modal = ({
 			className={cn(
 				"ls-dialog",
 				{
+					"ls-dialog-dismissable": dismissable,
 					"ls-dialog-mini": mini,
 				},
 				className,
@@ -108,14 +115,16 @@ export const Modal: Modal = ({
 				<H3 id={titleId} className="ls-dialog-header-title">
 					{title}
 				</H3>
-				<button
-					className="ls-dialog-close-button"
-					onClick={closeModal}
-					aria-label="Close modal"
-					type="button"
-				>
-					<IconXMark />
-				</button>
+				{dismissable && (
+					<button
+						className="ls-dialog-close-button"
+						onClick={closeModal}
+						aria-label="Close modal"
+						type="button"
+					>
+						<IconXMark />
+					</button>
+				)}
 			</header>
 			<div className="ls-dialog-body">{children}</div>
 			<footer className="ls-dialog-footer">
