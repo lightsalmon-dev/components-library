@@ -1,3 +1,10 @@
+## [1.14.5](https://github.com/lightsalmon-dev/components-library/compare/v1.14.4...v1.14.5) (2024-11-12)
+
+
+### Bug Fixes
+
+* **Modal:** call closeModal when esc is pressed, updating modal state correctly ([11e21eb](https://github.com/lightsalmon-dev/components-library/commit/11e21ebc372e054feee7c38200019d6387944330))
+
 ## [1.14.4](https://github.com/lightsalmon-dev/components-library/compare/v1.14.3...v1.14.4) (2024-11-12)
 
 
