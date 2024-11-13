@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/lightsalmon-dev/components-library/compare/v1.15.0...v1.15.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* **Modal:** adjust dialog max-width on tablet ([1e0bdd2](https://github.com/lightsalmon-dev/components-library/commit/1e0bdd2609bfa21e6fb5e17970d389386c4e1981))
+
 # [1.15.0](https://github.com/lightsalmon-dev/components-library/compare/v1.14.5...v1.15.0) (2024-11-12)
 
 
