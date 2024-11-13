@@ -489,7 +489,7 @@ $dialog-spacing-mobile: $spacing-mobile !default;
 $dialog-spacing-tablet: $spacing-tablet !default;
 $dialog-spacing-desktop: $spacing-desktop !default;
 $dialog-max-width-mobile: 100% !default;
-$dialog-max-width-tablet: 80% !default;
+$dialog-max-width-tablet: calc(100% - $grid-gutter-width-tablet * 2) !default;
 $dialog-max-width-desktop: $grid-max-width + $dialog-spacing-desktop * 2 !default;
 $dialog-mini-max-width-mobile: 100% !default;
 $dialog-mini-max-width-tablet: utils.to-rem(500) !default;
