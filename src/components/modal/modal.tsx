@@ -10,6 +10,7 @@ import {
 } from "react";
 import { IconXMark } from "../../icons/icon-x-mark";
 import cn from "../../utils/cn";
+import { useLockBodyScroll } from "../../utils/use-lock-body-scroll";
 import { H3 } from "../typography";
 
 type Modal = FC<
@@ -95,6 +96,9 @@ export const Modal: Modal = ({
 		},
 		[closeModal, dismissable],
 	);
+
+	// when the modal is open, lock the body scroll, but without shifting the content due to the scrollbar
+	useLockBodyScroll(isOpen);
 
 	return (
 		// biome-ignore lint/a11y/useKeyWithClickEvents: It's fine to use click events here, as it's not a button
