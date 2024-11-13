@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/lightsalmon-dev/components-library/compare/v1.15.1...v1.15.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* **Modal:** block scroll when modal is open ([59b722b](https://github.com/lightsalmon-dev/components-library/commit/59b722b56711b6fb74148e4feb9348febc1ed041))
+
 ## [1.15.1](https://github.com/lightsalmon-dev/components-library/compare/v1.15.0...v1.15.1) (2024-11-13)
 
 
