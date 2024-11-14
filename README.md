@@ -6,6 +6,7 @@
 - [Storybook](#storybook)
 - [Installation](#installation)
 - [Getting started](#getting-started)
+- [Form fields lifecycle](#form-fields-lifecycle)
 - [Contribute](#contribute)
 
 ## About
@@ -29,6 +30,21 @@ npm install @lightsalmon/components-library
 
 In order to use components from this library, you need to import them from the library itself.
 In addition, you need to import the library's styles in your project.
+
+## Form fields lifecycle
+
+The form fields of the library are designed to behave and interact with the outside in a common way.
+
+The following is the internal lifecycle of a form field:
+
+1. **First render**: The form field is rendered as is, no validation is performed, no error message is shown and no
+   default value is set.
+2. **On mount**: The form field is rendered with a default value, first validation is performed, and the error
+   message is shown if the value is invalid.
+3. **On focus**: The user focuses on the form field, the error message is hidden.
+4. **On change**: The user fills the input, the value is updated.
+5. **On blur**: The user leaves the form field, the validation is performed, and the error message is shown if the value
+   is invalid.
 
 ## Contribute
 

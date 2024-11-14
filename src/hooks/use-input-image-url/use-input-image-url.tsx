@@ -1,16 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
-import type { FormField } from "../../types/form-field";
+import { type ComponentProps, useCallback, useEffect, useState } from "react";
+import { FormFieldsLabelWithTooltip } from "../../components/internals/form-fields-label-with-tooltip";
+import type { UseFormField } from "../../types/use-form-field";
 import cn from "../../utils/cn";
 import { useFormFieldIds } from "../../utils/use-form-field-ids";
 import { useValidationState } from "../../utils/use-validation-state";
 import { validateImageUrlCorrectness } from "../../utils/validate-image-url-correctness";
-import { FormFieldsLabelWithTooltip } from "../internals/form-fields-label-with-tooltip";
 
-export const InputImageUrl: FormField = ({
+export const useInputImageUrl: UseFormField<string> = ({
 	label,
-	errorMessage,
 	placeholder,
 	defaultValue,
+	errorMessage,
 	disabled,
 	validator,
 	className,
@@ -26,8 +26,39 @@ export const InputImageUrl: FormField = ({
 		setIsValidating,
 	} = useValidationState();
 	const [value, setValue] = useState("");
+
+	// on mount
+	// biome-ignore lint/correctness/useExhaustiveDependencies(validator): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
+	useEffect(() => {
+		const fn = async () => {
+			if (defaultValue) {
+				setValue(defaultValue);
+				setIsValidating();
+				const [isARealImage, isValidated] = await Promise.all([
+					validateImageUrlCorrectness(defaultValue),
+					validator(defaultValue),
+				]);
+				if (isARealImage && isValidated) {
+					setIsValid();
+				} else {
+					setIsErrored();
+					setIsErrorTooltipOpen(true);
+				}
+			}
+		};
+		fn();
+		// adding validator to dependencies would cause infinite loop because it's a function
+	}, [defaultValue, setIsErrored, setIsValidating, setIsValid]);
+
 	// on focus, close the error tooltip
 	const onFocus = () => setIsErrorTooltipOpen(false);
+
+	// on change
+	const onChange = useCallback<
+		Exclude<ComponentProps<"input">["onChange"], undefined>
+	>((e) => {
+		setValue(e.target.value);
+	}, []);
 
 	// on blur, validate the input value and the image correctness
 	const onBlur = useCallback(
@@ -47,14 +78,8 @@ export const InputImageUrl: FormField = ({
 		[setIsErrored, setIsValid, setIsValidating, validator],
 	);
 
-	useEffect(() => {
-		if (defaultValue) {
-			setValue(defaultValue);
-			onBlur(defaultValue);
-		}
-	}, [defaultValue, onBlur]);
-
-	return (
+	return [
+		// biome-ignore lint/correctness/useJsxKeyInIterable: it's in an iterator, yes, but is not really something you would iterate over
 		<div className={cn("ls-form-field-container", className)}>
 			<FormFieldsLabelWithTooltip
 				label={label}
@@ -94,6 +119,8 @@ export const InputImageUrl: FormField = ({
 					<img className="ls-image-preview" src={value} alt="Preview" />
 				)}
 			</div>
-		</div>
-	);
+		</div>,
+		value,
+		isValid,
+	];
 };

@@ -2,13 +2,13 @@
 @use "../src/scss/layer-reset";
 @use "../src/scss/layer-utilities";
 @use "../src/components/button/button";
-@use "../src/components/date-picker/date-picker";
 @use "../src/components/typography/typography";
 @use "../src/components/internals/form-fields-label-with-tooltip/form-fields-label-with-tooltip";
 @use "../src/components/modal/modal";
-@use "../src/components/input-image-url/input-image-url";
-@use "../src/components/select/select";
-@use "../src/components/textarea/textarea";
+@use "../src/hooks/use-datepicker/date-picker";
+@use "../src/hooks/use-input-image-url/input-image-url";
+@use "../src/hooks/use-select/select";
+@use "../src/hooks/use-textarea/textarea";
 @use "../src/icons/icons";
 
 body {

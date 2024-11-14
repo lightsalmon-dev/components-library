@@ -1,11 +1,5 @@
-import { type CalendarDate, parseDate } from "@internationalized/date";
-import {
-	type ComponentProps,
-	type FC,
-	useCallback,
-	useEffect,
-	useState,
-} from "react";
+import { type CalendarDate, getLocalTimeZone } from "@internationalized/date";
+import { useCallback, useEffect, useState } from "react";
 import {
 	Button as RACButton,
 	Calendar as RACCalendar,
@@ -22,70 +16,109 @@ import {
 	Heading as RACHeading,
 	Popover as RACPopover,
 } from "react-aria-components";
+import { FormFieldsLabelWithTooltip } from "../../components/internals/form-fields-label-with-tooltip";
 import { IconCalendarDays } from "../../icons/icon-calendar-days";
 import { IconChevronLeft } from "../../icons/icon-chevron-left";
 import { IconChevronRight } from "../../icons/icon-chevron-right";
-import type { FormField } from "../../types/form-field";
+import type {
+	UseFormFieldOptions,
+	UseFormFieldReturnValue,
+} from "../../types/use-form-field";
 import cn from "../../utils/cn";
 import { useFormFieldIds } from "../../utils/use-form-field-ids";
 import { useValidationState } from "../../utils/use-validation-state";
-import { FormFieldsLabelWithTooltip } from "../internals/form-fields-label-with-tooltip";
+import { fromDateToCalendarDate } from "./utils";
 
-// placeholder prop is omitted as the datepicker has a fixed placeholder like "MM/DD/YYYY"
-type DatePicker = FC<Omit<ComponentProps<FormField>, "placeholder">>;
-export const DatePicker: DatePicker = ({
+type Generic = Date | undefined;
+type UseDatepicker = (
+	options: Omit<UseFormFieldOptions<Generic>, "placeholder">,
+) => UseFormFieldReturnValue<Generic>;
+export const useDatepicker: UseDatepicker = ({
 	label,
+	disabled,
+	validator,
+	className,
 	defaultValue,
 	errorMessage,
-	className,
-	validator,
-	disabled,
 }) => {
-	const { labelId, errorMessageId } = useFormFieldIds();
-	const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
-	const [value, setValue] = useState<CalendarDate>();
+	const [value, setValue] = useState<Generic>(undefined);
 	const {
 		isValid,
-		isErrored,
 		isValidating,
-		setIsErrored,
+		isErrored,
 		setIsValid,
 		setIsValidating,
+		setIsErrored,
 	} = useValidationState();
+	const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
+	const { labelId, errorMessageId } = useFormFieldIds();
 
-	// on blur, validate the input value
-	const onBlur = useCallback(async () => {
-		setIsValidating();
-		setIsErrorTooltipOpen(false);
-		const validationResult = await validator(value);
-		if (validationResult) {
-			setIsValid();
-		} else {
-			setIsErrorTooltipOpen(true);
-			setIsErrored();
-		}
-	}, [value, setIsErrored, setIsValidating, setIsValid, validator]);
-
-	// on focus, close the error tooltip
-	const onFocus = () => setIsErrorTooltipOpen(false);
-
-	// set the default value if it exists, and v
-	// biome-ignore lint/correctness/useExhaustiveDependencies(onBlur):
+	// on mount
+	// biome-ignore lint/correctness/useExhaustiveDependencies(validator): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
 	useEffect(() => {
-		if (defaultValue) {
-			setValue(parseDate(defaultValue));
-			onBlur();
-		}
-	}, [defaultValue]);
+		const fn = async () => {
+			if (defaultValue) {
+				setValue(defaultValue);
+				setIsValidating();
+				const validationResult = await validator(defaultValue);
+				if (validationResult) {
+					setIsValid();
+				} else {
+					setIsErrored();
+					setIsErrorTooltipOpen(true);
+				}
+			}
+		};
+		fn();
+		// adding validator to dependencies would cause infinite loop because it's a function
+	}, [defaultValue, setIsErrored, setIsValidating, setIsValid]);
 
-	return (
+	// on focus
+	const onFocus = useCallback(() => {
+		setIsErrorTooltipOpen(false);
+	}, []);
+
+	// on change
+	const onChange = useCallback(
+		(newValue: CalendarDate) => {
+			if (!newValue) {
+				setValue(undefined);
+				setIsErrored();
+				setIsErrorTooltipOpen(true);
+			} else {
+				setValue(newValue.toDate(getLocalTimeZone()));
+			}
+		},
+		[setIsErrored],
+	);
+
+	// on blur
+	// biome-ignore lint/correctness/useExhaustiveDependencies(validator): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
+	const onBlur = useCallback(
+		async (value: Generic) => {
+			console.log("BLUUUUUR");
+			setIsValidating();
+			setIsErrorTooltipOpen(false);
+			const validationResult = await validator(value);
+			if (validationResult) {
+				setIsValid();
+			} else {
+				setIsErrorTooltipOpen(true);
+				setIsErrored();
+			}
+		},
+		[setIsErrored, setIsValidating, setIsValid],
+	);
+
+	return [
+		// biome-ignore lint/correctness/useJsxKeyInIterable: it's in an iterator, yes, but is not really something you would iterate over
 		<RACDatePicker
 			className={cn("ls-form-field-container", className)}
 			isDisabled={disabled}
 			onFocus={onFocus}
-			onBlur={onBlur}
-			value={value}
-			onChange={(value) => setValue(value)}
+			onBlur={() => onBlur(value)}
+			value={value ? fromDateToCalendarDate(value) : undefined}
+			onChange={onChange}
 			aria-labelledby={labelId}
 			aria-errormessage={errorMessageId}
 		>
@@ -167,6 +200,8 @@ export const DatePicker: DatePicker = ({
 					</RACCalendar>
 				</RACDialog>
 			</RACPopover>
-		</RACDatePicker>
-	);
+		</RACDatePicker>,
+		value,
+		isValid,
+	];
 };
