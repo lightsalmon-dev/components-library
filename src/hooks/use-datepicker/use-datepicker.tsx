@@ -96,7 +96,6 @@ export const useDatepicker: UseDatepicker = ({
 	// biome-ignore lint/correctness/useExhaustiveDependencies(validator): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
 	const onBlur = useCallback(
 		async (value: Generic) => {
-			console.log("BLUUUUUR");
 			setIsValidating();
 			setIsErrorTooltipOpen(false);
 			const validationResult = await validator(value);
