@@ -9,7 +9,7 @@
     "README.md",
     "LICENSE"
   ],
-  "version": "1.15.2",
+  "version": "1.16.0",
   "scripts": {
     "dev": "npx ladle serve",
     "build": "rollup -c",

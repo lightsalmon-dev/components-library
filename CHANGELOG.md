@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/lightsalmon-dev/components-library/compare/v1.15.2...v1.16.0) (2024-11-14)
+
+
+### Features
+
+* **FormFields:** convert all form fields to hooks ([65dd6ea](https://github.com/lightsalmon-dev/components-library/commit/65dd6ea4383a5dfab9b23ee218b00d13ba0a7313))
+
 ## [1.15.2](https://github.com/lightsalmon-dev/components-library/compare/v1.15.1...v1.15.2) (2024-11-13)
 
 
