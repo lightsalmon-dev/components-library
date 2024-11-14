@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/lightsalmon-dev/components-library/compare/v1.16.0...v1.16.1) (2024-11-14)
+
+
+### Bug Fixes
+
+* **use-datepicker:** remove debug console.log ([2c5b10f](https://github.com/lightsalmon-dev/components-library/commit/2c5b10f2cb807ac9ee0fbd6a18b2e6ed6aee5c65))
+
 # [1.16.0](https://github.com/lightsalmon-dev/components-library/compare/v1.15.2...v1.16.0) (2024-11-14)
 
 
