@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/lightsalmon-dev/components-library/compare/v1.16.2...v1.17.0) (2024-11-15)
+
+
+### Features
+
+* **form-fields:** add missing reset fn returned by form hooks ([5dd144a](https://github.com/lightsalmon-dev/components-library/commit/5dd144a8df271d72adfb06a7e68fd264bb4ff4ea))
+
 ## [1.16.2](https://github.com/lightsalmon-dev/components-library/compare/v1.16.1...v1.16.2) (2024-11-15)
 
 
