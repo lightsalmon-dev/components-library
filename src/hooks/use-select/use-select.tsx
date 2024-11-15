@@ -33,6 +33,8 @@ export const useSelect: UseSelect = ({
 	className,
 }) => {
 	const [value, setValue] = useState<SelectOption | undefined>(undefined);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [hasBeenTouched, setHasBeenTouched] = useState(false);
 	const {
 		isValid,
 		isValidating,
@@ -64,42 +66,38 @@ export const useSelect: UseSelect = ({
 		// adding validator to dependencies would cause infinite loop because it's a function
 	}, [defaultValue, setIsErrored, setIsValidating, setIsValid]);
 
-	// on focus
-	// on focus doesn't exist in Radix Select, so we use on open change
-	// when the fn is called and isOpen is true, it means the select is focused
-	// when the fn is called and isOpen is false, it means the select is blurred
-	const onOpenChange = useCallback(
-		async (isOpen: boolean, value: SelectOption | undefined) => {
-			if (isOpen) {
-				// act as onFocus
-				setIsErrorTooltipOpen(false);
-			} else {
-				// act as onBlur
-				setIsValidating();
-				setIsErrorTooltipOpen(false);
-				const validationResult = await validator(value);
-				if (validationResult) {
-					setIsValid();
-				} else {
-					setIsErrorTooltipOpen(true);
-					setIsErrored();
-				}
-			}
-		},
-		[setIsErrored, setIsValidating, setIsValid, validator],
-	);
-
 	// on value change will work similarly to onChange in other form fields, with the difference that we first need to find the selected option
 	const onValueChange = useCallback(
-		(value: string) => {
+		async (value: string) => {
+			setIsValidating();
 			const selectedOption = options.find((option) => option.value === value);
-			if (!selectedOption) {
-				return;
+			const validationResult = await validator(selectedOption);
+			if (validationResult) {
+				setIsValid();
+				setIsErrorTooltipOpen(false);
+			} else {
+				setIsErrorTooltipOpen(true);
+				setIsErrored();
 			}
 			setValue(selectedOption);
 		},
-		[options],
+		[options, setIsErrored, setIsValidating, setIsValid, validator],
 	);
+
+	const onOpenChange = useCallback((isOpen: boolean) => {
+		if (isOpen) {
+			setIsErrorTooltipOpen(false);
+		}
+		setIsMenuOpen(isOpen);
+		setHasBeenTouched(true);
+	}, []);
+
+	useEffect(() => {
+		if (!value && !isMenuOpen && hasBeenTouched) {
+			setIsErrored();
+			setIsErrorTooltipOpen(true);
+		}
+	}, [value, isMenuOpen, setIsErrored, hasBeenTouched]);
 
 	return [
 		// biome-ignore lint/correctness/useJsxKeyInIterable: it's in an iterator, yes, but is not really something you would iterate over
@@ -119,7 +117,8 @@ export const useSelect: UseSelect = ({
 				aria-labelledby={labelId}
 				value={options.find((option) => option.value === value?.value)?.value}
 				onValueChange={onValueChange}
-				onOpenChange={(isOpen) => onOpenChange(isOpen, value)}
+				open={isMenuOpen}
+				onOpenChange={onOpenChange}
 				disabled={disabled}
 			>
 				<RadixSelect.Trigger
