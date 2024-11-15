@@ -1,6 +1,9 @@
 import { type ComponentProps, useCallback, useEffect, useState } from "react";
 import { FormFieldsLabelWithTooltip } from "../../components/internals/form-fields-label-with-tooltip";
-import type { UseFormField } from "../../types/use-form-field";
+import type {
+	UseFormField,
+	UseFormFieldReturnValue,
+} from "../../types/use-form-field";
 import cn from "../../utils/cn";
 import { useFormFieldIds } from "../../utils/use-form-field-ids";
 import { useValidationState } from "../../utils/use-validation-state";
@@ -24,6 +27,7 @@ export const useInputImageUrl: UseFormField<string> = ({
 		setIsValid,
 		setIsErrored,
 		setIsValidating,
+		resetValidation,
 	} = useValidationState();
 	const [value, setValue] = useState("");
 
@@ -78,6 +82,19 @@ export const useInputImageUrl: UseFormField<string> = ({
 		[setIsErrored, setIsValid, setIsValidating, validator],
 	);
 
+	const reset = useCallback<UseFormFieldReturnValue["3"]>(
+		(shouldSetDefaultValue = true) => {
+			if (shouldSetDefaultValue && defaultValue) {
+				setValue(defaultValue);
+			} else {
+				setValue("");
+			}
+			resetValidation();
+			setIsErrorTooltipOpen(false);
+		},
+		[resetValidation, defaultValue],
+	);
+
 	return [
 		// biome-ignore lint/correctness/useJsxKeyInIterable: it's in an iterator, yes, but is not really something you would iterate over
 		<div className={cn("ls-form-field-container", className)}>
@@ -122,5 +139,6 @@ export const useInputImageUrl: UseFormField<string> = ({
 		</div>,
 		value,
 		isValid,
+		reset,
 	];
 };

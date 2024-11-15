@@ -24,10 +24,15 @@ export const useValidationState = () => {
 		setState({ isValid: false, isErrored: false, isValidating: true });
 	}, []);
 
+	const resetValidation = useCallback(() => {
+		setState({ isValid: false, isErrored: false, isValidating: false });
+	}, []);
+
 	return {
 		...state,
 		setIsErrored,
 		setIsValid,
 		setIsValidating,
+		resetValidation,
 	};
 };

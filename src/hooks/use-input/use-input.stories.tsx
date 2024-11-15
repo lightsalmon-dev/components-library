@@ -1,6 +1,7 @@
 import type { Story } from "@ladle/react";
 import { z } from "zod";
 import { StoryContainer } from "../../../.ladle/components";
+import { Button } from "../../components/button";
 import { useInput } from "./use-input";
 
 const validator = (val: string) =>
@@ -12,13 +13,13 @@ const errorMessage = "Error message";
 const defaultValue = "Default value";
 
 export const All: Story = () => {
-	const [component1] = useInput({
+	const [component1, , , reset1] = useInput({
 		label,
 		placeholder,
 		errorMessage,
 		validator,
 	});
-	const [component2] = useInput({
+	const [component2, , , reset2] = useInput({
 		label,
 		placeholder,
 		errorMessage,
@@ -29,21 +30,21 @@ export const All: Story = () => {
 			});
 		},
 	});
-	const [component3] = useInput({
+	const [component3, , , reset3] = useInput({
 		label,
 		placeholder,
 		errorMessage,
 		defaultValue,
 		validator,
 	});
-	const [component4] = useInput({
+	const [component4, , , reset4] = useInput({
 		label,
 		placeholder,
 		errorMessage,
 		defaultValue,
 		validator: () => true,
 	});
-	const [component5] = useInput({
+	const [component5, , , reset5] = useInput({
 		label,
 		placeholder,
 		errorMessage,
@@ -51,8 +52,19 @@ export const All: Story = () => {
 		validator: () => false,
 	});
 
+	const resetAll = () => {
+		reset1();
+		reset2();
+		reset3();
+		reset4();
+		reset5();
+	};
+
 	return (
 		<StoryContainer>
+			<Button variant="primary" onClick={resetAll}>
+				Reset all field
+			</Button>
 			{component1}
 			{component2}
 			{component3}

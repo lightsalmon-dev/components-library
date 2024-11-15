@@ -49,6 +49,7 @@ export const useDatepicker: UseDatepicker = ({
 		setIsValid,
 		setIsValidating,
 		setIsErrored,
+		resetValidation,
 	} = useValidationState();
 	const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
 	const { labelId, errorMessageId } = useFormFieldIds();
@@ -107,6 +108,19 @@ export const useDatepicker: UseDatepicker = ({
 			}
 		},
 		[setIsErrored, setIsValidating, setIsValid],
+	);
+
+	const reset = useCallback<UseFormFieldReturnValue["3"]>(
+		(shouldSetDefaultValue = true) => {
+			if (shouldSetDefaultValue && defaultValue) {
+				setValue(defaultValue);
+			} else {
+				setValue(undefined);
+			}
+			resetValidation();
+			setIsErrorTooltipOpen(false);
+		},
+		[resetValidation, defaultValue],
 	);
 
 	return [
@@ -202,5 +216,6 @@ export const useDatepicker: UseDatepicker = ({
 		</RACDatePicker>,
 		value,
 		isValid,
+		reset,
 	];
 };
