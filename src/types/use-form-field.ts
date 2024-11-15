@@ -13,6 +13,7 @@ export type UseFormFieldReturnValue<T = string | undefined> = [
 	component: JSX.Element,
 	value: T,
 	isValid: boolean,
+	reset: (shouldSetDefaultValue?: boolean) => void,
 ];
 
 export type UseFormField<T = string | undefined> = (

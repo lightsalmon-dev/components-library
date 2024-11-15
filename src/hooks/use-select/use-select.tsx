@@ -42,6 +42,7 @@ export const useSelect: UseSelect = ({
 		setIsValid,
 		setIsValidating,
 		setIsErrored,
+		resetValidation,
 	} = useValidationState();
 	const [isErrorTooltipOpen, setIsErrorTooltipOpen] = useState(false);
 	const { labelId, errorMessageId } = useFormFieldIds();
@@ -99,6 +100,20 @@ export const useSelect: UseSelect = ({
 		}
 	}, [value, isMenuOpen, setIsErrored, hasBeenTouched]);
 
+	const reset = useCallback<UseFormFieldReturnValue["3"]>(
+		(shouldSetDefaultValue = true) => {
+			if (shouldSetDefaultValue && defaultValue) {
+				setValue(defaultValue);
+			} else {
+				setValue(undefined);
+			}
+			resetValidation();
+			setIsErrorTooltipOpen(false);
+			setHasBeenTouched(false);
+		},
+		[resetValidation, defaultValue],
+	);
+
 	return [
 		// biome-ignore lint/correctness/useJsxKeyInIterable: it's in an iterator, yes, but is not really something you would iterate over
 		<div className={cn("ls-form-field-container", className)}>
@@ -115,7 +130,9 @@ export const useSelect: UseSelect = ({
 			/>
 			<RadixSelect.Root
 				aria-labelledby={labelId}
-				value={options.find((option) => option.value === value?.value)?.value}
+				value={
+					options.find((option) => option.value === value?.value)?.value || ""
+				}
 				onValueChange={onValueChange}
 				open={isMenuOpen}
 				onOpenChange={onOpenChange}
@@ -170,5 +187,6 @@ export const useSelect: UseSelect = ({
 		</div>,
 		value,
 		isValid,
+		reset,
 	];
 };
