@@ -1,3 +1,10 @@
+## [1.16.2](https://github.com/lightsalmon-dev/components-library/compare/v1.16.1...v1.16.2) (2024-11-15)
+
+
+### Bug Fixes
+
+* **use-select:** adjust select failing validation when changing option ([92484e7](https://github.com/lightsalmon-dev/components-library/commit/92484e70a5052790ae1d4c289d33222d21f86fe2))
+
 ## [1.16.1](https://github.com/lightsalmon-dev/components-library/compare/v1.16.0...v1.16.1) (2024-11-14)
 
 
