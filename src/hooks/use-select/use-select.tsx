@@ -49,6 +49,7 @@ export const useSelect: UseSelect = ({
 
 	// on mount
 	// biome-ignore lint/correctness/useExhaustiveDependencies(validator): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
+	// biome-ignore lint/correctness/useExhaustiveDependencies(defaultValue): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
 	useEffect(() => {
 		const fn = async () => {
 			if (defaultValue) {
@@ -65,7 +66,7 @@ export const useSelect: UseSelect = ({
 		};
 		fn();
 		// adding validator to dependencies would cause infinite loop because it's a function
-	}, [defaultValue, setIsErrored, setIsValidating, setIsValid]);
+	}, [setIsErrored, setIsValidating, setIsValid]);
 
 	// on value change will work similarly to onChange in other form fields, with the difference that we first need to find the selected option
 	const onValueChange = useCallback(
