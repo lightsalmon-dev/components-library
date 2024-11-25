@@ -38,6 +38,7 @@
 // 9.2 Selects - Colors
 // 9.3 Selects - Sizes
 // 9.4 Selects - Shadows
+// 9.5 Selects - Misc
 // 10. Datepicker
 // 10.1 Datepicker - Font
 // 10.2 Datepicker - Colors
@@ -452,6 +453,9 @@ $selects-menu-items-border-radius: utils.to-rem(4) !default;
 
 // 9.4 Selects - Shadows
 $selects-menu-shadow: $shadow-4;
+
+// 9.5 Selects - Misc
+$selects-menu-z-index: 1000 !default;
 
 // 10. Datepicker
 // 10.1 Datepicker - font

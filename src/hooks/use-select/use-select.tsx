@@ -157,32 +157,30 @@ export const useSelect: UseSelect = ({
 					/>
 					<IconChevronDown className="ls-select-icon-chevron-down" />
 				</RadixSelect.Trigger>
-				<RadixSelect.Portal>
-					<RadixSelect.Content className="ls-select-menu">
-						<RadixSelect.ScrollUpButton className="ls-select-scroll-container">
-							<IconChevronUp className="ls-select-scroll-icon" />
-						</RadixSelect.ScrollUpButton>
-						<RadixSelect.Viewport className="ls-select-menu-viewport">
-							<RadixSelect.Group>
-								{options.map(({ label, value }, i) => {
-									const key = `${i}-${label}-${value}`;
-									return (
-										<RadixSelect.Item
-											className="ls-select-menu-item"
-											value={value}
-											key={key}
-										>
-											<RadixSelect.ItemText>{label}</RadixSelect.ItemText>
-										</RadixSelect.Item>
-									);
-								})}
-							</RadixSelect.Group>
-						</RadixSelect.Viewport>
-						<RadixSelect.ScrollDownButton className="ls-select-scroll-container">
-							<IconChevronDown className="ls-select-scroll-icon" />
-						</RadixSelect.ScrollDownButton>
-					</RadixSelect.Content>
-				</RadixSelect.Portal>
+				<RadixSelect.Content className="ls-select-menu">
+					<RadixSelect.ScrollUpButton className="ls-select-scroll-container">
+						<IconChevronUp className="ls-select-scroll-icon" />
+					</RadixSelect.ScrollUpButton>
+					<RadixSelect.Viewport className="ls-select-menu-viewport">
+						<RadixSelect.Group>
+							{options.map(({ label, value }, i) => {
+								const key = `${i}-${label}-${value}`;
+								return (
+									<RadixSelect.Item
+										className="ls-select-menu-item"
+										value={value}
+										key={key}
+									>
+										<RadixSelect.ItemText>{label}</RadixSelect.ItemText>
+									</RadixSelect.Item>
+								);
+							})}
+						</RadixSelect.Group>
+					</RadixSelect.Viewport>
+					<RadixSelect.ScrollDownButton className="ls-select-scroll-container">
+						<IconChevronDown className="ls-select-scroll-icon" />
+					</RadixSelect.ScrollDownButton>
+				</RadixSelect.Content>
 			</RadixSelect.Root>
 		</div>,
 		value,

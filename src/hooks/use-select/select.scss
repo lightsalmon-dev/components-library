@@ -33,6 +33,7 @@
   background-color: vars.$selects-menu-background-color;
   border-radius: vars.$selects-menu-border-radius;
   box-shadow: vars.$selects-menu-shadow;
+  z-index: vars.$selects-menu-z-index;
 
   .ls-select-scroll-container {
     display: flex;
