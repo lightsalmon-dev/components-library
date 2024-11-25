@@ -1,3 +1,10 @@
+## [1.17.3](https://github.com/lightsalmon-dev/components-library/compare/v1.17.2...v1.17.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* **use-select:** remove usage of portal and add var to override menu z-index ([d427612](https://github.com/lightsalmon-dev/components-library/commit/d427612161ef7b6cb09753cf569ddc6733198159))
+
 ## [1.17.2](https://github.com/lightsalmon-dev/components-library/compare/v1.17.1...v1.17.2) (2024-11-25)
 
 
