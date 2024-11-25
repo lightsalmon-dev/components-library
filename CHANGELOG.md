@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/lightsalmon-dev/components-library/compare/v1.17.1...v1.17.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* **use-select:** adjust strange useEffect loop when setting default value part 2 ([efac676](https://github.com/lightsalmon-dev/components-library/commit/efac6767a5f0f678241ee995de4056e09b79e33d))
+
 ## [1.17.1](https://github.com/lightsalmon-dev/components-library/compare/v1.17.0...v1.17.1) (2024-11-25)
 
 
