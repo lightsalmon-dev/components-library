@@ -32,7 +32,7 @@ export const useSelect: UseSelect = ({
 	validator,
 	className,
 }) => {
-	const [value, setValue] = useState<SelectOption | undefined>(undefined);
+	const [value, setValue] = useState<SelectOption | undefined>(defaultValue);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [hasBeenTouched, setHasBeenTouched] = useState(false);
 	const {
@@ -53,7 +53,6 @@ export const useSelect: UseSelect = ({
 	useEffect(() => {
 		const fn = async () => {
 			if (defaultValue) {
-				setValue(defaultValue);
 				setIsValidating();
 				const validationResult = await validator(defaultValue);
 				if (validationResult) {
