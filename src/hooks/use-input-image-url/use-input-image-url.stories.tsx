@@ -48,12 +48,21 @@ export const All: Story = () => {
 		defaultValue,
 		validator: () => false,
 	});
+	const [component6, , , reset6] = useInputImageUrl({
+		label: "Optional",
+		placeholder,
+		errorMessage,
+		validator: () => true,
+		optional: true,
+	});
+
 	const resetAll = () => {
 		reset1();
 		reset2();
 		reset3();
 		reset4();
 		reset5();
+		reset6();
 	};
 
 	return (
@@ -66,6 +75,7 @@ export const All: Story = () => {
 			{component3}
 			{component4}
 			{component5}
+			{component6}
 		</StoryContainer>
 	);
 };

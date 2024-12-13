@@ -9,13 +9,14 @@ import { useFormFieldIds } from "../../utils/use-form-field-ids";
 import { useValidationState } from "../../utils/use-validation-state";
 import { validateImageUrlCorrectness } from "../../utils/validate-image-url-correctness";
 
-export const useInputImageUrl: UseFormField<string> = ({
+export const useInputImageUrl: UseFormField<string, { optional?: boolean }> = ({
 	label,
 	placeholder,
 	defaultValue,
 	errorMessage,
 	disabled,
 	validator,
+	optional,
 	className,
 }) => {
 	const { labelId, errorMessageId } = useFormFieldIds();
@@ -35,11 +36,19 @@ export const useInputImageUrl: UseFormField<string> = ({
 	// biome-ignore lint/correctness/useExhaustiveDependencies(validator): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
 	useEffect(() => {
 		const fn = async () => {
+			if (!defaultValue && optional) {
+				const validation = await validator("");
+				if (validation) {
+					setIsValid();
+				}
+			}
 			if (defaultValue) {
 				setValue(defaultValue);
 				setIsValidating();
 				const [isARealImage, isValidated] = await Promise.all([
-					validateImageUrlCorrectness(defaultValue),
+					optional
+						? Promise.resolve(true)
+						: validateImageUrlCorrectness(defaultValue),
 					validator(defaultValue),
 				]);
 				if (isARealImage && isValidated) {
@@ -52,7 +61,7 @@ export const useInputImageUrl: UseFormField<string> = ({
 		};
 		fn();
 		// adding validator to dependencies would cause infinite loop because it's a function
-	}, [defaultValue, setIsErrored, setIsValidating, setIsValid]);
+	}, [defaultValue, setIsErrored, setIsValidating, setIsValid, optional]);
 
 	// on focus, close the error tooltip
 	const onFocus = () => setIsErrorTooltipOpen(false);
@@ -69,7 +78,9 @@ export const useInputImageUrl: UseFormField<string> = ({
 		async (imageUrl: string) => {
 			setIsValidating();
 			const [isARealImage, isValidated] = await Promise.all([
-				validateImageUrlCorrectness(imageUrl),
+				optional && !imageUrl
+					? Promise.resolve(true)
+					: validateImageUrlCorrectness(imageUrl),
 				validator(imageUrl),
 			]);
 			if (isARealImage && isValidated) {
@@ -79,7 +90,7 @@ export const useInputImageUrl: UseFormField<string> = ({
 				setIsErrorTooltipOpen(true);
 			}
 		},
-		[setIsErrored, setIsValid, setIsValidating, validator],
+		[setIsErrored, setIsValid, setIsValidating, validator, optional],
 	);
 
 	const reset = useCallback<UseFormFieldReturnValue["3"]>(
@@ -132,7 +143,7 @@ export const useInputImageUrl: UseFormField<string> = ({
 				aria-label="Image preview"
 				role="img"
 			>
-				{isValid && (
+				{isValid && !optional && (
 					<img className="ls-image-preview" src={value} alt="Preview" />
 				)}
 			</div>
