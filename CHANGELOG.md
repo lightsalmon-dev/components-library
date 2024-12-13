@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/lightsalmon-dev/components-library/compare/v1.17.3...v1.18.0) (2024-12-13)
+
+
+### Features
+
+* make useInputImageUrl support non-required validation ([525cde8](https://github.com/lightsalmon-dev/components-library/commit/525cde890b33a10d35da4e4709dc6e7d4d6330b5))
+
 ## [1.17.3](https://github.com/lightsalmon-dev/components-library/compare/v1.17.2...v1.17.3) (2024-11-25)
 
 
