@@ -16,6 +16,7 @@ export type UseFormFieldReturnValue<T = string | undefined> = [
 	reset: (shouldSetDefaultValue?: boolean) => void,
 ];
 
-export type UseFormField<T = string | undefined> = (
-	options: UseFormFieldOptions<T>,
+// biome-ignore lint/complexity/noBannedTypes: I want to be free to use `{}`
+export type UseFormField<T = string | undefined, U = {}> = (
+	options: UseFormFieldOptions<T> & U,
 ) => UseFormFieldReturnValue<T>;
