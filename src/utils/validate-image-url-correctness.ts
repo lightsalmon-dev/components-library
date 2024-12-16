@@ -1,4 +1,6 @@
-export const validateImageUrlCorrectness = (imageUrl: string) => {
+export const validateImageUrlCorrectness = (
+	imageUrl: string,
+): Promise<boolean> => {
 	return new Promise((resolve) => {
 		if (!imageUrl) {
 			resolve(false);

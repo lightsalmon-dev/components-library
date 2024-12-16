@@ -31,6 +31,7 @@ export const useInputImageUrl: UseFormField<string, { optional?: boolean }> = ({
 		resetValidation,
 	} = useValidationState();
 	const [value, setValue] = useState("");
+	const [shouldRenderImage, setShouldRenderImage] = useState(false);
 
 	// on mount
 	// biome-ignore lint/correctness/useExhaustiveDependencies(validator): it's a function, so if not memoized it would cause infinite loop, i prefer to not put it in dependencies rather than asking the user to memoize it
@@ -45,13 +46,19 @@ export const useInputImageUrl: UseFormField<string, { optional?: boolean }> = ({
 			if (defaultValue) {
 				setValue(defaultValue);
 				setIsValidating();
-				const [isARealImage, isValidated] = await Promise.all([
-					optional
-						? Promise.resolve(true)
-						: validateImageUrlCorrectness(defaultValue),
+				const [isARealImage, isValidByExternalValidator] = await Promise.all([
+					validateImageUrlCorrectness(defaultValue),
 					validator(defaultValue),
 				]);
-				if (isARealImage && isValidated) {
+
+				setShouldRenderImage(isARealImage);
+				// image always have to be valid according to the external validator.
+				// isARealImage is only required if the field is not optional, if it's optional, should be taken into consideration only if the field is not empty
+				const isValid =
+					isValidByExternalValidator &&
+					((!optional && isARealImage) ||
+						(optional && (defaultValue === "" || isARealImage)));
+				if (isValid) {
 					setIsValid();
 				} else {
 					setIsErrored();
@@ -69,21 +76,33 @@ export const useInputImageUrl: UseFormField<string, { optional?: boolean }> = ({
 	// on change
 	const onChange = useCallback<
 		Exclude<ComponentProps<"input">["onChange"], undefined>
-	>((e) => {
-		setValue(e.target.value);
+	>(async (e) => {
+		const imageUrl = e.target.value;
+		setValue(imageUrl);
+		setShouldRenderImage(false);
+		validateImageUrlCorrectness(imageUrl).then((isARealImage) =>
+			setShouldRenderImage(isARealImage),
+		);
 	}, []);
 
 	// on blur, validate the input value and the image correctness
 	const onBlur = useCallback(
 		async (imageUrl: string) => {
 			setIsValidating();
-			const [isARealImage, isValidated] = await Promise.all([
-				optional && !imageUrl
-					? Promise.resolve(true)
-					: validateImageUrlCorrectness(imageUrl),
+			const [isARealImage, isValidByExternalValidator] = await Promise.all([
+				validateImageUrlCorrectness(imageUrl),
 				validator(imageUrl),
 			]);
-			if (isARealImage && isValidated) {
+
+			setShouldRenderImage(isARealImage);
+
+			// image always have to be valid according to the external validator.
+			// isARealImage is only required if the field is not optional, if it's optional, should be taken into consideration only if the field is not empty
+			const isValid =
+				isValidByExternalValidator &&
+				((!optional && isARealImage) ||
+					(optional && (imageUrl === "" || isARealImage)));
+			if (isValid) {
 				setIsValid();
 			} else {
 				setIsErrored();
@@ -129,7 +148,7 @@ export const useInputImageUrl: UseFormField<string, { optional?: boolean }> = ({
 				placeholder={placeholder}
 				aria-labelledby={labelId}
 				value={value}
-				onChange={(e) => setValue(e.target.value)}
+				onChange={onChange}
 				disabled={disabled}
 				onBlur={() => onBlur(value)}
 				onFocus={onFocus}
@@ -143,7 +162,7 @@ export const useInputImageUrl: UseFormField<string, { optional?: boolean }> = ({
 				aria-label="Image preview"
 				role="img"
 			>
-				{isValid && !optional && (
+				{shouldRenderImage && (
 					<img className="ls-image-preview" src={value} alt="Preview" />
 				)}
 			</div>
