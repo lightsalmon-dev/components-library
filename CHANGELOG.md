@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/lightsalmon-dev/components-library/compare/v1.18.0...v1.18.1) (2024-12-16)
+
+
+### Bug Fixes
+
+* adjust use input image url preview when optional ([045d623](https://github.com/lightsalmon-dev/components-library/commit/045d623bb1228d3f803ef150894c1d243785ee66))
+
 # [1.18.0](https://github.com/lightsalmon-dev/components-library/compare/v1.17.3...v1.18.0) (2024-12-13)
 
 
