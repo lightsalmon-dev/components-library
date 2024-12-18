@@ -21,6 +21,9 @@ export const All: Story = () => {
 	] = useState(false);
 	const [isMiniNotDismissableModalOpen, setIsMiniNotDismissableModalOpen] =
 		useState(false);
+	const [isWithCustomBackdropOpen, setIsWithCustomBackdropOpen] =
+		useState(false);
+
 	const closeBigDismissableModal = () =>
 		setIsDefaultDismissableModalOpen(false);
 	const closeMiniDismissableModal = () => setIsMiniDismissableModalOpen(false);
@@ -28,9 +31,21 @@ export const All: Story = () => {
 		setIsDefaultNotDismissableModalOpen(false);
 	const closeMiniNotDismissableModal = () =>
 		setIsMiniNotDismissableModalOpen(false);
+	const closeWithCustomBackdrop = () => setIsWithCustomBackdropOpen(false);
 
 	return (
 		<StoryContainer>
+			<div
+				style={{
+					position: "fixed",
+					top: 0,
+					left: 0,
+					width: "100vw",
+					height: "30px",
+					background: "red",
+					zIndex: 1000,
+				}}
+			/>
 			<button
 				type="button"
 				onClick={() => setIsDefaultDismissableModalOpen(true)}
@@ -51,6 +66,9 @@ export const All: Story = () => {
 				onClick={() => setIsMiniNotDismissableModalOpen(true)}
 			>
 				Open mini NOT DISMISSABLE modal
+			</button>
+			<button type="button" onClick={() => setIsWithCustomBackdropOpen(true)}>
+				Open modal with custom backdrop
 			</button>
 			<Modal
 				isOpen={isMiniDismissableModalOpen}
@@ -113,6 +131,22 @@ export const All: Story = () => {
 					</Button>
 				}
 				dismissable={false}
+			>
+				<P>{textBigModal}</P>
+			</Modal>
+			<Modal
+				isOpen={isWithCustomBackdropOpen}
+				closeModal={closeWithCustomBackdrop}
+				title="Modal with custom backdrop"
+				primaryButtonSlot={
+					<Button onClick={closeWithCustomBackdrop}>Confirm</Button>
+				}
+				secondaryButtonSlot={
+					<Button onClick={closeWithCustomBackdrop} variant="tertiary">
+						Cancel
+					</Button>
+				}
+				withNativeBackdrop={false}
 			>
 				<P>{textBigModal}</P>
 			</Modal>
