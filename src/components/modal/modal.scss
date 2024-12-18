@@ -24,14 +24,17 @@
   // transitions
   transition: opacity vars.$transition-duration-and-function;
 
+  &.ls-dialog-with-custom-backdrop::backdrop {
+    display: none;
+  }
+
+
   &::backdrop {
     transition: background-color vars.$transition-duration-and-function, backdrop-filter vars.$transition-duration-and-function;
   }
 
-  &.ls-dialog-dismissable {
-    &::backdrop {
-      cursor: pointer;
-    }
+  &.ls-dialog-dismissable::backdrop {
+    cursor: pointer;
   }
 
   // base style
@@ -114,3 +117,23 @@
   }
 }
 
+.ls-dialog-non-native-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: vars.$dialog-background-color;
+  backdrop-filter: vars.$dialog-backdrop-filter;
+  opacity: 0;
+  pointer-events: none;
+
+  &.ls-dialog-non-native-backdrop-open {
+    opacity: 1;
+    pointer-events: inherit;
+  }
+
+  &.ls-dialog-non-native-backdrop-dismissable {
+    cursor: pointer;
+  }
+}

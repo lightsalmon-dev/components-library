@@ -23,6 +23,7 @@ type Modal = FC<
 		secondaryButtonSlot?: ReactNode;
 		mini?: boolean;
 		dismissable?: boolean;
+		withNativeBackdrop?: boolean;
 	}>
 >;
 
@@ -36,6 +37,7 @@ export const Modal: Modal = ({
 	secondaryButtonSlot,
 	mini,
 	dismissable = true,
+	withNativeBackdrop = true,
 }) => {
 	const ref = useRef<HTMLDialogElement>(null);
 	const titleId = useId();
@@ -101,40 +103,53 @@ export const Modal: Modal = ({
 	useLockBodyScroll(isOpen);
 
 	return (
-		// biome-ignore lint/a11y/useKeyWithClickEvents: It's fine to use click events here, as it's not a button
-		<dialog
-			className={cn(
-				"ls-dialog",
-				{
-					"ls-dialog-dismissable": dismissable,
-					"ls-dialog-mini": mini,
-				},
-				className,
+		<>
+			{!withNativeBackdrop && (
+				/* biome-ignore lint/a11y/useKeyWithClickEvents: It's fine to use click events here, as it's not a button */
+				<div
+					className={cn("ls-dialog-non-native-backdrop", {
+						"ls-dialog-non-native-backdrop-open": isOpen,
+						"ls-dialog-non-native-backdrop-dismissable": dismissable,
+					})}
+					onClick={dismissable ? closeModal : undefined}
+				/>
 			)}
-			onClick={handlePossibleClickOnBackdrop}
-			ref={ref}
-			aria-labelledby={titleId}
-		>
-			<header className="ls-dialog-header">
-				<H3 id={titleId} className="ls-dialog-header-title">
-					{title}
-				</H3>
-				{dismissable && (
-					<button
-						className="ls-dialog-close-button"
-						onClick={closeModal}
-						aria-label="Close modal"
-						type="button"
-					>
-						<IconXMark />
-					</button>
+			{/*biome-ignore lint/a11y/useKeyWithClickEvents: It's fine to use click events here, as it's not a button */}
+			<dialog
+				className={cn(
+					"ls-dialog",
+					{
+						"ls-dialog-dismissable": dismissable,
+						"ls-dialog-mini": mini,
+						"ls-dialog-with-custom-backdrop": !withNativeBackdrop,
+					},
+					className,
 				)}
-			</header>
-			<div className="ls-dialog-body">{children}</div>
-			<footer className="ls-dialog-footer">
-				{secondaryButtonSlot && <div>{secondaryButtonSlot}</div>}
-				<div>{primaryButtonSlot}</div>
-			</footer>
-		</dialog>
+				onClick={handlePossibleClickOnBackdrop}
+				ref={ref}
+				aria-labelledby={titleId}
+			>
+				<header className="ls-dialog-header">
+					<H3 id={titleId} className="ls-dialog-header-title">
+						{title}
+					</H3>
+					{dismissable && (
+						<button
+							className="ls-dialog-close-button"
+							onClick={closeModal}
+							aria-label="Close modal"
+							type="button"
+						>
+							<IconXMark />
+						</button>
+					)}
+				</header>
+				<div className="ls-dialog-body">{children}</div>
+				<footer className="ls-dialog-footer">
+					{secondaryButtonSlot && <div>{secondaryButtonSlot}</div>}
+					<div>{primaryButtonSlot}</div>
+				</footer>
+			</dialog>
+		</>
 	);
 };
